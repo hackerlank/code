@@ -1,0 +1,1 @@
+需要配置apache的vhost，然后部署在jslib.qq.com的域名下，这样就能正常访问了

@@ -1,0 +1,371 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+document.domain = 'qq.com';
+function onPageClose(){
+	parent.ptlogin2_onClose();
+}
+
+//获得url参数
+function GetURLParam(strParamName){
+	var strReturn = "";
+	var strHref = window.location.href;
+	var bFound = false;
+	var cmpstring = strParamName + "=";
+	var cmplen = cmpstring.length;
+	if (strHref.indexOf("?") > -1) {
+		var strQueryString = strHref.substr(strHref.indexOf("?") + 1);
+		var aQueryString = strQueryString.split("&");
+		for (var iParam = 0; iParam < aQueryString.length; iParam++) {
+			if (aQueryString[iParam].substr(0, cmplen) == cmpstring) {
+				var aParam = aQueryString[iParam].split("=");
+				strReturn = aParam[1];
+				bFound = true;
+				break;
+			}
+		}
+	}
+	if (bFound == false) return null;
+	return strReturn;
+}
+
+function onPageRefrash(){
+	var surl = GetURLParam('s_url');
+	surl = decodeURIComponent(surl);
+	var target = GetURLParam('target');
+	if(target == '_self'){
+		window.location.href = surl; return;
+	}
+	else{
+		parent.window.location.href = surl;
+	}
+}
+
+function QCookie(name, value, options){
+	if (typeof value != 'undefined') {	//set cookie
+		options = options || {};
+		if (value === null) {	//delete cookie
+			value = '';
+			options.expires = -1;
+		}
+		var expires = '';
+		if (options.expires && (typeof options.expires == 'number' || options.expires.toUTCString)) {
+			var date;
+			if (typeof options.expires == 'number') {
+				date = new Date();
+				date.setTime(date.getTime() + (options.expires * 24 * 60 * 60 * 1000));
+			}
+			else {
+				date = options.expires;
+			}
+			expires = '; expires=' + date.toUTCString();
+		}
+		var path = options.path ? '; path=' + options.path : '';
+		var domain = options.domain ? '; domain=' + options.domain : '';
+		var secure = options.secure ? '; secure' : '';
+		document.cookie = [name, '=', encodeURIComponent(value), expires, path, domain, secure].join('');
+	}
+}
+
+function login(){
+	var uo = document.getElementById('user');
+	var u = parseInt(uo.value);
+	if(isNaN(u) || u<=10000){
+		alert('对不起，请输入正确的QQ号码!');
+	}
+	else
+	{
+		var opts = {path:"/",domain:"qq.com", path: "/"};
+		if(u.length==10){
+			QCookie("uin",'o'+u,opts);
+		}
+		else{
+			QCookie("uin",'o0'+u,opts);
+		}
+		QCookie("skey",'@m8WiHYTYY',opts);
+		onPageRefrash();
+	}
+}
+</script>
+<style type="text/css">
+	u {
+		text-decoration: none;
+		white-space: nowrap;
+	}
+	*{margin: 0;padding:0;}
+	body {
+		font-family: Tahoma, Verdana, Arial, 宋体;
+		font-size: 12px;
+		background: #none;
+	}
+	
+	.inputstyle {
+		border: 1px solid #7F9DB9;
+		width: 190px;
+		height: 14px;
+		padding: 5px;
+		margin: 0;
+		font-size: 14px;
+		color: #808080;
+	}
+	
+	h1, h2, h3, h4 {
+		padding: 0;
+		margin: 0;
+	}
+	
+	a {
+		color: #097fd1;
+	}
+	
+	a:link, a:visited, a:active {
+		color: #097fd1;
+		text-decoration: none;
+	}
+	
+	a:hover {
+		color: #000;
+		text-decoration: underline;
+	}
+	
+	a.b: {color:
+		#666;
+		text-decoration: none;
+	}
+	
+	a.b:link, a.b:visited, a.b:active {
+		color: #666;
+		text-decoration: none;
+	}
+	
+	a.b:hover {
+		color: #097fd1;
+		text-decoration: none;
+	}
+	
+	#login {
+		margin: 0 auto;
+		float: none;
+		width: 370px;
+		padding: 0 0 5px 0;
+		border: 1px solid #99c2ee;
+		overflow:hidden;
+	}
+	
+	#login h4 {
+		background: url(images/icons.gif) no-repeat 0 0;
+		height: 21px;
+		font-weight: bold;
+		font-size: 12px;
+		padding: 7px 0 0 30px;
+		border-bottom: 1px solid #438ece;
+	}
+	
+	#login h4 .btn_close, #login h4 .btn_help {
+		float: right;
+		margin-right: 5px;
+		cursor: pointer;
+		width: 17px;
+		height: 17px;
+		border: 0;
+	}
+	
+	#login h4 .btn_close {
+		background: url(images/icons.gif) no-repeat 0 -284px;
+		margin-top: -1px;
+	}
+	
+	#login h4 .btn_help {
+		background: url(images/icons.gif) no-repeat 0 -308px;
+	}
+	
+	#login ul {
+		padding: 12px 0 11px 0;
+		margin: 0;
+	}
+	
+	#login ul li {
+		list-style-type: none;
+		padding: 7px 0;
+	}
+	
+	#login ul li span {
+		width: 83px;
+		float: left;
+		text-align: right;
+		padding-right: 5px;
+		padding-top: 7px;
+	}
+	
+	#login ul li span {
+		font-size: 12px;
+		color: #535353;
+	}
+	
+	#login .about {
+		margin-left: 110px;
+		_margin-left: 115px;
+		padding-top: 3px;
+		clear: both;
+	}
+	
+	#login #verifytip {
+		color: #808080;
+	}
+	
+	#login em {
+		color: #F00;
+		padding: 0 3px;
+		font-style: normal;
+	}
+	
+	#login p {
+		padding: 8px 15px 12px 32px;
+		margin: 0;
+		font-size: 12px;
+		color: #535353;
+	}
+	
+	#login label {
+		padding: 0 0 0 8px;
+		color: #535353;
+		position: absolute;
+		margin-top: 10px;
+	}
+	
+	#login .error {
+		margin: 15px 30px;
+		background: url(images/icons.gif) no-repeat 0 -396px;
+		padding: 31px 0 30px 65px;
+		line-height: 20px;
+	}
+	
+	#login #verifytip {
+		padding: 0 0 7px 0;
+	}
+	
+	#login #verifyshow {
+		padding: 0;
+	}
+	
+	#login .low_login {
+		margin-top: 0;
+	}
+	
+	.login_button {
+		margin: 0 auto;
+		padding: 0 0 0 88px;
+		float: none;
+	}
+	
+	.loginbtn {
+		border: 0;
+		background: url(images/icons.gif) no-repeat 0 -160px;
+		color: #204497;
+		width: 68px;
+		height: 27px;
+		cursor: pointer;
+	}
+	
+	.btn {
+		border: 0;
+		background: url(images/icons.gif) no-repeat -102px -130px;
+		color: #2473A2;
+		width: 103px;
+		height: 28px;
+		cursor: pointer;
+		font-weight: bold;
+		font-size: 14px;
+	}
+	
+	.loginbtn_g {
+		border: 0;
+		background: url(images/icons.gif) no-repeat 0 -30px;
+		color: #2473A2;
+		width: 126px;
+		height: 33px;
+		cursor: pointer;
+		font-weight: bold;
+	}
+	
+	.btnlong {
+		border: 0;
+		background: url(images/icons.gif) no-repeat 0 -143px;
+		color: #2473A2;
+		width: 125px;
+		height: 31px;
+		cursor: pointer;
+		font-weight: bold;
+	}
+	
+	.lineright {
+		text-align: right;
+		margin: 0 8px 0 0;
+		line-height: 18px;
+		height: 18px;
+	}
+	
+	.linemid {
+		padding: 10px 8px 0 30px;
+		color: gray;
+	}
+	
+	.linecenter {
+		text-align: center;
+		padding: 10px 8px 0 0;
+	}
+	
+	.list_name {
+		width: 260px;
+		margin: 0 auto;
+		text-align: left;
+		padding-top: 20px;
+	}
+	
+	.main {
+		background-color: #ffffff;
+	}
+</style>
+</head>
+<body>
+<div class="main" id="login">
+	<h4>
+		<button class="btn_close" id="close" name="close" onclick="javascript:onPageClose();">
+		</button>
+		<button class="btn_help" id="help" name="help">
+		</button>
+		<u id="label_login_title">用户登录</u>
+	</h4>
+	<div id="web_login">
+		<form id="loginform" autocomplete="off" name="loginform" method="post" style="margin:0px;">
+		<ul id="g_list">
+			<li id="g_u">
+				<span>
+					<u id="label_uin">QQ帐号：</u>
+				</span>
+				<input type="text" class="inputstyle" id="user" name="user" value="" style="ime-mode:disabled" tabindex="1" />
+				<label>
+					<a href="javascript:;" tabindex="7" id="label_newreg">注册新帐号</a>
+				</label>
+			</li>
+			<li id="g_p">
+				<span>
+					<u id="label_pwd">QQ密码：</u>
+				</span>
+				<input type="password" class="inputstyle" id="p" name="p" value="" maxlength="16" tabindex="2" />
+				<label>
+					<a tabindex="8" href="javascript:;" id="label_forget_pwd">忘记密码</a>
+				</label>
+			</li>
+		</ul>
+		<div class="login_button">
+			<input type="button" tabindex="5" value="登录" class="btn" id="login_button" onclick="login();" />
+		</div>
+		<div id="label_unable_tips" class="lineright"></div>
+		</form>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="http://jslib.qq.com/jslib-1.4.2.js"></script>
+<title>jslib1.4.2 QQ登录组件</title>
+</head>
+<body>
+	<h2>QQ登录组件</h2>
+	<p>1、QQ登录：$app.auth.login();</p>
+	<p>2、注销登录：$app.auth.logout();</p>
+	<p>3、判断是否登录：$app.auth.isLogin();</p>
+	<p>4、获取当前登录者的QQ信息：$app.auth.getLoginInfo();</p>
+	<p>5、获取当前登录者的QQ号码：$app.auth.getQQNum();</p>
+	<p id="us"><a href="javascript:$app.auth.login();">点击登录</a></p>
+    <pre>$(function(){
+	var userStatus = $app.auth.isLogin();
+	if(userStatus){
+		var str = $app.auth.getQQNum()+'，你已经登录，';
+		$app.G('us').innerHTML = str + '<a href="javascript:$app.auth.logout();">点击注销</a>';
+	}
+	else{
+		$app.G('us').innerHTML = '你没有登录，<a href="javascript:$app.auth.login();">点击登录</a>';
+	}
+});</pre>
+<p>6、无刷新登录测试：<a href="javascript:ajaxLogin();">登录</a></p>
+    <pre>function ajaxLogin(){
+	$app.auth.login({
+		'callback':function(uin){alert('登录成功,你的QQ号码是:'+uin);}, 
+		'url':'' 
+	});
+}</pre>
+</body>
+</html>
+<script type="text/javascript">
+$(function(){
+	var userStatus = $app.auth.isLogin();
+	if(userStatus){
+		var str = $app.auth.getQQNum()+'，你已经登录，';
+		$app.G('us').innerHTML = str + '<a href="javascript:$app.auth.logout();">点击注销</a>';
+	}
+	else{
+		$app.G('us').innerHTML = '你没有登录，<a href="javascript:$app.auth.login();">点击登录</a>';
+	}
+});
+
+function ajaxLogin(){
+	$app.auth.login({
+		'callback':function(uin){alert('登录成功,你的QQ号码是:'+uin);}, 
+		'url':'' 
+	});
+}
+</script>

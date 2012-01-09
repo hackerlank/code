@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">   
+<html xmlns="http://www.w3.org/1999/xhtml">   
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <link type="text/css" rel="stylesheet" href="css/style.css">
+		
+		<title>jslib1.4.2工具组件 util.js</title>
+
+	</head>
+
+	<body>
+		
+		<div id="content">
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				jslib1.4.2工具组件 util.js&nbsp; [&nbsp;loader路径：utils/util&nbsp;]
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class _global_.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="util.html#getURLParam">getURLParam</a></b>
+								</div>
+								<div class="description">获取URL的Get参数</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="util.html#trim">trim</a></b>
+								</div>
+								<div class="description">去除字符串首尾的空白字符</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="util.html#cookie">cookie</a></b>
+								</div>
+								<div class="description">cookie控制函数</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="util.html#copyToClipboard">copyToClipboard</a></b>
+								</div>
+								<div class="description">将文本拷贝到剪贴板</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="util.html#favorite">favorite</a></b>
+								</div>
+								<div class="description">收藏网址到收藏夹</div>
+							</td>
+						</tr>
+						
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+
+<!-- ============================== field details ========================== -->		
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="getURLParam"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getURLParam(strParamName)</b>
+					
+					</div>
+					<div class="description">
+						获取URL的Get参数
+						
+							<br />
+							<i>调用: </i>$app.util.getURLParam(strParamName);
+					</div>
+					<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>strParamName</b>
+								</dt>
+								<dd>url参数名</dd>
+
+							</dl>
+
+					<hr />
+						
+					<a name="trim"> </a>
+					<div class="fixedFont">
+
+					<span class="light">{String}</span>
+					<b>trim(str)</b>
+					
+					</div>
+					<div class="description">
+						去除字符串首尾的空白字符
+						
+							<br />
+							<i>调用: </i>$app.util.trim(str);
+					</div>
+					<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>str</b>
+								</dt>
+								<dd>输入的字符串</dd>
+
+							</dl>
+
+					<hr />
+
+					<a name="cookie"> </a>
+					<div class="fixedFont">
+					
+					<b>cookie(name, value, options)</b>
+					
+					</div>
+					<div class="description">
+						cookie控制函数
+						
+							<br />
+							<i>调用: </i>$app.util.cookie(name, value, options);
+					</div>
+
+					<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>name</b>
+								</dt>
+								<dd>cookie名</dd>
+								<dt>
+									<b>value</b>
+								</dt>
+								<dd>cookie值，当该值为null时表示删除cookie</dd>
+								<dt>
+									<b>options</b>
+								</dt>
+								<dd>参数对象,对象的格式为 {expires:3600,domain:'appmedia.qq.com',path:'/'}。expires: 数字或者Date对象，如果是数字，则表示在距离现在多少“秒”以后过期，如果是日期对象，则表示将在这个日期过期；如果没有设置则表示将在浏览器关闭以后过期。</dd>
+
+							</dl>
+
+					<hr />
+						
+					<a name="copyToClipboard"> </a>
+					<div class="fixedFont">
+
+					<b>copyToClipboard(str)</b>
+					
+					</div>
+					<div class="description">
+						将文本拷贝到剪贴板
+						
+							<br />
+							<i>调用: </i>$app.util.copyToClipboard(str);
+					</div>
+					<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>str</b>
+								</dt>
+								<dd>要拷贝的内容</dd>
+
+							</dl>
+
+					<hr />
+					
+					<a name="favorite"> </a>
+					<div class="fixedFont">
+
+					<b>favorite(sUrl,sTitle)</b>
+					
+					</div>
+					<div class="description">
+						收藏网址到收藏夹
+						
+							<br />
+							<i>调用: </i>$app.util.favorite(sUrl,sTitle);
+					</div>
+					<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>sUrl</b>
+								</dt>
+								<dd>要收藏的网址，为空表示收藏当前地址栏的url</dd>
+
+								<dt>
+									<b>sTitle</b>
+								</dt>
+								<dd>网址说明，为空表示当前页面的title</dd>
+
+							</dl>
+
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+
+	</body>
+</html>

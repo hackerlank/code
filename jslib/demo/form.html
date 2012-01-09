@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="http://jslib.qq.com/jslib-1.4.2.js"></script>
+<title>jslib1.4.2表单验证组件</title>
+</head>
+
+<body>
+	<h2>表单验证组件</h2>
+	<p>在html表单上添加相应属性，来实现表单验证；如：</p>
+    <p>&lt;input type="text" datatype='require' msg='姓名不能为空' name="username" /&gt;</p>
+    <p>目前支持的验证类型(datatype)有：</p>
+    <ul class="index-form-ul" style="margin-left:4em;">
+        			<li><label>require：</label>必填</li>
+        			<li><label>email：</label>邮箱</li>
+        			<li><label>phone：</label>电话</li>
+        			<li><label>mobile：</label>手机</li>
+        			<li><label>tel：</label>电话和手机</li>
+        			<li><label>currency：</label>货币</li>
+        			<li><label>number：</label>数字</li>
+        			<li><label>zip：</label>邮编</li>
+        			<li><label>ip：</label>ip地址</li>
+        			<li><label>idcard：</label>身份证（18位）</li>
+        			<li><label>qq：</label>QQ号码</li>
+        			<li><label>english：</label>字母</li>
+        			<li><label>chinese：</label>中文</li>
+        			<li><label>unSafe：</label>是否存在"<",">","/"等不安全字符</li>
+    </ul>
+    <p>为一个表单添加检查表单如下：</p>
+    <pre>$(function(){
+	loader('form/form',function(){
+		$app.form.checkForm('test','post',function(){
+			alert('提交成功!');
+		});
+	});
+});</pre>
+	<p>以下是实例：</p>
+	<form action='formAction.html' id='test' method='post'>
+		<p>
+			<label>姓名:</label>
+			<input type="text" datatype='require' msg='姓名不能为空' name="username" />
+		</p>
+		<p>
+			<label>电话:</label>
+			<input type="text" datatype='norequire tel' msg='电话非必填，但是必须填写正确的电话' name="tele" />
+		</p>
+		<p>
+			<label>爱好:</label>
+			<input type="checkbox" name="aihao" value=1 />
+			篮球
+			<input type="checkbox" datatype='require' msg='爱好不能为空' name="aihao" value=2 />
+			足球
+		</p>
+		<p>
+			<label>性别:</label>
+			<input type="radio" name="sex" value=1 />
+			男
+			<input type="radio" datatype='require' msg='性别不能为空' name="sex" value=2 />
+			女
+		</p>
+		<p>
+			<input type="submit" value="提交" />
+		</p>
+	</form>
+</body>
+</html>
+<script type="text/javascript">
+$(function(){
+	loader('form/form',function(){
+		$app.form.checkForm('test','post',function(){
+			alert('提交成功!');
+		});
+	});
+});
+</script>

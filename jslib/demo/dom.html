@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jslib1.4.2dom组件</title>
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="http://jslib.qq.com/jslib-1.4.2.js"></script>
+<style>
+.test{color:red;}
+</style>
+</head>
+<body>
+	<h2>dom组件</h2>
+	<p>判断节点是否拥有某个样式：$app.dom.hasClass(); <a class="aa" id="d1" href="javascript:d1();">点击测试</a></p>
+	<p>为对象添加一个样式：$app.dom.addClass(); <a class="aa" id="d2" href="javascript:d2();">点击为该对象上添加样式</a></p>
+	<p>移除节点的某个样式：$app.dom.removeClass(); <a class="test" id="d3" href="javascript:d3();">点击为该对象上移除test样式</a></p>
+	<p>根据标签的样式名抓取节点对象：$app.dom.getElementsByClassName();</p>
+	<p>抓取前一个兄弟节点：$app.dom.getPreviousSibling();</p>
+	<p>抓取下一个兄弟节点：$app.dom.getNextSibling();</p>
+	<p>抓取直系子节点：$app.dom.getChildren();</p>
+	<p>判断节点sunObj是否为节点parentObj的子孙节点：$app.dom.isChild();</p>
+	<p>获得元素指定样式的值：$app.dom.getStyle(); <a id="pp" href="javascript:d4();" style="width:200px;">点击获得该对象的宽度</a></p>
+	
+</body>
+</html>
+<script type="text/javascript" src="../gateway.js"></script>
+<script type="text/javascript">
+function d1(){
+	loader('dom/dom',function(){
+		//判断是否有该class
+		if($app.dom.hasClass($app.G('d1'),'aa')){
+			alert('你点击的对象有aa类');
+		}
+		else{
+			alert('你点击的对象没有aa类');
+		}
+	});
+}
+function d2(){
+	loader('dom/dom',function(){
+		$app.dom.addClass($app.G('d2'),'test');
+	});
+}
+function d3(){
+	loader('dom/dom',function(){
+		$app.dom.removeClass($app.G('d3'),'test');
+	});
+}
+function d4(){
+	loader('dom/dom',function(){
+		var styles = $app.dom.getStyle($app.G('pp'),'width',1);
+		alert('你点击的对象的宽度是：'+styles);
+	});
+}
+</script>

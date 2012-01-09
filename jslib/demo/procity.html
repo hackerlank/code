@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="http://jslib.qq.com/jslib-1.4.2.js"></script>
+<title>jslib1.4.2表单省份城市组件</title>
+</head>
+<body>
+	<h2>jslib1.4.2表单省份城市组件</h2>
+    <p>防止误输入和输入错误省份城市</p>
+				<p>传入的参数依次是：省份选择框对象ID，城市选择框对象ID，省份默认值，城市默认值</p>
+				<p>这里的默认值必须是省份和城市代码ID</p>
+				<p>这里是测试：<select id="prov" name="prov"></select>省
+				<select id="city" name="city"></select>市
+				</p>
+    <pre>//ready函数
+$(function(){
+    //初始化省份城市
+	loader('form/procity',function(){
+		$app.procity.init('prov','city','23','281');
+	});
+});
+
+</pre>
+    
+</body>
+</html>
+<script type="text/javascript">
+$(function(){
+    //初始化省份城市
+	loader('form/procity',function(){
+		$app.procity.init('prov','city','23','281');
+	});
+});
+</script>

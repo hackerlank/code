@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="http://jslib.qq.com/jslib-1.4.2.js"></script>
+<title>jslib1.4.2AJAX组件</title>
+</head>
+<body>
+	<h2>ajax组件</h2>
+	<p>1、通过get的type方式进行ajax的请求：$app.ajax.get();</p>
+	<p>2、JSON方式AJAX请求：$app.ajax.getJSON();</p>
+	<p>3、AJAX跨域：$app.ajax.getJSONP();</p>
+	<p>4、以post方式进行AJAX请求：$app.ajax.post();</p>
+	<p><a href="javascript:goAjax();">点击这里从后台返回hello</a></p>
+    <pre>function goAjax(){
+	loader('ajax/ajax',function(){
+		$app.ajax.get('hello.html',function(e){alert(e);});
+	});
+}</pre>
+    <p>5、同步的AJAX请求：$app.ajax.sync(url,type,data);该函数没有回调函数，直接返回后台数据。<a href="javascript:tAjaxSync();">点击测试</a></p>
+<pre>function tAjaxSync(){
+	loader('ajax/ajax',function(){
+		var t = $app.ajax.sync('hello.html','get',{},'json');
+		alert(t);
+	});
+}</pre>
+</body>
+</html>
+<script type="text/javascript">
+function goAjax(){
+	loader('ajax/ajax',function(){
+		$app.ajax.get('hello.html',function(e){alert(e);});
+	});
+};
+function tAjaxSync(){
+	loader('ajax/ajax',function(){
+		var t = $app.ajax.sync('hello.html','get',{},'json');
+		alert(t);
+	});
+}
+</script>

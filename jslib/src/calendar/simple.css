@@ -1,0 +1,9 @@
+#L_calendar{background:#fff;border:1px solid #718BB7;width:128px;padding:1px;height:130px;z-index:9998;text-align:center;}
+#L_calendar-year-month{font-size:12px;height:20px;line-height:20px;z-index:9998;background:#8DB2E3;color:#FFFFFF;}
+#L_calendar-year{font-size:12px;line-height:20px;width:50px;float:left;z-index:9998;position:absolute;top:3px;left:19px;}
+#L_calendar-month{line-height:20px;width:30px;float:left;z-index:9998;position:absolute;top:3px; left:75px;}
+#L_calendar-PrevM{position:absolute;top:3px;left:5px;cursor:pointer;font-weight:bold;}
+#L_calendar-NextM{position:absolute;top:3px;left:115px;cursor:pointer;font-weight:bold;}
+#L_calendar-day{height:106px;z-index:9998;}
+#L_calendar-day ul{list-style:none;margin:0px;padding:0px;}
+#L_calendar-day li{cursor:pointer;width:18px;height:18px;float:left;margin:0px;padding:0px;line-height:18px;font: 11px/18px arial,helvetica,tahoma,sans-serif;} 

@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">   
+<html xmlns="http://www.w3.org/1999/xhtml">   
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <link type="text/css" rel="stylesheet" href="css/style.css">
+		
+		<title>jslib1.4.2AJAX组件 ajax.js</title>
+
+	</head>
+
+	<body>
+		
+		<div id="content">
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				jslib1.4.2AJAX组件 ajax.js&nbsp; [&nbsp;loader路径：ajax/ajax&nbsp;]
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class _global_.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="ajax.html#sync">sync</a></b>
+								</div>
+								<div class="description">同步ajax的请求，没有回调函数，直接返回后台数据</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="ajax.html#get">get</a></b>
+								</div>
+								<div class="description">通过get方式进行ajax的请求</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="ajax.html#getScript">getScript</a></b>
+								</div>
+								<div class="description">返回js的ajax请求</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="ajax.html#getJSON">getJSON</a></b>
+								</div>
+								<div class="description">返回JSON格式数据的get方式AJAX请求</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="ajax.html#getJSONP">getJSONP</a></b>
+								</div>
+								<div class="description">AJAX跨域获取数据</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="index.html#post">post</a></b>
+								</div>
+								<div class="description">通过post方式进行ajax的请求</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+
+<!-- ============================== field details ========================== -->		
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="sync"> </a>
+					<div class="fixedFont">
+					
+					<b>sync(url, type, data)</b>
+					
+					</div>
+					<div class="description">
+						同步ajax的请求
+						
+							<br />
+							<i>调用: </i>$app.ajax.sync(url, type, data);
+					</div>
+					<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>url</b>
+								</dt>
+								<dd>AJAX请求的后台地址</dd>
+
+								<dt>
+									<b>type</b>
+								</dt>
+								<dd>提交数据的方式，默认是get</dd>
+
+								<dt>
+									<b>data</b>
+								</dt>
+								<dd>提交到后台的数据</dd>
+
+							</dl>
+
+					<hr />
+
+					<a name="get"> </a>
+					<div class="fixedFont">
+					
+					<b>get(url, callback, type)</b>
+					
+					</div>
+					<div class="description">
+						通过get的type方式进行ajax的请求
+						
+							<br />
+							<i>调用: </i>$app.ajax.get(url, callback, type);
+					</div>
+					<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>url</b>
+								</dt>
+								<dd>AJAX请求的后台地址</dd>
+
+								<dt>
+									<b>callback</b>
+								</dt>
+								<dd>AJAX成功后的回调函数</dd>
+
+								<dt>
+									<b>type</b>
+								</dt>
+								<dd>AJAX请求返回数据的方式，默认是字符串</dd>
+							</dl>
+
+					<hr />
+						
+					<a name="getScript"> </a>
+					<div class="fixedFont">
+					
+					<b>getScript(url, callback)</b>
+					
+					</div>
+					<div class="description">
+						返回js的ajax请求
+						
+							<br />
+							<i>调用: </i>$app.ajax.getScript(url, callback);
+					</div>
+					<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>url</b>
+								</dt>
+								<dd>AJAX请求的后台地址</dd>
+
+								<dt>
+									<b>callback</b>
+								</dt>
+								<dd>AJAX成功后的回调函数</dd>
+							</dl>
+
+					<hr />
+
+					<a name="getJSON"> </a>
+					<div class="fixedFont">
+					
+					<b>getJSON(url, callback)</b>
+					
+					</div>
+					<div class="description">
+						返回JSON格式数据的get方式AJAX请求
+						
+							<br />
+							<i>调用: </i>$app.ajax.getJSON(url, callback);
+					</div>
+					<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>url</b>
+								</dt>
+								<dd>AJAX请求的后台地址</dd>
+
+								<dt>
+									<b>callback</b>
+								</dt>
+								<dd>AJAX成功后的回调函数</dd>
+							</dl>
+
+					<hr />
+
+					<a name="getJSONP"> </a>
+					<div class="fixedFont">
+					
+					<b>getJSONP(url, callback)</b>
+					
+					</div>
+					<div class="description">
+						AJAX跨域获取数据
+						
+							<br />
+							<i>调用: </i>$app.ajax.getJSONP(url, callback);
+					</div>
+					<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>url</b>
+								</dt>
+								<dd>AJAX请求的后台地址</dd>
+
+								<dt>
+									<b>callback</b>
+								</dt>
+								<dd>AJAX成功后的回调函数</dd>
+							</dl>
+
+					<hr />
+
+					<a name="post"> </a>
+					<div class="fixedFont">
+					
+					<b>post(url, data, callback, type)</b>
+					
+					</div>
+					<div class="description">
+						通过post方式进行ajax的请求
+						
+							<br />
+							<i>调用: </i>$app.ajax.post(url, data, callback, type);
+					</div>
+					<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>url</b>
+								</dt>
+								<dd>AJAX请求的后台地址</dd>
+
+								<dt>
+									<b>data</b>
+								</dt>
+								<dd>AJAX提交到后台的数据</dd>
+
+								<dt>
+									<b>callback</b>
+								</dt>
+								<dd>AJAX成功后的回调函数</dd>
+
+								<dt>
+									<b>type</b>
+								</dt>
+								<dd>AJAX请求返回数据的方式</dd>
+							</dl>
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+
+	</body>
+</html>

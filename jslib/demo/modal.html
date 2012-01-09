@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jslib1.4.2 UI类Modal组件</title>
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="http://jslib.qq.com/jslib-1.4.2.js"></script>
+</head>
+
+<body>
+	<h2>UI类Modal组件</h2>
+	<p>Modal组件是弹出层组件，支持三种方式的数据源：iframe，file，id。</p>
+    <p>适用情况：多适用于弹出方式填写表单或者活动规则之类的包含页面。</p>
+	<p>关闭弹出层调用：</p>
+	<p>javascript:$app.modal.removeAll();</p>
+	<p>参数说明：</p>
+	<p>参数1：需要加载的页面地址（绝对地址和相对地址都可以）或者ID名称；</p>
+	<p>参数2：指定是采用那种方式弹出；</p>
+	<p>参数3：如何是iframe方式，这里是设置iframe的大小；</p>
+    <p>参数4：是否出现关闭按钮，默认是显示关闭按钮，如果弹出的页面中有关闭按钮，请设置成0。</p>
+    
+    <p>1、<a href="javascript:testIframe();">点击这里</a>查看iframe方式；</p>
+    <pre>function testIframe(){
+	loader('ui/modal',function(){
+		$app.modal.show('http://www.qq.com','iframe',{'width':'500px','height':'300px'});
+	});	
+}</pre>
+    <p>2、<a href="javascript:testFile();">点击这里</a>查看file方式；</p>
+	<pre>function testFile(){
+	loader('ui/modal',function(){
+		$app.modal.show('modal.php.html','file');
+	});
+}</pre>
+    <p>3、<a href="javascript:testId();">点击这里</a>查看ID方式；</p>
+    <pre>function testId(){
+	loader('ui/modal',function(){
+		$app.modal.show('test','','',0);
+	});
+}</pre>
+    <div id="test" style="display:none;">
+        <img src="images/pop.jpg">
+        <a style="display:block;position:absolute;cursor:pointer;right:3px;top:3px;width:15px;height:15px;" href="javascript:$app.modal.removeAll();">&nbsp;</a>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+function testIframe(){
+	loader('ui/modal',function(){
+		$app.modal.show('http://www.qq.com','iframe',{'width':'500px','height':'300px'});
+	});	
+}
+function testFile(){
+	loader('ui/modal',function(){
+		$app.modal.show('modal.php.html','file');
+	});
+}
+function testId(){
+	loader('ui/modal',function(){
+		$app.modal.show('test','','',0);
+	});
+}
+</script>

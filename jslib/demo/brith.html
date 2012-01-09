@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="http://jslib.qq.com/jslib-1.4.2.js"></script>
+<title>jslib1.4.2表单生日选择组件</title>
+</head>
+<body>
+	<h2>jslib1.4.2表单生日选择组件</h2>
+    <p>防止误输入和输入错误日期</p>
+    <p>传入的参数比较多，支持change的时候回调函数</p>
+    <p>传入参数依次是：年选择框对象ID，月选择框对象ID，日选择框对象ID，年初始值，月初始值，日初始值，回调函数名称</p>
+    <p>这里是测试：<select id="y" name="y"></select>年
+        <select id="m" name="m"></select>月
+        <select id="d" name="d"></select>日
+    </p>
+    <pre>//ready函数
+$(function(){
+    //初始化生日
+	loader('form/brith',function(){
+		$app.brith.init('y','m','d','','','');
+	});
+});
+
+</pre>
+    
+</body>
+</html>
+<script type="text/javascript">
+$(function(){
+    //初始化生日
+	loader('form/brith',function(){
+		$app.brith.init('y','m','d','','','');
+	});
+});
+</script>

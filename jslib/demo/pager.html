@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="http://jslib.qq.com/jslib-1.4.2.js"></script>
+<title>jslib1.4.2分页导航组件</title>
+<style>
+.pagination {font-family: Tahoma;font-size: 12px;height: 22px;margin: 5px 10px;text-align: right;}
+.pagination a,.page-cur,.page-start,.page-end,.page-disabled,.page-skip {
+height:22px;line-height:22px;margin:0 3px 0 0;text-align:center;vertical-align:middle;white-space:nowrap;}
+.pagination input {border-width: 1px;}
+.page-start, .pagination a, .page-end, .page-disabled {border: 1px solid #CCCCCC;padding: 0 5px;}
+.pagination a {text-decoration: none;}
+.page-cur {background-color: #FFEDE1;border: 1px solid #FD6D01;color: #FD6D01;font-weight: 700;padding: 0 5px;}
+.page-disabled {color: #CCCCCC;}
+.page-skip {color: #666666;padding: 0 3px;}
+</style>
+</head>
+<body>
+	<h2>jslib1.4.2分页导航组件</h2>
+    <p>ajax分页导航条，只需在拉取后台数据后传入正确的参数，就可以显示在页面显示分页导航条</p>
+				<p>传入的参数依次是：页面上显示分页条的容器ID，执行后台拉取数据的js函数名，参数对象，当前页面，后台返回记录总数，每页显示的记录数</p>
+				<p>每页显示的记录数默认是10条</p>
+				<p>这里是测试：</p>
+				<p id="pageNav" style="width:400px;"></p>
+				<p>需要修改分页的样式，请将如下CSS代码修改</p>
+				<pre>/* 分页 */
+.pagination {font-family: Tahoma;font-size: 12px;height: 22px;margin: 5px 10px;text-align: right;}
+.pagination a,.page-cur,.page-start,.page-end,.page-disabled,.page-skip {
+height:22px;line-height:22px;margin:0 3px 0 0;text-align:center;vertical-align:middle;white-space:nowrap;}
+.pagination input {border-width: 1px;}
+.page-start, .pagination a, .page-end, .page-disabled {border: 1px solid #CCCCCC;padding: 0 5px;}
+.pagination a {text-decoration: none;}
+.page-cur {background-color: #FFEDE1;border: 1px solid #FD6D01;color: #FD6D01;font-weight: 700;padding: 0 5px;}
+.page-disabled {color: #CCCCCC;}
+.page-skip {color: #666666;padding: 0 3px;}
+				</pre>
+				<p>js实现源码：</p>
+    <pre>//ready函数
+$(function(){
+	//分页导航测试
+	testPage(1);
+});
+function testPage(curPage){
+	//TODO::这里进行后台数据拉取
+	loader('utils/pager',function(){
+		$app.pager('pageNav','testPage','',curPage,100,5);
+	});
+}
+
+</pre>
+    
+</body>
+</html>
+<script type="text/javascript">
+$(function(){
+    testPage(1);
+});
+function testPage(curPage){
+	//TODO::这里进行后台数据拉取
+	loader('utils/pager',function(){
+		$app.pager('pageNav','testPage','',curPage,100,5);
+	});
+}
+</script>

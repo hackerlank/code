@@ -1,0 +1,397 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">   
+<html xmlns="http://www.w3.org/1999/xhtml">   
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <link type="text/css" rel="stylesheet" href="css/style.css">
+		
+		<title>jslib1.4.2dom操作组件 dom.js</title>
+
+	</head>
+
+	<body>
+		
+		<div id="content">
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				jslib1.4.2dom操作组件 dom.js&nbsp; [&nbsp;loader路径：dom/dom&nbsp;]
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class _global_.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="dom.html#hasClass">hasClass</a></b>
+								</div>
+								<div class="description">判断节点是否拥有某个样式</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="dom.html#addClass">addClass</a></b>
+								</div>
+								<div class="description">给节点添加某个样式</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="dom.html#removeClass">removeClass</a></b>
+								</div>
+								<div class="description">移除节点的某个样式</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="dom.html#getElementsByClassName">getElementsByClassName</a></b>
+								</div>
+								<div class="description">根据标签的样式名抓取节点对象</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="dom.html#getPreviousSibling">getPreviousSibling</a></b>
+								</div>
+								<div class="description">抓取前一个兄弟节点</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="dom.html#getNextSibling">getNextSibling</a></b>
+								</div>
+								<div class="description">抓取下一个兄弟节点</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="index.html#getChildren">getChildren</a></b>
+								</div>
+								<div class="description">抓取直系子节点</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="dom.html#isChild">isChild</a></b>
+								</div>
+								<div class="description">判断节点sunObj是否为节点parentObj的子孙节点</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="dom.html#getStyle">getStyle</a></b>
+								</div>
+								<div class="description">获得元素指定样式的值</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+
+<!-- ============================== field details ========================== -->		
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="hasClass"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>hasClass(el, className)</b>
+					
+					</div>
+					<div class="description">
+						判断节点是否拥有某个样式
+						
+							<br />
+							<i>调用: </i>$app.dom.hasClass(el, className);
+					</div>
+					<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>el</b>
+								</dt>
+								<dd>dom对象</dd>
+								<dt>
+									<b>className</b>
+								</dt>
+								<dd>样式名称</dd>
+							</dl>
+
+					<hr />
+						
+					<a name="addClass"> </a>
+					<div class="fixedFont">
+					
+					<b>addClass(el, className)</b>
+					
+					</div>
+					<div class="description">
+						给节点添加某个样式
+						
+							<br />
+							<i>调用: </i>$app.dom.addClass(el, className);
+					</div>
+					<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>el</b>
+								</dt>
+								<dd>dom对象</dd>
+								<dt>
+									<b>className</b>
+								</dt>
+								<dd>样式名称</dd>
+							</dl>
+
+					<hr />
+
+					<a name="removeClass"> </a>
+					<div class="fixedFont">
+					
+					<b>removeClass(el, className)</b>
+					
+					</div>
+					<div class="description">
+						移除节点的某个样式
+						
+							<br />
+							<i>调用: </i>$app.dom.removeClass(el, className);
+					</div>
+					<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>el</b>
+								</dt>
+								<dd>dom对象</dd>
+								<dt>
+									<b>className</b>
+								</dt>
+								<dd>样式名称</dd>
+							</dl>
+
+					<hr />
+
+					<a name="getElementsByClassName"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Array}</span>
+					<b>getElementsByClassName(className, tag, root)</b>
+					
+					</div>
+					<div class="description">
+						根据标签的样式名抓取节点对象
+						
+							<br />
+							<i>调用: </i>$app.dom.getElementsByClassName(className, tag, root);
+					</div>
+					<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>className</b>
+								</dt>
+								<dd>样式名称</dd>
+								<dt>
+									<b>tag</b>
+								</dt>
+								<dd>标签</dd>
+								<dt>
+									<b>root</b>
+								</dt>
+								<dd>上级节点对象</dd>
+							</dl>
+
+					<hr />
+
+					<a name="getPreviousSibling"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Object}</span>
+					<b>getPreviousSibling(node)</b>
+					
+					</div>
+					<div class="description">
+						抓取前一个兄弟节点
+						
+							<br />
+							<i>调用: </i>$app.dom.getPreviousSibling(node);
+					</div>
+					<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>node</b>
+								</dt>
+								<dd>节点对象</dd>
+							</dl>
+
+					<hr />
+
+					<a name="getNextSibling"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Object}</span>
+					<b>getNextSibling(node)</b>
+					
+					</div>
+					<div class="description">
+						抓取下一个兄弟节点
+						
+							<br />
+							<i>调用: </i>$app.dom.getNextSibling(node);
+					</div>
+					<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>node</b>
+								</dt>
+								<dd>节点对象</dd>
+							</dl>
+
+					<hr />
+
+					<a name="getChildren"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Array}</span>
+					<b>getChildren(node)</b>
+					
+					</div>
+					<div class="description">
+						抓取直系子节点
+						
+							<br />
+							<i>调用: </i>$app.dom.getChildren(node);
+					</div>
+					<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>node</b>
+								</dt>
+								<dd>节点对象</dd>
+							</dl>
+
+					<hr />
+
+					<a name="isChild"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isChild(sunObj, parentObj)</b>
+					
+					</div>
+					<div class="description">
+						判断节点sunObj是否为节点parentObj的子孙节点
+						
+							<br />
+							<i>调用: </i>$app.dom.isChild(sunObj, parentObj);
+					</div>
+					<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>sunObj</b>
+								</dt>
+								<dd>子节点对象</dd>
+								<dt>
+									<b>parentObj</b>
+								</dt>
+								<dd>父节点对象</dd>
+							</dl>
+
+					<hr />
+
+					<a name="getStyle"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getStyle(dom,stylename,bNum)</b>
+					
+					</div>
+					<div class="description">
+						判断节点sunObj是否为节点parentObj的子孙节点
+						
+							<br />
+							<i>调用: </i>$app.dom.getStyle(dom,stylename,bNum);
+					</div>
+					<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>dom</b>
+								</dt>
+								<dd>dom对象</dd>
+								<dt>
+									<b>stylename</b>
+								</dt>
+								<dd>style属性，如width</dd>
+								<dt>
+									<b>bNum</b>
+								</dt>
+								<dd>是否返回整型，1：返回没有单位的整型数字</dd>
+							</dl>
+
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+
+	</body>
+</html>

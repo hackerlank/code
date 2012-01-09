@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jslib1.4.2 UI类Tips组件</title>
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="http://lf.addev.com/jslib/jslib-1.4.2.js"></script>
+</head>
+
+<body>
+	<h2>UI类Tips组件</h2>
+	<p>Tips组件是右下角tips组件，常用于活动中随时更新的公告和紧急提示等。</p>
+	<p>效果如本页右下角。</p>
+    <pre>$(function(){
+	loader('ui/tips',function(){
+		$app.tips('test');
+	});
+});</pre>
+	<div id="test" style="height:118px;display:none;"><img src="images/pop.jpg"></div>
+</body>
+</html>
+<script type="text/javascript" src="../gateway.js"></script>
+<script type="text/javascript">
+$(function(){
+	loader('ui/tips',function(){
+		$app.tips('test');
+	});
+});
+</script>

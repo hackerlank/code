@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="http://jslib.qq.com/jslib-1.4.2.js"></script>
+<title>jslib1.4.2邀请好友组件</title>
+</head>
+<body>
+	<h2>jslib1.4.2邀请好友组件</h2>
+	<p>复制活动链接转发给好友，支持在url前面或后面追加文本信息</p>
+	<p><a href="javascript:tInvite();">点击这里测试</a></p>
+    <pre>function tInvite(){
+	var userStatus = $app.auth.isLogin();
+	if(userStatus){
+		var loginQQ = $app.auth.getQQNum();
+		var url = "http://wt.act.qq.com/?FQQ="+loginQQ;
+		var isAlert = true;
+		var append = "欢迎你参加三九胃泰三行情书活动，大奖等你拿哦！";
+		loader('utils/invite',function(){
+			$app.invite(url,loginQQ,isAlert,append,true); 
+		});
+	}
+	else{
+		alert('请先登录QQ！');
+	}
+}</pre>
+</body>
+</html>
+<script type="text/javascript">
+function tInvite(){
+	var userStatus = $app.auth.isLogin();
+	if(userStatus){
+		var loginQQ = $app.auth.getQQNum();
+		var url = "http://wt.act.qq.com/?FQQ="+loginQQ;
+		var isAlert = true;
+		var append = "欢迎你参加三九胃泰三行情书活动，大奖等你拿哦！";
+		loader('utils/invite',function(){
+			$app.invite(url,loginQQ,isAlert,append,true); 
+		});
+	}
+	else{
+		alert('请先登录QQ！');
+	}
+}
+</script>

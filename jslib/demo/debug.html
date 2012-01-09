@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jslib1.4.2变量调试组件</title>
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="http://jslib.qq.com/jslib-1.4.2.js"></script>
+</head>
+
+<body>
+	<h2>变量调试组件</h2>
+	<p>代码如下:</p>
+	<pre>var dd = ['a','b'];
+loader('log/debug',function(){
+	$app.debug(dd);
+});</pre>
+	<p>使用示例：</p>
+	<p>
+		<a href="javascript:aa();">点击</a>
+	</p>
+</body>
+</html>
+<script type="text/javascript">
+function aa(){
+	var dd = ['a','b'];
+	loader('log/debug',function(){
+		$app.debug(dd);
+	});
+}
+</script>

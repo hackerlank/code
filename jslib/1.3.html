@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">   
+<html xmlns="http://www.w3.org/1999/xhtml">   
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<title>JSLib1.4和1.3的差异比较 | 互动广告大前端平台</title>
+<base href="http://jslib.qq.com/" />
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="jslib-1.4.2.js"></script>
+</head>
+
+<body>
+<div id="main" class="wrapper">
+	<a name="core"></a>
+    <div class="lf-top">
+        <div class="lf-banner">
+            <div class="lf-title">
+                <h1>JSLib | 互动广告大前端平台</h1>
+                <p>&mdash;&mdash;见证我们成长的路</p>
+            </div>
+        </div>
+    </div>
+    <div class="lf-nav">
+        <div class="wrapper">
+            <ul class="clear">
+                <li class="l">
+                    <a class="fc01" href="index.html" hidefocus="true">首页</a>
+                </li>
+                <li class="l">
+                    <a class="fc01" href="demo.html" hidefocus="true">示例</a>
+                </li>
+                <li class="l">
+                    <a class="fc01" href="docs.html" hidefocus="true">文档</a>
+                </li>
+                <li class="l">
+                    <a class="fc01" href="help.html" hidefocus="true">帮助</a>
+                </li>
+                <li class="l">
+                    <a class="fc01" href="javascript:$app.util.favorite('http://lf.addev.com/jslib/','JSLib|互动活动前端开发JS框架');" hidefocus="true">收藏</a>
+                </li>
+                <li class="l">
+                    <a class="fc01" href="mailto:bondli@tencent.com" hidefocus="true">反馈</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="lf-smt"></div>
+    <div class="lf-cnt">
+        <div class="wrapper">
+            <div id="container">
+            	<div class="lf-mt"><h2>示例</h2></div>
+                <div class="lf-mc">
+                	<div class="lf-lyt clear">
+                    	<table class="quickCheckTb">
+                            <thead>
+                                <tr>
+                                    <td colspan="3">
+                                        <div class="sectionTitle">jslib1.4和jslib1.3的差异</div>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th style="width:20%;">差异点</th>
+                                <th style="width:40%;">jslib1.4</th>
+                                <th style="width:40%;">jslib1.3</th>
+                            </tr>
+                            <tr>
+                                <td>QQ登录</td>
+                                <td>$app.auth.login()</td>
+                                <td>$app.login()</td>
+                            </tr>
+                            <tr>
+                                <td>注销QQ</td>
+                                <td>$app.auth.logout()</td>
+                                <td>$app.logout()</td>
+                            </tr>
+                            <tr>
+                                <td>是否登录QQ</td>
+                                <td>$app.auth.isLogin()</td>
+                                <td>$app.isLogin() 和 $app.checkQQLogin()</td>
+                            </tr>
+                            <tr>
+                                <td>获得登录的QQ号</td>
+                                <td>$app.auth.getQQNum()</td>
+                                <td>$app.getLoginQQ()</td>
+                            </tr>
+                            <tr>
+                                <td>Dialog浮层</td>
+                                <td>$app.dialog.show(),$app.dialog.close(),<br/>目前只有打开和关闭，后续考虑把ajax，iframe加入</td>
+                                <td>$app.dialog.show(),$app.dialog.close(),<br/>$app.dialog.ajax(),$app.dialog.iframe()</td>
+                            </tr>
+                            <tr>
+                                <td>验证表单</td>
+                                <td>在表单项上配置，然后加入$app.form.checkForm()</td>
+                                <td>在config.js中配置</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lf-fot">
+        <div class="wrapper">
+            <div class="k">
+                <a class="fc08" href="http://www.tencent.com/" target="_blank">关于腾讯</a>
+                <span class="fc10">-</span>
+                <a class="fc08" href="http://www.tencent.com/index_e.shtml" target="_blank"> About Tencent</a>
+                <span class="fc10">-</span>
+                <a class="fc08" href="http://www.qq.com/contract.shtml" target="_blank">服务条款</a>
+                <span class="fc10">-</span>
+                <a class="fc08" href="http://www.tencentmind.com/" target="_blank">广告服务</a>
+                <span class="fc10">-</span>
+                <a class="fc08" href="http://hr.tencent.com/" target="_blank">腾讯招聘</a>
+                <span class="fc10">-</span>
+                <a class="fc08" href="http://service.qq.com/" target="_blank">客服中心</a>
+                <span class="fc10">-</span>
+                <a class="fc08" href="http://www.qq.com/map/" target="_blank">网站导航</a>
+           </div>
+           <p class="fc10">Copyright &copy; 1998-2011 Tencent Inc. All Rights Reserved</p>
+           <p class="fc10">腾讯公司 版权所有</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

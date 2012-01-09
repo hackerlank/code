@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jslib1.4.2AJAX队列组件</title>
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="http://jslib.qq.com/jslib-1.4.2.js"></script>
+</head>
+<body>
+	<h2>ajax队列组件</h2>
+	<p>该组件的使用依赖于ajax组件，但是不要手动load ajax组件，该组件自动完成</p>
+	<p>该组件多用于一个页面有多个ajax请求，解决了ajax异步带来的代码按顺序执行错误问题</p>
+	<p>使用该组件仅需先定义ajax队列，然后调用run就好</p>
+	<p>使用如下：</p>
+	<pre>var queueArr = [
+	{url:"hello.html",success:function(e){$app.G('r1').innerHTML = e;},type:'text'},
+	{url:"hello.html",success:function(e){$app.G('r2').innerHTML = e;},type:'text'},
+	{url:"hello.html",success:function(e){$app.G('r3').innerHTML = e;},type:'text'}
+];
+$app.ajaxQueue.run(queueArr)</pre>
+	<p><a href="javascript:tAjaxQueue();">点击这里开始ajax队列请求</a></p>
+	<p id="r1"></p>
+	<p id="r2"></p>
+	<p id="r3"></p>
+</body>
+</html>
+<script type="text/javascript">
+function tAjaxQueue(){
+	loader('ajax/ajaxQueue',function(){
+			var queueArr = [
+				{url:"hello.html",success:function(e){$app.G('r1').innerHTML = e;},type:'text'},
+				{url:"hello.html",success:function(e){$app.G('r2').innerHTML = e;},type:'text'},
+				{url:"hello.html",success:function(e){$app.G('r3').innerHTML = e;},type:'text'}
+			];
+ 			$app.ajaxQueue.run(queueArr); 
+		});
+}
+</script>

@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">   
+<html xmlns="http://www.w3.org/1999/xhtml">   
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <link type="text/css" rel="stylesheet" href="css/style.css">
+		
+		<title>jslib1.4.2事件处理组件 event.js</title>
+
+	</head>
+
+	<body>
+
+		<div id="content">
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				jslib1.4.2事件处理组件 event.js&nbsp; [&nbsp;loader路径：event/event&nbsp;]
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class _global_.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="event.html#stopEvent">stopEvent</a></b>
+								</div>
+								<div class="description">阻止事件默认行为和事件冒泡</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="event.html#stopPropagation">stopPropagation</a></b>
+								</div>
+								<div class="description">阻止事件冒泡</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="event.html#preventDefault">preventDefault</a></b>
+								</div>
+								<div class="description">阻止事件默认行为</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="event.html#getEvent">getEvent</a></b>
+								</div>
+								<div class="description">获得事件名称</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="event.html#getTarget">getTarget</a></b>
+								</div>
+								<div class="description">获取事件触发的对象</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="event.html#getXY">getXY</a></b>
+								</div>
+								<div class="description">获取event对象触发的坐标</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+
+<!-- ============================== field details ========================== -->		
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="stopEvent"> </a>
+					<div class="fixedFont">
+					
+					<b>stopEvent(ev)</b>
+					
+					</div>
+					<div class="description">
+						阻止事件默认行为和事件冒泡
+						
+							<br />
+							<i>调用: </i>$app.event.stopEvent(ev);
+					</div>
+					<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>ev</b>
+								</dt>
+								<dd>事件句柄</dd>
+							</dl>
+
+					<hr />
+						
+					<a name="stopPropagation"> </a>
+					<div class="fixedFont">
+					
+					<b>stopPropagation(ev)</b>
+					
+					</div>
+					<div class="description">
+						阻止事件冒泡
+						
+							<br />
+							<i>调用: </i>$app.event.stopPropagation(ev);
+					</div>
+					<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>ev</b>
+								</dt>
+								<dd>事件句柄</dd>
+							</dl>
+
+					<hr />
+						
+					<a name="preventDefault"> </a>
+					<div class="fixedFont">
+					
+					<b>preventDefault(ev)</b>
+					
+					</div>
+					<div class="description">
+						阻止事件默认行为
+						
+							<br />
+							<i>调用: </i>$app.event.preventDefault(ev);
+					</div>
+					<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>ev</b>
+								</dt>
+								<dd>事件句柄</dd>
+							</dl>
+
+					<hr />
+						
+					<a name="getEvent"> </a>
+					<div class="fixedFont">
+					
+					<b>getEvent(e)</b>
+					
+					</div>
+					<div class="description">
+						获得事件名称
+						
+							<br />
+							<i>调用: </i>$app.event.getEvent(e);
+					</div>
+					<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>e</b>
+								</dt>
+								<dd>事件句柄</dd>
+							</dl>
+
+					<hr />
+						
+					<a name="getTarget"> </a>
+					<div class="fixedFont">
+					<span class="light">{Object}</span>
+					<b>getTarget(ev)</b>
+					
+					</div>
+					<div class="description">
+						获取事件触发的对象
+						
+							<br />
+							<i>调用: </i>$app.event.getTarget(ev);
+					</div>
+					<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>ev</b>
+								</dt>
+								<dd>事件句柄</dd>
+								<dt>
+									<b>resolveTextNode</b>
+								</dt>
+								<dd>resolveTextNode</dd>
+							</dl>
+
+					<hr />
+						
+					<a name="getXY"> </a>
+					<div class="fixedFont">
+					<span class="light">{Array}</span>
+					<b>getXY(e)</b>
+					
+					</div>
+					<div class="description">
+						获取event对象触发的坐标
+						
+							<br />
+							<i>调用: </i>$app.event.getXY(e);
+					</div>
+					<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>e</b>
+								</dt>
+								<dd>事件句柄</dd>
+							</dl>
+
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Wed Jan 05 2011 11:18:39 GMT+0800 (CST)
+		</div>
+	</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">   
+<html xmlns="http://www.w3.org/1999/xhtml">   
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<title>JSLib | 互动广告大前端平台</title>
+<base href="http://jslib.qq.com/" />
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="jslib-1.4.2.js"></script>
+</head>
+
+<body>
+<div id="main" class="wrapper">
+    <div class="lf-top">
+        <div class="lf-banner">
+            <div class="lf-title">
+                <h1>JSLib | 互动广告大前端平台</h1>
+                <p>&mdash;&mdash;见证我们成长的路</p>
+            </div>
+        </div>
+    </div>
+    <div class="lf-nav">
+        <div class="wrapper">
+            <ul class="clear">
+                <li class="l">
+                    <a class="fc01" href="index.html" hidefocus="true">首页</a>
+                </li>
+                <li class="l">
+                    <a class="fc01" href="demo.html" hidefocus="true">示例</a>
+                </li>
+                <li class="l">
+                    <a class="fc01" href="docs.html" hidefocus="true">文档</a>
+                </li>
+                <li class="l">
+                    <a class="fc02" href="help.html" hidefocus="true">帮助</a>
+                </li>
+                <li class="l">
+                    <a class="fc01" href="javascript:$app.util.favorite('http://jslib.qq.com/','JSLib|互动活动前端开发JS框架');" hidefocus="true">收藏</a>
+                </li>
+                <li class="l">
+                    <a class="fc01" href="mailto:bondli@tencent.com" hidefocus="true">反馈</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="lf-smt"></div>
+    <div class="lf-cnt">
+        <div class="wrapper">
+            <div id="container">
+            	<h2>一、关于jslib1.4</h2>
+                <p>jslib是广平活动项目中开发所采用的js组件集合，封装了常用的功能组件，使用方便。</p>
+                <p>jslib1.4采用的新的设计方案，不在需要复制整个jslib到项目中，只需简单的一个启动jslib的js文件或者是该启动文件的代码即可；</p>
+                <p>把jslib部署在CDN上，很大程度上解决了不同地区用户网络原因带来的各种离奇问题；</p>
+                <p>jslib1.4和1.3的区别在于：</p>
+              <pre>1、从jquery中分离，减少了下载时间和节省了带宽，但同时使用上目前还没有jquery方便；</br>
+2、不再一次性加载所有类库，而是按需加载组件；</br>
+3、功能组件有了完善的沉淀流程，保证我们的jslib功能越来越强大；</br>
+4、对外包项目的支持。</pre>
+            
+            
+                <h2>二、建立一个测试页面</h2>
+                <p>在我们开始一切工作之前，要有页面；你可以创建一个新的html，也可以在你已有的页面里面加上一句引入jslib的标签：</p>
+              <pre>&lt;script type=&quot;text/javascript&quot; src=&quot;js/jslib-1.4.2.js&quot;&gt;&lt;/script&gt;</pre>
+                <p>这里提供一个标准的jslib-1.4.2.js文件下载，<a href="tools/jslib-1.4.2.js">点击这里</a></p>
+            <p>在上面的html页面的路径下js目录建立一个jslib-1.4.2.js的文件，里面内容如下：</p>
+            <pre>
+/**
+ * 项目配置
+ */
+var appConfig = {
+	namespace: '$',						//命名空间
+	runMode:   'production',				//定义开发模式,dev为外包模式，test为测试环境，production为线上模式
+	domain:    'http://test.qq.com/',			//定义项目域名
+	rootPath:  'http://jslib.qq.com/',	//jslib所在的访问路径
+	appid:     4008401,					//定义项目所用到的APPID
+	tamsid:    641009031,					//定义项目的活动ID，这个和监测PV/UV相关
+
+	//以下配置修改请谨慎
+	autoload: ['core','speed/mo2','auth/auth','utils/util','verifycode/verifycode']
+};</p>
+
+//载入加载器，加载autoload
+var subpath = (appConfig.runMode == 'production') ? 'build' : 'src';
+document.write(&quot;&lt;scri&quot; + &quot;pt type=\&quot;text/javascript\&quot; src=\&quot;&quot;+ appConfig.rootPath + subpath +&quot;/loader.js\&quot;&gt;&lt;/scri&quot; + &quot;pt&gt;&quot;);</pre>
+            <p>现在让我们在html页面实现一个简单的jslib的功能：</p>
+              <pre>&lt;!doctype html&gt;<br />&lt;html&gt;<br />&lt;head&gt;<br />&lt;script type=&quot;text/javascript&quot; src=&quot;js/jslib-1.4.2.js&gt;&lt;/script&gt;<br />&lt;/head&gt;<br />&lt;body&gt;<br />&lt;/body&gt;<br />&lt;/html&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+$(function(){	//这里的&quot;$&quot;是前面配置的namespace哦
+	alert($app.version);
+});
+&lt;/script&gt;</pre>
+            
+            <h2>三、获取一个dom节点</h2>
+                <p>通常我们对页面上DOM节点的操作，都是从获取该节点的引用开始。jslib提供了常用的节点获取方法的封装。</p>
+            
+<ul style="margin-left:3em;"> 
+                    <li>如果想获得id为byG的DOM节点，那么你可以使用$app.G("byG")。</li>
+                    <li>如果想获得class为byQ的DOM节点集合，那么你可以使用$app.dom.getElementsByClassName("byQ")。</li>
+                </ul>
+            </p>
+            
+                <h2>四、绑定事件</h2>
+                <p>为页面的元素绑定事件，如点击事件，鼠标划过事件等</p>
+              <pre>$app.addEvent("byG", "click", function(){ alert("我被点击了。");});</pre>
+                
+                <h2>五、登录QQ</h2>
+            <p>一般我们需要在页面加载完后显示当前用户的登录态，如下：</p>
+              <pre id="line188">$(function(){
+	var userStatus = $app.auth.isLogin();
+	if(userStatus){
+		var str = $app.auth.getQQNum()+'，你已经登录，';
+		$app.G('us').innerHTML = str + '&lt;a href=&quot;javascript:$app.auth.logout();&quot;&gt;点击注销&lt;/a&gt;';
+	}
+	else{
+		$app.G('us').innerHTML = '你没有登录，&lt;a href=&quot;javascript:$app.auth.login();&quot;&gt;点击登录&lt;/a&gt;';
+	}
+});</pre>
+                
+            <h2>六、Ajax请求</h2>
+            <p>到此为止，对于jslib有个大体的了解了吧。 接下来我们了解一下如何进行AJAX请求。</p>
+            <pre>$app.ajax.get(&quot;http://yourDomain.com/yourAjaxUrl&quot;,function(response){
+	alert(&quot;成功获取如下文本: &quot; + response);<br />});</pre>
+            <h2></h2>
+            <h2>七、邀请好友</h2>
+                <p>邀请好友的链接复制是活动中经常用到的功能，这里也给大家看看现在的邀请组件是怎么用的，新增了功能就是支持在url的前面或者后面追加其他文字信息。</p>
+              <pre id="line207">var userStatus = $app.auth.isLogin();
+if(userStatus){
+	var loginQQ = $app.auth.getQQNum();
+	var url = &quot;http://wt.act.qq.com/?FQQ=&quot;+loginQQ;
+	var isAlert = true;
+	var append = &quot;欢迎你参加三九胃泰三行情书活动，大奖等你拿哦！&quot;;
+	var isBefore = true; //追加的文字在url前面
+	loader('utils/invite',function(){
+		$app.invite(url,loginQQ,isAlert,append,isBefore);
+	});
+}
+else{
+	$app.auth.login();
+}</pre>
+                <h2>八、我的项目中需要用jquery怎么办？</h2>
+                <p>jslib1.4中只要配置的namespace不是"$"就和jquery没有任何影响，如果使用的是"$"那就把jslib1.4先引入，后面再引入jquery，彼此照样不会影响。</p>
+              <pre>&lt;script type=&quot;text/javascript&quot; src=&quot;js/jslib-1.4.2.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/jquery.js&quot;&gt;&lt;/script&gt;</pre>
+                <h2>九、问题和建议</h2>
+                <p>对jslib有什么问题和建议，<a href="mailto:bondli@tencent.com">点击这里</a>联系我们</p>
+            </div>
+        </div>
+    </div>
+    <div class="lf-fot">
+        <div class="wrapper">
+            <div class="k">
+                <a class="fc08" href="http://www.tencent.com/" target="_blank">关于腾讯</a>
+                <span class="fc10">-</span>
+                <a class="fc08" href="http://www.tencent.com/index_e.shtml" target="_blank"> About Tencent</a>
+                <span class="fc10">-</span>
+                <a class="fc08" href="http://www.qq.com/contract.shtml" target="_blank">服务条款</a>
+                <span class="fc10">-</span>
+                <a class="fc08" href="http://www.tencentmind.com/" target="_blank">广告服务</a>
+                <span class="fc10">-</span>
+                <a class="fc08" href="http://hr.tencent.com/" target="_blank">腾讯招聘</a>
+                <span class="fc10">-</span>
+                <a class="fc08" href="http://service.qq.com/" target="_blank">客服中心</a>
+                <span class="fc10">-</span>
+                <a class="fc08" href="http://www.qq.com/map/" target="_blank">网站导航</a>
+           </div>
+           <p class="fc10">Copyright &copy; 1998-2011 Tencent Inc. All Rights Reserved</p>
+           <p class="fc10">腾讯公司 版权所有</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

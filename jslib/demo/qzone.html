@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="http://jslib.qq.com/jslib-1.4.2.js"></script>
+<title>jslib1.4.2工具类QZone组件</title>
+</head>
+<body>
+	<h2>jslib1.4.2工具类QZone组件</h2>
+    <p>Qzone组件是封装了qzone的发送日志，挂件和加入粉丝榜等功能。</p>
+    <p>发送qzone日志和挂件是支持前台JS方式，但是需要自行设置回调函数来处理返回的结果和后台加分，监测，统计等功能</p>
+    <p>1、<a href="javascript:tQzoneSendBlog();">点击这里</a>测试发送qzone日志</p>
+    <pre>function tQzoneSendBlog(){
+	var userStatus = $app.auth.isLogin();
+	if(userStatus == false){
+		alert('请先登录QQ!');
+		$app.auth.login();return;
+	}
+	loader('utils/qzone',function(){
+		$app.qzone.sendBlog('10000','callbackSendBlog');
+	});
+}
+
+function callbackSendBlog(data){
+	if(typeof data.error == 'undefined'){
+		alert('温馨提示:发送QZone日志成功!');
+		//后台加分和行为监测等逻辑处理
+	}
+	else{
+		if(data.error.errcode == 4503){
+			alert("温馨提示:您已经发送过QZone日志了!");
+		}
+		else{
+			alert(data.error.msg);
+		}
+	}
+}</pre>
+    <p>2、<a href="javascript:tQzoneSendHang();">点击这里</a>测试发送qzone挂件</p>
+    <pre>function tQzoneSendHang(){
+	var userStatus = $app.auth.isLogin();
+	if(userStatus == false){
+		alert('请先登录QQ!');return;
+	}
+	loader('utils/qzone',function(){
+		$app.qzone.sendHang('10001',1,'callbackSendHang');
+	});
+}
+
+function callbackSendHang(data){
+	if(typeof data.error == 'undefined'){
+		alert('温馨提示:发送挂件成功!');
+		//后台加分和行为监测等逻辑处理
+	}
+	else{
+		if(data.error.errcode == 4503){
+			alert("温馨提示:您已经发送过挂件了!");
+		}
+		else{
+			alert(data.error.msg);
+		}
+	}
+}</pre>
+    <!--p>3、<a href="javascript:tQzoneLike();">点击这里</a>测试加入粉丝榜。</p>
+    <pre>function tQzoneLike(){
+	var userStatus = $app.auth.isLogin();
+	if(userStatus == false){
+		alert('请先登录QQ!');return;
+	}
+	loader('utils/qzone',function(){
+		$app.qzone.like('706290235');
+	});
+}</pre-->
+    <p>3、<a href="javascript:tQzoneShare();">点击这里</a>测试分享到qzone。</p>
+    <pre>function tQzoneShare(){
+	loader('utils/qzone',function(){
+		$app.qzone.share('http://www.qq.com');
+	});
+}</pre>
+</body>
+</html>
+<script type="text/javascript">
+function tQzoneSendBlog(){
+	var userStatus = $app.auth.isLogin();
+	if(userStatus == false){
+		alert('请先登录QQ!');
+		$app.auth.login();return;
+	}
+	loader('utils/qzone',function(){
+		$app.qzone.sendBlog('10000','callbackSendBlog');
+	});
+}
+
+function callbackSendBlog(data){
+	if(typeof data.error == 'undefined'){
+		alert('温馨提示:发送QZone日志成功!');
+		//后台加分和行为监测等逻辑处理
+	}
+	else{
+		if(data.error.errcode == 4503){
+			alert("温馨提示:您已经发送过QZone日志了!");
+		}
+		else{
+			alert(data.error.msg);
+		}
+	}
+}
+
+function tQzoneSendHang(){
+	var userStatus = $app.auth.isLogin();
+	if(userStatus == false){
+		alert('请先登录QQ!');return;
+	}
+	loader('utils/qzone',function(){
+		$app.qzone.sendHang('10001',1,'callbackSendHang');
+	});
+}
+
+function callbackSendHang(data){
+	if(typeof data.error == 'undefined'){
+		alert('温馨提示:发送挂件成功!');
+		//后台加分和行为监测等逻辑处理
+	}
+	else{
+		if(data.error.errcode == 4503){
+			alert("温馨提示:您已经发送过挂件了!");
+		}
+		else{
+			alert(data.error.msg);
+		}
+	}
+}
+
+function tQzoneLike(){
+	var userStatus = $app.auth.isLogin();
+	if(userStatus == false){
+		alert('请先登录QQ!');return;
+	}
+	loader('utils/qzone',function(){
+		$app.qzone.like('706290235');
+	});
+}
+
+function tQzoneShare(){
+	loader('utils/qzone',function(){
+		$app.qzone.share('http://www.qq.com');
+	});
+}
+</script>

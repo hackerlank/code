@@ -1,0 +1,53 @@
+@charset "utf-8";
+/*app-dialog for app.dialog.js*/
+.app-dialog { min-width: 240px; min-height: 120px; border: 1px solid #6B97C1; height: auto; font-size: 12px; background: #fff; margin: 0; padding: 0; position: absolute; z-index: 2000; }
+.app-dialog-top { height: 28px; margin: 0; padding: 0; background: url(images/pupop_bg.png) repeat-x top left; overflow: hidden; color: #fff; }
+.app-dialog-top h4.title { height: 28px; line-height: 26px; display: block; float: left; width: 70%; min-width: 5em; font-size: 14px; font-family: '微软雅黑'; margin: 0 0 0 6px; _margin: 0 0 0 3px; }
+.app-dialog-top a.close { height: 20px; display: block; float: right; width: 36px; background: url(images/pupop_bg.png) no-repeat 0 -30px; cursor: pointer; margin: 0 2px 0 0;position:static; }
+.app-dialog-top a.close:hover { background: url(images/pupop_bg.png) no-repeat -37px -30px; }
+.app-dialog-content { padding: 6px; min-height: 70px; _height: 70px; }
+.popupDiv { background: #fff; margin: 0; padding: 0; position: absolute; z-index: 2000; left: 332px; top: 173px; width: 300px; height: auto; }
+
+.app-dialog-bottom { height: 30px; line-height: 30px; background: #F7F9FF; text-align: center; vertical-align: middle; margin: 0; padding: 0; border-top: 1px dotted #6B97C1; }
+.app-dialog-bottom .button { display: inline-block; height: 22px; line-height: 20px; vertical-align: middle; font-size: 12px; padding: 0 2px; margin: 4px 3px; overflow: hidden; min-width: 50px; border: 1px solid #6B97C1; background: url(images/pupop_bg.png) repeat-x 0 -95px; color: #1974C8; cursor:pointer; }
+
+/*app-login-act for app.login.act.js*/
+.app-login-act { width: 370px; height: 290px; overflow: hidden; }
+.app-login-act .app-dialog-content { height: 180px; padding: 0; }
+.app-login-act .app-dialog-bottom { background: none; }
+.app-login-act h4 .title { background: url(images/login_bg.gif) no-repeat left; height: 22px; font-weight: bold; font-size: 12px; padding: 7px 0 0 30px; border-bottom: 1px solid #438ece; }
+.app-login-act ul { padding: 12px 0 11px 0; margin: 0; }
+.app-login-act ul li { list-style-type: none; padding: 7px 0; }
+.app-login-act ul li span { width: 83px; float: left; text-align: right; padding-right: 5px; padding-top: 7px; }
+.app-login-act ul li span { font-size: 12px; color: #535353; }
+.app-login-act .about { margin-left: 110px; _margin-left: 115px; padding-top: 3px; clear: both; }
+.app-login-act #verifytip { color: #808080; }
+.app-login-act p { padding: 8px 15px 12px 32px; margin: 0; font-size: 12px; color: #535353; }
+.app-login-act label { padding: 0 0 0 8px; color: #535353; position: absolute; margin-top: 10px; }
+.app-login-act #list_uin img { padding: 7px; background: url(images/head_bg1.jpg); }
+.app-login-act .uin_list { position: static; margin: 0; padding-left: 2px; }
+.app-login-act .error { margin: 15px 30px; background: url(images/wrong.gif) no-repeat 10px 25px; padding: 31px 0 30px 65px; line-height: 20px; }
+.app-login-act #verifytip { padding: 0 0 7px 0; }
+.app-login-act #verifyshow { padding: 0; }
+.app-login-act u { text-decoration: none; }
+.app-login-act input { border: 1px solid #7F9DB9; width: 190px; height: 14px; padding: 5px; margin: 0; font-size: 14px; color: #808080; }
+.app-login-act a { color: #097fd1; line-height: 14px; }
+.app-login-act a:link, .app-login-act a:visited, .app-login-act a:active { color: #097fd1; text-decoration: none; }
+.app-login-act a:hover { color: #000; text-decoration: underline; }
+.app-login-act .button { color: #2473A2; width: 92px; height: 28px; cursor: pointer; margin: 0; padding: 0; font-size: 14px; font-weight: bold; line-height: 26px; background: transparent url(images/login_btn_act.gif); border: none; }
+.app-popup { background: #fff; color: #000; position: absolute; width: 300px; height: auto; }
+
+#dialog_container {
+	background-color:#FFFFFF;
+	border:1px solid #618BC0;
+	color:#333333;
+	font-family:tahoma,Verdana,Arial;
+	font-size:12px;
+	left:30%;
+	line-height:1.5em;
+	position:absolute;
+	top:25%;
+	vertical-align:middle;
+	min-width:400px;
+	z-index:999;
+}

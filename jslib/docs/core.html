@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">   
+<html xmlns="http://www.w3.org/1999/xhtml">   
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <link type="text/css" rel="stylesheet" href="css/style.css">
+		
+		<title>jslib1.4.2核心类 core.js</title>
+
+	</head>
+
+	<body>
+		
+		<div id="content">
+			<h1 class="classTitle">jslib1.4.2核心类 core.js</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+				
+			
+				
+				
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class _global_.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="core.html#version">version</a></b>
+								</div>
+								<div class="description">获得jslib版本信息</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="core.html#B">B</a></b>
+								</div>
+								<div class="description">浏览器信息</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class _global_.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="core.html#G">G</a></b>
+								</div>
+								<div class="description">根据id获得对象，document.getElementById的简写</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="core.html#now">now</a></b>
+								</div>
+								<div class="description">返回当前时间，常用AJAX后面，防止ie6下缓存</div>
+							</td>
+						</tr>
+                        <tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="core.html#addEvent">addEvent</a></b>
+								</div>
+								<div class="description">为对象添加监听事件</div>
+							</td>
+						</tr>
+                        <tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="core.html#css">css</a></b>
+								</div>
+								<div class="description">加载CSS文件</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name="version"> </a>
+					<div class="fixedFont">
+					<b>version</b>
+					
+					</div>
+					<div class="description">
+						获得jslib版本信息
+						
+							<br />
+							<i>调用: </i>$app.version
+					</div>
+					
+					<hr />
+				
+					<a name="B"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>B</b>
+					
+					</div>
+					<div class="description">
+						浏览器信息
+						
+							<br />
+							<i>调用: </i>浏览器名称：$app.B.name；浏览器版本：$app.B.version；
+					</div>
+					
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="G"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Object}</span>
+					<b>G(id)</b>
+					
+					</div>
+					<div class="description">
+						根据id获得对象，document.getElementById的简写
+						
+							<br />
+							<i>调用: </i>$app.G(id);
+					</div>
+					<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>id</b>
+									
+								</dt>
+								<dd>dom对象的id名称</dd>
+							</dl>
+
+					<hr />
+				
+					<a name="now"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Number}</span>
+					<b>now</b>
+					
+					</div>
+					<div class="description">
+						返回当前时间，常用AJAX后面，防止ie6下缓存
+						
+							<br />
+							<i>调用: </i>$app.now();
+					</div>
+                    
+                    <hr />
+						
+					<a name="addEvent"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>addEvent(obj, type, fn)</b>
+					
+					</div>
+					<div class="description">
+						为对象添加监听事件
+						
+							<br />
+							<i>调用: </i>$app.addEvent(obj, type, fn);
+					</div>
+					<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+								<dt>
+									<b>obj</b>
+								</dt>
+								<dd>对象或者ID名称</dd>
+                                <dt>
+									<b>type</b>
+								</dt>
+								<dd>事件类型</dd>
+                                <dt>
+									<b>fn</b>
+								</dt>
+								<dd>为该对象绑定的函数</dd>
+							</dl>
+                    
+                    <hr />
+						
+					<a name="css"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>css(file)</b>
+					
+					</div>
+					<div class="description">
+						加载CSS文件
+						
+							<br />
+							<i>调用: </i>$app.css(file);
+					</div>
+					<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>file</b>
+									
+								</dt>
+								<dd>要加载的css文件，可以是绝对路径，也可以是相对路径</dd>
+							</dl>
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+
+	</body>
+</html>

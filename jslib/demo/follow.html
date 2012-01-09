@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="http://jslib.qq.com/jslib-1.4.2.js"></script>
+<title>jslib1.4.2微博收听</title>
+</head>
+<body>
+	<h2>jslib1.4.2微博收听</h2>
+    <p>只需传入需要收听或者取消收听的微博帐号微博</p>
+    <p>如果需要回调，请增加回调函数</p>
+    <p><a href="javascript:followme();">点击</a>收听 bondli</p>
+    <pre>function followme(){
+	loader('weibo/follow',function(){
+		$app.follow.listen('pconline',function(e){
+		    if(e.result == 0){
+		        alert('温馨提示：收听官方微博成功！');
+		    }
+		});
+	});
+}
+
+</pre>
+    <p><a href="javascript:unfollow();">点击</a>取消收听 dcshi</p>
+    <pre>function unfollow(){
+	loader('weibo/follow',function(){
+		$app.follow.cancel('dc_shi');
+	});
+}
+
+</pre>
+</body>
+</html>
+<script type="text/javascript">
+function followme(){
+	loader('weibo/follow',function(){
+		$app.follow.listen('pconline',function(e){
+		    if(e.result == 0){
+		        alert('温馨提示：收听官方微博成功！');
+		    }
+		    else{
+		        alert(e.msg);
+		    }
+		});
+	});
+}
+
+function unfollow(){
+	loader('weibo/follow',function(){
+		$app.follow.cancel('dc_shi');
+	});
+}
+
+</script>

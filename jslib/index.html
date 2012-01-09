@@ -1,0 +1,647 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">   
+<html xmlns="http://www.w3.org/1999/xhtml">   
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<title>JSLib | 互动广告大前端平台</title>
+<base href="http://jslib.qq.com/" />
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="jslib-1.4.2.js"></script>
+</head>
+
+<body>
+<div id="main" class="wrapper">
+    <div class="lf-top">
+        <div class="lf-banner">
+            <div class="lf-title">
+                <h1>JSLib | 互动广告大前端平台</h1>
+                <p>&mdash;&mdash;见证我们成长的路</p>
+            </div>
+        </div>
+    </div>
+    <div class="lf-nav">
+        <div class="wrapper">
+            <ul class="clear">
+                <li class="l">
+                    <a class="fc02" href="index.html" hidefocus="true">首页</a>
+                </li>
+                <li class="l">
+                    <a class="fc01" href="demo.html" hidefocus="true">示例</a>
+                </li>
+                <li class="l">
+                    <a class="fc01" href="docs.html" hidefocus="true">文档</a>
+                </li>
+                <li class="l">
+                    <a class="fc01" href="help.html" hidefocus="true">帮助</a>
+                </li>
+                <li class="l">
+                    <a class="fc01" href="javascript:$app.util.favorite('http://jslib.qq.com/','JSLib|互动活动前端开发JS框架');" hidefocus="true">收藏</a>
+                </li>
+                <li class="l">
+                    <a class="fc01" href="mailto:bondli@tencent.com" hidefocus="true">反馈</a>
+                </li>
+                <li class="l">
+                    <a class="fc01" href="1.3.html" hidefocus="true" style="width:100px;">1.4和1.3差异</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="lf-smt">
+        <p style="text-align:right;margin:0 10px 0 0;">立即下载jslib-1.4.2.js,开始项目开发，<a href="tools/jslib-1.4.2.js"><img src="images/button_download.gif" /></a></p>
+    </div>
+    <div class="lf-cnt">
+        <div class="wrapper">
+            <div id="container">
+                <h2>一、核心类中变量和函数</h2>
+        		<p>1、<a href="javascript:alert($app.version);">点击</a>获得jslib的版本：$app.version </p>
+        		<p>2、<a href="javascript:alert($app.B.name+' '+$app.B.version);">点击</a>获得当前浏览器信息：版本：$app.B.version; 名称：$app.B.name </p>
+        		<p>3、根据ID获得对象：$app.G('dom对象的ID');<a id="a1" href="javascript:tAppG();">点击测试</a></p>
+        		<p>4、为对象添加监听事件：$app.addEvent();<a id="a2" href="javascript:tAppAddEv();">点击这为后面的按钮绑定点击事件</a> <input id="a3" type="button" value="测试绑定" /></p>
+        		<p>5、<a href="javascript:alert($app.now());">点击获得当前时间</a>：$app.now() ;返回的是当前时间的毫秒</p>
+        		<p>6、动态加载CSS文件：$app.css();<a href="javascript:tAppCss();">点击这里测试</a>，后面的"hello"获得了从载入的css文件中获得了新样式，颜色改变， <span class="app-login-act"><a>hello</a></span></p>
+        
+        		<h2>二、AJAX组件</h2>
+        		<p>1、通过get的type方式进行ajax的请求：$app.ajax.get();<a href="javascript:tAjaxGet();">点击测试</a></p>
+        		<p>2、JSON方式AJAX请求：$app.ajax.getJSON();<a href="javascript:tAjaxGetJson();">点击测试</a></p>
+        		<p>3、AJAX跨域：$app.ajax.getJSONP();需要跨域，暂时不提供测试,后台返回的信息需要如下格式:$_GET['callback']("返回的json串")</p>
+        		<p>4、以post方式进行AJAX请求：$app.ajax.post();<a href="javascript:tAjaxPost();">点击测试</a></p>
+        		<p>5、同步的AJAX请求：$app.ajax.sync(url,type,data);该函数没有回调函数，直接返回后台数据。<a href="javascript:tAjaxSync();">点击测试</a></p>
+        
+        		<h2>三、AJAX队列组件</h2>
+        		<p>该组件的使用依赖于ajax组件，但是不要手动load ajax组件，该组件自动完成</p>
+        		<p>该组件多用于一个页面有多个ajax请求，解决了ajax异步带来的代码按顺序执行错误问题</p>
+        		<p>使用该组件仅需先定义ajax队列，然后调用run就好</p>
+        		<p>使用如下：</p>
+        		<pre>var queueArr = [
+	{url:"hello.html",success:function(e){$app.G('r1').innerHTML = e;},type:'text'},
+	{url:"hello.html",success:function(e){$app.G('r2').innerHTML = e;},type:'text'},
+	{url:"hello.html",success:function(e){$app.G('r3').innerHTML = e;},type:'text'}
+];
+$app.ajaxQueue.run(queueArr)</pre>
+        		<p><a href="javascript:tAjaxQueue();">点击这里开始ajax队列请求</a><span id="r1"></span>&nbsp;<span id="r2"></span>&nbsp;<span id="r3"></span></p>
+        
+        		<h2>四、QQ登录组件</h2>
+        		<p>1、QQ登录：$app.auth.login();</p>
+        		<p>2、注销登录：$app.auth.logout();</p>
+        		<p>3、判断是否登录：$app.auth.isLogin();</p>
+        		<p>4、获取当前登录者的QQ信息：$app.auth.getLoginInfo();</p>
+        		<p>5、获取当前登录者的QQ号码：$app.auth.getQQNum();</p>
+        		<p id="us"><a href="javascript:$app.auth.login();">点击登录</a></p>
+        		<p>6、无刷新登录测试:<a href="javascript:$app.auth.login({'callback':function(uin){alert('登录成功,你的QQ号码是:'+uin);}, 'url':'' });">登录</a></p>
+        		<p>7、无刷新注销测试:<a href="javascript:$app.auth.logout({'callback':function(){alert('注销成功');}, 'url':'' });">注销</a></p>
+        
+        		<h2>五、日历组件</h2>
+        		<p>这是一个简单的日历选择控件，常用于选择生日和日期的表单中</p>
+        		<p>1、简单弹出：$app.calendar.setDate(this);点击这里选择日期:<input type="text" style="width: 77px;" onclick="tCal();" id="startTime" name="startTime"></p>
+        		<p>2、带初始值：$app.calendar.setDate(this,'2010-12-01');点击这里选择日期:<input type="text" style="width: 77px;" onclick="tCalI('2010-12-01');" id="endTime" name="endTime"></p>
+        
+        		<h2>六、弹出层组件</h2>
+        		<p>该组件和modal组件相似，但是提供了一个功能更强大的弹出提示框，多用于活动结束了告知用户领奖等说明。</p>
+        		<p>测试：<a href="javascript:tDialog();">点击弹出层</a></p>
+        		
+        		<p>支持参数配置：</p>
+        		<p>title：显示在蓝色条上的文字</p>
+        		<p>content：显示在白色主题区域的内容</p>
+        		<p>width：显示的宽度</p>
+        		<p>height：显示的高度</p>
+        		<p>mask：是否遮罩，true是有遮罩层</p>
+        		<p>callback：关闭时的回调函数</p>
+        
+        		<h2>七、dom组件</h2>
+        		<p>1、判断节点是否拥有某个样式：$app.dom.hasClass(); <a class="aa" id="d1" href="javascript:tDom1();">点击测试</a></p>
+        		<p>2、为对象添加一个样式：$app.dom.addClass(); <a class="aa" id="d2" href="javascript:tDom2();">点击为该对象上添加test样式</a></p>
+        		<p>3、移除节点的某个样式：$app.dom.removeClass(); <a class="test" id="d3" href="javascript:tDom3();">点击为该对象上移除test样式</a></p>
+        		<p>4、根据标签的样式名抓取节点对象：$app.dom.getElementsByClassName();</p>
+        		<p>5、抓取前一个兄弟节点：$app.dom.getPreviousSibling();</p>
+        		<p>6、抓取下一个兄弟节点：$app.dom.getNextSibling();</p>
+        		<p>7、抓取直系子节点：$app.dom.getChildren();</p>
+        		<p>8、判断节点sunObj是否为节点parentObj的子孙节点：$app.dom.isChild();</p>
+        		<p>9、获得元素指定样式的值：$app.dom.getStyle(); <a id="pp" href="javascript:tDom4();" style="width:200px;">点击获得该对象的宽度</a></p>
+        
+        		<h2>八、表单验证组件</h2>
+        		<p>在html表单上添加相应属性，来实现表单验证；如：</p>
+        		<p>&lt;input type="text" datatype='require' msg='姓名不能为空' name="username" /&gt;</p>
+        		<p>目前支持的验证类型(datatype)有：</p>
+        		<ul class="index-form-ul" style="margin-left:4em;">
+        			<li><label>require：</label>必填</li>
+        			<li><label>email：</label>邮箱</li>
+        			<li><label>phone：</label>电话</li>
+        			<li><label>mobile：</label>手机</li>
+        			<li><label>tel：</label>电话和手机</li>
+        			<li><label>currency：</label>货币</li>
+        			<li><label>number：</label>数字</li>
+        			<li><label>zip：</label>邮编</li>
+        			<li><label>ip：</label>ip地址</li>
+        			<li><label>idcard：</label>身份证（18位）</li>
+        			<li><label>qq：</label>QQ号码</li>
+        			<li><label>english：</label>字母</li>
+        			<li><label>chinese：</label>中文</li>
+        			<li><label>unSafe：</label>是否存在"<",">","/"等不安全字符</li>
+        		</ul>
+        		<p>为一个表单添加检查表单如下：</p>
+        		<pre>
+$app.form.checkForm('test','post',function(e){<br/>	if(e.code==0){alert('提交成功!');}<br/>});</pre>
+        		<p>以下是实例：</p>
+        		<form action='demo/formAction.html' id='test' method='post' class="index-form-p">
+        			<p>
+        				<label>姓名：</label>
+        				<input type="text" datatype='require' msg='姓名不能为空' name="username" />
+        			</p>
+        			<p>	<label>邮箱：</label>
+        				<input type="text" datatype='require email' msg='邮箱不能为空，并且请填写正确的邮箱地址' name="email" />
+        			</p>
+        			<p>	<label>电话：</label>
+        				<input type="text" datatype='phone' msg='电话号码不正确，格式：0755-86012222' name="phone" />
+        			</p>
+        			<p>	<label>手机：</label>
+        				<input type="text" datatype='mobile' msg='手机号不正确' name="mobile" />
+        			</p>
+        			<p>	<label>电话或手机：</label>
+        				<input type="text" datatype='tel' msg='电话号码或者手机号码不正确' name="tel" />
+        			</p>
+        			<p>	<label>数字：</label>
+        				<input type="text" datatype='number' msg='请填写数字' name="number" />
+        			</p>
+        			<p>	<label>身份证：</label>
+        				<input type="text" datatype='idcard' msg='身份证填写不正确' name="idcard" />
+        			</p>
+        			<p>	<label>特殊字符：</label>
+        				<input type="text" datatype='unSafe' msg='这里不能输入特殊字符' name="unSafe" />
+        			</p>
+        			<p>
+        				<input class="sub" type="submit" value="提交" />
+        			</p>
+        		</form>
+        
+        		<h2>九、页面质量检查组件</h2>
+        		<p>使用说明：</p>
+        		<p>1、在autoload中添加speed/mo2组件;</p>
+        		<p>2、就会看到一个提交给http://dp3.qq.com的请求;</p>
+        
+        		<h2>十、工具组件</h2>
+        		<p>工具组件提供活动中常用的功能，如cookie操作，复制URL等;</p>
+        		<p>1、获取URL的Get参数，先把本页面的地址后面加上"?id=1",然后点击<a href="javascript:tUtilGet();">这里看看</a></p>
+        		<p>2、去除字符串首尾的空白字符，在后面的输入框输入前后有空白的文字，然后点击测试看看，<input type="text" id="tUtilInput" /><input type="button" value="测试" onclick="tUtilTrim();" /></p>
+        		<p>3、将文本拷贝到剪贴板，<a href="javascript:tUtilCopy();">点击这里</a>我们为你复制了一段话："hello world!"</p>
+        		<p>4、cookie操作，<a href="javascript:tCookieSet();">设置cookie</a> <a href="javascript:tCookieModify();">修改cookie</a> <a href="javascript:tCookieDel();">删除cookie</a></p>
+        
+        		<h2>十一、邀请组件</h2>
+        		<p>使用说明：</p>
+        		<p>复制活动链接转发给好友，支持在url前面或后面追加文本信息</p>
+        		<p><a href="javascript:tInvite();">点击这里测试</a></p>
+        
+        		<h2>十二、倒计时组件</h2>
+        		<p>使用说明：</p>
+        		<p>用于活动开始前或者秒杀开始前提醒</p>
+        		<p><a href="javascript:tTime();">点击这里测试</a>,活动起点时间：2012-12-12&nbsp;<span id="timer"></span></p>
+        
+        		<h2>十三、验证码组件</h2>
+        		<p>1、弹出验证码：$app.verifycode.show(); <a href="javascript:$app.verifycode.show('请输入验证码', verifyCallback);">点击弹出验证码</a></p>
+        		<p>2、关闭弹出的验证码：$app.verifycode.close(); </p>
+        		<p>3、弹出验证码方式的回调函数中取得验证码：function callback(e){alert('我是回调函数!你刚才输入的验证码是：'+e.verifycode);}</p>
+        		<p>4、直接显示验证码：$app.verifycode.nchangeImg();</p>
+        		<p>
+        			<img width="130" height="53" id="imgVerify1" src=""/>
+        			<a tabindex="6" id="changeimg_link" href="javascript:$app.verifycode.nchangeImg('imgVerify1');">看不清，换一张</a>
+        		</p>
+        
+        		<h2>十四、UI类Tips组件</h2>
+        		<p>Tips组件是右下角tips组件，常用于活动中随时更新的公告和紧急提示等。</p>
+        		<p><a href="javascript:tTips();">点击这里</a>看效果</p>
+        		<div id="tipsTest" style="height:118px;display:none;"><img src="demo/images/pop.jpg"></div>
+        
+        		<h2>十五、UI类Modal组件</h2>
+        		<p>Modal组件是弹出层组件，支持三种方式的数据源，iframe，file，id。</p>
+        		<p>弹出框上的关闭按钮支持设置不显示组件自带的关闭。</p>
+        		<p>1、<a href="javascript:tModalIframe();">点击这里</a>看看iframe方式效果。</p>
+        		<p>2、<a href="javascript:tModalFile();">点击这里</a>看看file方式效果。</p>
+        		<p>3、<a href="javascript:tModalId();">点击这里</a>看看id方式效果。</p>
+        		<div id="tModalTest" style="display:none;">
+        			<img src="demo/images/pop.jpg">
+        			<a style="display:block;position:absolute;cursor:pointer;right:3px;top:3px;width:15px;height:15px;line-height:15px;overflow:hidden;" href="javascript:$app.modal.removeAll();">&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        		</div>
+        
+        		<h2>十六、工具类QZone组件</h2>
+        		<p>Qzone组件是封装了qzone的发送日志，挂件和加入粉丝榜等功能。</p>
+        		<p>发送qzone日志和挂件是支持前台JS方式，但是需要自行设置回调函数来处理返回的结果和后台加分，监测，统计等功能</p>
+        		<p>1、<a href="javascript:tQzoneSendBlog();">点击这里</a>测试发送qzone日志</p>
+        		<p>2、<a href="javascript:tQzoneSendHang();">点击这里</a>测试发送qzone挂件</p>
+        		<!--p>3、<a href="javascript:tQzoneLike();">点击这里</a>测试加入粉丝榜。</p-->
+        		<p>3、<a href="javascript:tQzoneShare();">点击这里</a>测试分享到qzone。</p>
+
+				<h2>十七、表单生日选择组件</h2>
+				<p>防止误输入和输入错误日期</p>
+				<p>传入的参数比较多，支持change的时候回调函数</p>
+				<p>传入参数依次是：年选择框对象ID，月选择框对象ID，日选择框对象ID，年初始值，月初始值，日初始值，回调函数名称</p>
+				<p>这里是测试：<select id="y" name="y"></select>年
+				<select id="m" name="m"></select>月
+				<select id="d" name="d"></select>日
+				</p>
+
+				<h2>十八、表单省份城市选择组件</h2>
+				<p>防止误输入和输入错误省份城市</p>
+				<p>传入的参数依次是：省份选择框对象ID，城市选择框对象ID，省份默认值，城市默认值</p>
+				<p>这里的默认值必须是省份和城市代码ID</p>
+				<p>这里是测试：<select id="prov" name="prov"></select>省
+				<select id="city" name="city"></select>市
+				</p>
+
+				<h2>十九、分页导航组件</h2>
+				<p>ajax分页导航条，只需在拉取后台数据后传入正确的参数，就可以显示在页面显示分页导航条</p>
+				<p>传入的参数依次是：页面上显示分页条的容器ID，执行后台拉取数据的js函数名，参数对象，当前页面，后台返回记录总数，每页显示的记录数</p>
+				<p>每页显示的记录数默认是10条</p>
+				<p>这里是测试：</p>
+				<p id="pageNav" style="width:400px;"></p>
+				<p>需要修改分页的样式，请将如下CSS代码修改</p>
+				<pre>/* 分页 */
+.pagination {font-family: Tahoma;font-size: 12px;height: 22px;margin: 5px 10px;text-align: right;}
+.pagination a,.page-cur,.page-start,.page-end,.page-disabled,.page-skip {
+height:22px;line-height:22px;margin:0 3px 0 0;text-align:center;vertical-align:middle;white-space:nowrap;}
+.pagination input {border-width: 1px;}
+.page-start, .pagination a, .page-end, .page-disabled {border: 1px solid #CCCCCC;padding: 0 5px;}
+.pagination a {text-decoration: none;}
+.page-cur {background-color: #FFEDE1;border: 1px solid #FD6D01;color: #FD6D01;font-weight: 700;padding: 0 5px;}
+.page-disabled {color: #CCCCCC;}
+.page-skip {color: #666666;padding: 0 3px;}
+				</pre>
+
+				<h2>二十、投票服务</h2>
+				<p>只需传如被投票作品的ID或者QQ号码，默认的回调函数需要页面上有ID为“vote_{id}_count”的对象，会自动帮你完成页面上的票数更新，其中的{id}就是前面的参数ID</p>
+				<p>当前有<em id="vote_1_count">10</em>票，<a href="javascript:vote(1);">投他一票</a></p>
+				<h2>二十一、兑换服务</h2>
+				<p>目前互动活动的兑换有两种：用兑换码兑换奖品，用积分(某种资格)兑换奖品</p>
+				<p>用兑换码兑换奖品：<input type="input" name="excode" id="excode" /><input type="button" onclick="codeEx();" value="兑换" /></p>
+				<p>用积分(某种资格)兑换奖品：<input type="button" onclick="scoreEx(1);" value="兑换" /></p>
+
+				<h2>二十二、微博收听和取消收听</h2>
+				<p>参数是：微博帐号</p>
+				<p><a href="javascript:followme();">点击</a>测试收听 bondli</p>
+				<p><a href="javascript:unfollow();">点击</a>测试取消收听 dcshi</p>
+            </div>
+        </div>
+    </div>
+    <div class="lf-fot">
+        <div class="wrapper">
+            <div class="k">
+                <a class="fc08" href="http://www.tencent.com/" target="_blank">关于腾讯</a>
+                <span class="fc10">-</span>
+                <a class="fc08" href="http://www.tencent.com/index_e.shtml" target="_blank"> About Tencent</a>
+                <span class="fc10">-</span>
+                <a class="fc08" href="http://www.qq.com/contract.shtml" target="_blank">服务条款</a>
+                <span class="fc10">-</span>
+                <a class="fc08" href="http://www.tencentmind.com/" target="_blank">广告服务</a>
+                <span class="fc10">-</span>
+                <a class="fc08" href="http://hr.tencent.com/" target="_blank">腾讯招聘</a>
+                <span class="fc10">-</span>
+                <a class="fc08" href="http://service.qq.com/" target="_blank">客服中心</a>
+                <span class="fc10">-</span>
+                <a class="fc08" href="http://www.qq.com/map/" target="_blank">网站导航</a>
+           </div>
+           <p class="fc10">Copyright &copy; 1998-2011 Tencent Inc. All Rights Reserved</p>
+           <p class="fc10">腾讯公司 版权所有</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+$(function(){
+	var userStatus = $app.auth.isLogin();
+	if(userStatus){
+		var str = $app.auth.getQQNum()+'，你已经登录，';
+		$app.G('us').innerHTML = str + '<a href="javascript:$app.auth.logout();">点击注销</a>';
+	}
+	else{
+		$app.G('us').innerHTML = '你没有登录，<a href="javascript:$app.auth.login();">点击登录</a>';
+	}
+
+	loader('form/form',function(){
+		$app.form.checkForm('test','post',function(){
+			alert('提交成功!');
+		});
+	});
+
+	$app.verifycode.nchangeImg('imgVerify1');
+
+	//初始化生日
+	loader('form/brith',function(){
+		$app.brith.init('y','m','d','','','');
+	});
+
+	//初始化省份城市
+	loader('form/procity',function(){
+		$app.procity.init('prov','city','23','281');
+	});
+
+	//分页导航测试
+	testPage(1);
+});
+
+function followme(){
+	loader('weibo/follow',function(){
+		$app.follow.listen('pconline');
+	});
+}
+
+function unfollow(){
+	loader('weibo/follow',function(){
+		$app.follow.cancel('dc_shi');
+	});
+}
+
+function vote(id){
+	loader('service/vote',function(){
+		$app.vote(1);
+	});
+}
+
+function codeEx(){
+    loader('service/exchange',function(){
+        var excode = $app.G('excode').value;
+		$app.exchange.code(excode);
+	});
+}
+
+function scoreEx(id){
+    loader('service/exchange',function(){
+		$app.exchange.score(id);
+	});
+}
+
+function testPage(curPage){
+	//TODO::这里进行后台数据拉取
+	loader('utils/pager',function(){
+		$app.pager('pageNav','testPage','',curPage,100,5);
+	});
+}
+
+function tAppG(){
+	var obj = $app.G('a1');
+	alert('你点击的对象的链接是：'+obj.href);
+}
+
+function tAppAddEv(){
+	$app.addEvent('a3','click',function(){
+		alert('我被点击了！');
+	});
+}
+
+function tAppCss(){
+	$app.css('src/dialog/skin/qzone.css');
+}
+
+function tAjaxGet(){
+	loader('ajax/ajax',function(){
+		$app.ajax.get('demo/hello.html',function(e){
+			alert('通过get，返回了：'+e);
+		});
+	});
+}
+
+function tAjaxGetJson(){
+	loader('ajax/ajax',function(){
+		$app.ajax.getJSON('demo/helloJson.html',function(e){
+			alert('通过getJSON，返回了：code:'+e.code+",message:"+e.message);
+		});
+	});
+}
+
+function tAjaxPost(){
+	loader('ajax/ajax',function(){
+		$app.ajax.post('demo/hello.html','',function(e){
+			alert('通过post，返回了：'+e);
+		});
+	});
+}
+
+function tAjaxSync(){
+	loader('ajax/ajax',function(){
+		var t = $app.ajax.sync('demo/hello.html','get',{},'json');
+		alert(t);
+	});
+}
+
+function tAjaxQueue(){
+	loader('ajax/ajaxQueue',function(){
+			var queueArr = [
+				{url:"demo/hello.html",success:function(e){$app.G('r1').innerHTML = e;},type:'text'},
+				{url:"demo/hello.html",success:function(e){$app.G('r2').innerHTML = e;},type:'text'},
+				{url:"demo/hello.html",success:function(e){$app.G('r3').innerHTML = e;},type:'text'}
+			];
+ 			$app.ajaxQueue.run(queueArr); 
+		});
+}
+
+function tCal(){
+	loader('calendar/simple',function(){
+		var obj = $app.G('startTime');
+		$app.calendar.setDate(obj);
+	});
+}
+
+function tCalI(date){
+	loader('calendar/simple',function(){
+		var obj = $app.G('endTime');
+		$app.calendar.setDate(obj,date);
+	});
+}
+
+function tDialog(){
+	loader('dialog/dialog',function(){
+		$app.dialog.show({
+			title: '你好',
+			content: '你好，哈哈',
+			width: 400,
+			height: 150,
+			mask: true,
+			callback: ''//function(){alert('我是回调函数!');}
+		});
+	});
+}
+
+function tDom1(){
+	loader('dom/dom',function(){
+		//判断是否有该class
+		if($app.dom.hasClass($app.G('d1'),'aa')){
+			alert('你点击的对象有aa类');
+		}
+		else{
+			alert('你点击的对象没有aa类');
+		}
+	});
+}
+
+function tDom2(){
+	loader('dom/dom',function(){
+		$app.dom.addClass($app.G('d2'),'test');
+	});
+}
+
+function tDom3(){
+	loader('dom/dom',function(){
+		$app.dom.removeClass($app.G('d3'),'test');
+	});
+}
+
+function tDom4(){
+	loader('dom/dom',function(){
+		var styles = $app.dom.getStyle($app.G('pp'),'width',1);
+		alert('你点击的对象的宽度是：'+styles);
+	});
+}
+
+function tUtilGet(){
+	var id = $app.util.getURLParam('id');
+	alert('当前url上的参数id的值是：'+id);
+}
+
+function tUtilTrim(){
+	var val = $app.G('tUtilInput').value;
+	val = $app.util.trim(val);
+	if(val == ''){
+		alert('你没有输入！');
+	}
+	else{
+		alert('你输入的去掉前后空白后的文字是：'+val);
+	}
+}
+
+function tUtilCopy(){
+	var txt = "hello world!";
+	$app.util.copyToClipboard(txt);
+}
+
+function tCookieSet(){
+	$app.util.cookie("jslib", "1.4",{"domain":"appmedia.qq.com","path":"/","expires":3600}); 
+	alert("你已经为你的浏览器中设置了jslib为1.4的cookie，请利用工具查看!");
+}
+
+function tCookieModify(){
+	$app.util.cookie("jslib", "1.4.2",{"domain":"appmedia.qq.com","path":"/","expires":3600}); 
+	alert("浏览器中jslib为1.4的cookie修改了值为1.4.2，请利用工具查看!");
+}
+
+function tCookieDel(){
+	$app.util.cookie("jslib", null); 
+	alert("浏览器中jslib的cookie已经删除，请利用工具确认!");
+}
+
+function tInvite(){
+	var userStatus = $app.auth.isLogin();
+	if(userStatus){
+		var loginQQ = $app.auth.getQQNum();
+		var url = "http://wt.act.qq.com/?FQQ="+loginQQ;
+		var isAlert = true;
+		var append = "欢迎你参加三九胃泰三行情书活动，大奖等你拿哦！";
+		loader('utils/invite',function(){
+			$app.invite(url,loginQQ,isAlert,append,true); 
+		});
+	}
+	else{
+		alert('请先登录QQ！');
+		$app.auth.login();
+	}
+}
+
+function tTime(){
+	loader('utils/timer',function(){
+		$app.timer.init('timer','2012-12-12'); 
+		$app.timer.run(); 
+	});
+	
+}
+
+function verifyCallback(e){
+	alert('我是回调函数!你刚才输入的验证码是：'+e.verifycode);
+}
+
+function tTips(){
+	loader('ui/tips',function(){
+		$app.tips('tipsTest');
+	});
+}
+
+function tModalIframe(){
+	loader('ui/modal',function(){
+		$app.modal.show('http://www.qq.com','iframe',{'width':'500px','height':'300px'});
+	});
+}
+
+function tModalFile(){
+	loader('ui/modal',function(){
+		$app.modal.show('demo/modal.php.html','file','',0);
+	});
+}
+
+function tModalId(){
+	loader('ui/modal',function(){
+		$app.modal.show('tModalTest','','',0);
+	});
+}
+
+function tQzoneSendBlog(){
+	var userStatus = $app.auth.isLogin();
+	if(userStatus == false){
+		alert('请先登录QQ!');return;
+	}
+	loader('utils/qzone',function(){
+		$app.qzone.sendBlog('10000','callbackSendBlog');
+	});
+}
+
+function callbackSendBlog(data){
+	if(typeof data.error == 'undefined'){
+		alert('温馨提示:发送QZone日志成功!');
+		//后台加分和行为监测等逻辑处理
+	}
+	else{
+		if(data.error.errcode == 4503){
+			alert("温馨提示:您已经发送过QZone日志了!");
+		}
+		else{
+			alert(data.error.msg);
+		}
+	}
+}
+
+function tQzoneSendHang(){
+	var userStatus = $app.auth.isLogin();
+	if(userStatus == false){
+		alert('请先登录QQ!');return;
+	}
+	loader('utils/qzone',function(){
+		$app.qzone.sendHang('10001',1,'callbackSendHang');
+	});
+}
+
+function callbackSendHang(data){
+	if(typeof data.error == 'undefined'){
+		alert('温馨提示:发送挂件成功!');
+		//后台加分和行为监测等逻辑处理
+	}
+	else{
+		if(data.error.errcode == 4503){
+			alert("温馨提示:您已经发送过挂件了!");
+		}
+		else{
+			alert(data.error.msg);
+		}
+	}
+}
+
+function tQzoneLike(){
+	var userStatus = $app.auth.isLogin();
+	if(userStatus == false){
+		alert('请先登录QQ!');return;
+	}
+	loader('utils/qzone',function(){
+		$app.qzone.like('706290235');
+	});
+}
+
+function tQzoneShare(){
+	loader('utils/qzone',function(){
+		$app.qzone.share('http://www.qq.com');
+	});
+}
+
+</script>

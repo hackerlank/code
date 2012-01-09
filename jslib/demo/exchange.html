@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="http://jslib.qq.com/jslib-1.4.2.js"></script>
+<title>jslib1.4.2兑换服务</title>
+</head>
+<body>
+	<h2>jslib1.4.2兑换服务</h2>
+    <p>目前互动活动的兑换有两种：用兑换码兑换奖品，用积分(某种资格)兑换奖品</p>
+				<p>用兑换码兑换奖品：<input type="input" name="excode" id="excode" /><input type="button" onclick="codeEx();" value="兑换" /></p>
+				<p>用积分(某种资格)兑换奖品：<input type="button" onclick="scoreEx(1);" value="兑换" /></p>
+    <pre>function codeEx(){
+    loader('service/exchange',function(){
+        var excode = $app.G('excode').value;
+		$app.exchange.code(excode);
+	});
+}
+
+function scoreEx(id){
+    loader('service/exchange',function(){
+		$app.exchange.score(id);
+	});
+}
+
+</pre>
+    
+</body>
+</html>
+<script type="text/javascript">
+function codeEx(){
+    loader('service/exchange',function(){
+        var excode = $app.G('excode').value;
+		$app.exchange.code(excode);
+	});
+}
+
+function scoreEx(id){
+    loader('service/exchange',function(){
+		$app.exchange.score(id);
+	});
+}
+</script>

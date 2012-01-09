@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jslib1.4.2 QQ注册资料测试</title>
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="http://lf.addev.com/jslib/jslib-1.4.2.js"></script>
+</head>
+<body>
+	<h2>注册资料测试</h2>
+	<p><a href="javascript:reg();">点击弹出注册</a></p>
+</body>
+</html>
+<script type="text/javascript">
+function reg(){
+	//弹出注册框时加载注册组件，然后回调函数来处理代码
+	loader('register/register',function(){
+		$app.register.show();
+	});
+}
+</script>

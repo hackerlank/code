@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="http://lf.addev.com/jslib/jslib-1.4.2.js"></script>
+<title>jslib1.4.2工具类组件函数</title>
+</head>
+<body>
+	<h2>jslib1.4.2工具类组件函数</h2>
+	<p>1、获取URL的Get参数，如当前浏览器的url是"http://test.qq.com?id=1",这样我们一般可以如下代码获得ID的值：<a href="javascript:tUtilGet();"></a></p>
+    <pre>function tUtilGet(){
+	var id = $app.util.getURLParam('id');
+	alert('当前url上的参数id的值是：'+id);
+}</pre>
+    <p>2、去除字符串首尾的空白字符，先输入前后有空白的文字，然后点击测试看看，
+      <input type="text" id="tUtilInput" /><input type="button" value="测试" onclick="tUtilTrim();" /></p>
+    <pre>function tUtilTrim(){
+	var val = $app.G('tUtilInput').value;
+	val = $app.util.trim(val);
+	if(val == ''){
+		alert('你没有输入！');
+	}
+	else{
+		alert('你输入的去掉前后空白后的文字是：'+val);
+	}
+}  </pre>
+    <p>3、将文本拷贝到剪贴板，<a href="javascript:tUtilCopy();">点击这里</a>我们为你复制了一段话："hello world!"</p>
+    <pre>function tUtilCopy(){
+	var txt = "hello world!";
+	$app.util.copyToClipboard(txt);
+}  </pre>
+    <p>4、cookie操作，<a href="javascript:tCookieSet();">设置cookie</a> <a href="javascript:tCookieModify();">修改cookie</a> <a href="javascript:tCookieDel();">删除cookie</a></p>
+    <pre>function tCookieSet(){
+	$app.util.cookie("jslib", "1.4",{"domain":"appmedia.qq.com","path":"/","expires":3600}); 
+	alert("你已经为你的浏览器中设置了jslib为1.4的cookie，请利用工具查看!");
+}
+
+function tCookieModify(){
+	$app.util.cookie("jslib", "1.4.2",{"domain":"appmedia.qq.com","path":"/","expires":3600}); 
+	alert("浏览器中jslib为1.4的cookie修改了值为1.4.2，请利用工具查看!");
+}
+
+function tCookieDel(){
+	$app.util.cookie("jslib", null); 
+	alert("浏览器中jslib的cookie已经删除，请利用工具确认!");
+}</pre>
+	<p>5、收藏网址，<a href="javascript:tUtilFavorite();">点击这里</a>收藏本站点</p>
+    <pre>function tUtilFavorite(){
+	var sUrl = "http://lf.addev.com/jslib/";
+	var sTitle = "JSLib|互动活动前端开发JS框架";
+	$app.util.favorite(sUrl,sTitle);
+}  </pre>
+</body>
+</html>
+<script type="text/javascript">
+function tUtilTrim(){
+	var val = $app.G('tUtilInput').value;
+	val = $app.util.trim(val);
+	if(val == ''){
+		alert('你没有输入！');
+	}
+	else{
+		alert('你输入的去掉前后空白后的文字是：'+val);
+	}
+}
+
+function tUtilCopy(){
+	var txt = "hello world!";
+	$app.util.copyToClipboard(txt);
+}
+
+function tCookieSet(){
+	$app.util.cookie("jslib", "1.4",{"domain":"appmedia.qq.com","path":"/","expires":3600}); 
+	alert("你已经为你的浏览器中设置了jslib为1.4的cookie，请利用工具查看!");
+}
+
+function tCookieModify(){
+	$app.util.cookie("jslib", "1.4.2",{"domain":"appmedia.qq.com","path":"/","expires":3600}); 
+	alert("浏览器中jslib为1.4的cookie修改了值为1.4.2，请利用工具查看!");
+}
+
+function tCookieDel(){
+	$app.util.cookie("jslib", null); 
+	alert("浏览器中jslib的cookie已经删除，请利用工具确认!");
+}
+function tUtilFavorite(){
+	var sUrl = "http://lf.addev.com/jslib/";
+	var sTitle = "JSLib|互动活动前端开发JS框架";
+	$app.util.favorite(sUrl,sTitle);
+}
+</script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jslib1.4.2高级表单验证组件</title>
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="http://jslib.qq.com/jslib-1.4.2.js"></script>
+</head>
+
+<body>
+	<h2>高级表单验证组件</h2>
+	<p>该组件和表单验证组件多了一个功能，支持定义出错信息的对象来显示错误信息</p>
+    <pre>$(function(){
+	loader('form/advForm',function(){
+		$app.advForm.checkForm('test','error','post',function(){
+			alert('提交成功!');
+		});
+	});
+});</pre>
+	<p>以下是实例：</p>
+	<form action='formAction.html' id='test' method='post'>
+		<p style="width:100%;height:30px;">
+			<label style="float:left;">姓名:</label>
+			<input style="float:left;" type="text" datatype='require' msg='姓名不能为空' name="username" />
+			<span style="float:left;" id="error"></span>
+		</p>
+		<p>
+			<input type="submit" value="提交" />
+		</p>
+	</form>
+</body>
+</html>
+<script type="text/javascript">
+$(function(){
+	loader('form/advForm',function(){
+		$app.advForm.checkForm('test','error','post',function(){
+			alert('提交成功!');
+		});
+	});
+});
+</script>

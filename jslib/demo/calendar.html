@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jslib1.4.2 日历控件组件</title>
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="http://jslib.qq.com/jslib-1.4.2.js"></script>
+</head>
+<body>
+	<h2>calendar组件</h2>
+	<p>这是一个简单的日历选择控件，常用于选择生日和日期的表单中</p>
+	<p>使用说明</p>
+	<p>简单弹出：$app.calendar.setDate(this);</p>
+	<p>带初始值：$app.calendar.setDate(this,'2010-12-01');</p>
+	<p>使用示例</p>
+	<p>点击这里选择日期:<input type="text" style="width: 77px;" onclick="$app.calendar.setDate(this);" id="startTime" name="startTime"></p>
+</body>
+</html>
+<script type="text/javascript">
+$(function(){
+	loader('calendar/simple',function(){
+	});
+});
+</script>

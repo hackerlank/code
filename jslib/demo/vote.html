@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="http://lf.addev.com/jslib/jslib-1.4.2.js"></script>
+<title>jslib1.4.2投票服务</title>
+</head>
+<body>
+	<h2>jslib1.4.2投票服务</h2>
+    <p>只需传如被投票作品的ID或者QQ号码，默认的回调函数需要页面上有ID为“vote_{id}_count”的对象，会自动帮你完成页面上的票数更新，其中的{id}就是前面的参数ID</p>
+				<p>当前有<em id="vote_1_count">10</em>票，<a href="javascript:vote(1);">投他一票</a></p>
+    <pre>function vote(id){
+	loader('service/vote',function(){
+		$app.vote(1);
+	});
+}
+
+</pre>
+    
+</body>
+</html>
+<script type="text/javascript">
+function vote(id){
+	loader('service/vote',function(){
+		$app.vote(1);
+	});
+}
+</script>
