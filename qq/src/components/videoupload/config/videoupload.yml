@@ -1,0 +1,39 @@
+
+##日期设置,注意日期需要引号，不然会解析成timestamp
+date:
+  start: "2011-08-01 00:00:00"
+  end: "2011-12-31 23:59:59"
+
+##返回信息
+result:
+  SUCCESS: {code:0, message:操作成功}
+  ERROR_FAIL: {code:10001, message:操作失败}
+  ERROR_VERIFY: {code:10003, message:请输入正确的验证码}
+  #标签只支持0~9a~zA~Z与中文字符
+  ERROR_TAG_INPUT: {code:10002, message:请输入正确的标签}
+  ERROR_SYSTEM_BUSY: {code: 10100, message:系统繁忙}
+  ERROR_SYSTEM_TIMEOUT: {code: 10101, message: 不在开放时间}
+  ERROR_SYSTEM_ISNOT_LOGIN: {code:10102, message: 请登录您的QQ账号}
+
+##视频最大限制10M
+size_limit: 10485760
+
+#appkey 可以默认为空
+appkey: 
+
+### --= 服务器配置信息  - 非特殊情况 - 请勿修改 =--
+
+# php端和”上传web服务器CGI”约定的私钥
+private_key : tae_uploadvideo_1
+
+# 票据服务器配置
+ticket_server:
+  host: 10.6.208.188
+  port: 26000
+
+# 上传文件服务器配置
+file_server:
+  upload_url: http://upload.act.qq.com/cgi-bin/up_video
+
+# 是否限制同一个视频上传, 0：允许 1：不允许
+up_flag: 1

@@ -1,0 +1,70 @@
+#支撑平台抽奖id
+lotteryId: 1
+
+#活动抽奖的开始与结束时间,注意日期需要引号，不然会解析成timestamp
+date:
+  start: "2009-09-04 00:00:00"
+  end: "2011-12-31 23:59:59"
+
+#是否需要验证码，key表示表单提交的verifycode的key名
+verifyCode:
+  need: false
+  key: verifycode
+
+#例如下面的配置表示每个用户每天只能抽奖100次，总共可以抽奖10000次
+#limit:
+#  day: 100
+#  total: 10000
+
+#每次抽奖需要多少积分，默认积分字段是Tbl_User.FScoreCount
+#注释掉score表示本次抽奖，不需要消耗积分，防刷验证需要调用者另外实现
+#下面的lottery表示的是扣分策略，加分策略在root_path下面的config/score.yml中定义的，strategy也可以是int数值
+#默认扣分的对象是user，user数据对象也是在root_path下面的config/score.yml中定义的
+score: 
+  need: false
+  deductStrategy: lottery
+  dataAlias: user
+  transaction: true
+
+#MP奖品是否实时发送
+mp:
+  send: false
+
+#奖品ID和详细信息对应
+#1. type指score、mp、other、none四者之一
+#   score 积分类型的奖励
+#   mp 需要实时发送的QQ虚拟奖品
+#   none 没有中奖
+#   other 除以上奖品以外的所有奖品类型（提示：不需要实时发送的QQ虚拟奖品）
+#2. name指奖品名称
+#3. value表示具体奖品的值，如果是积分类奖品则是对应积分数，如果是虚拟物品，则是物品id
+#4. actid表示需要发送虚拟物品的营销平台活动ID
+awardInfo:
+  101: {name: 红钻, type: mp, value: 123123123123, actid: MP123871832123, message: "恭喜您获得了一颗红钻"}
+  102: {name: 绿钻, type: mp, value: 123123123123, actid: MP123871832123, message: "恭喜您获得了一颗绿钻"}
+  0: {message: "很抱歉，没中奖"}
+
+
+#系统返回代码设置
+#大于80的错误代码不会返回默认奖项，小于80的则会返回，因为大于80的奖项不会扣除积分
+#如果错误代码是80，则证明操作数据库错误，应该特别注意。
+code:
+  SYSTEM_BUSY: 80
+  NOT_LOGIN: 81
+  NOT_BEGIN: 82
+  HAS_ENDED: 83
+  NOT_ENOUGH_SCORE: 84
+  ERROR_VERIFYCODE: 85
+  OUTOF_DRAW_ONEDAY_LIMIT: 86
+  OUTOF_DRAW_TOTAL_LIMIT: 87
+
+#系统信息
+messages:
+  80: 系统繁忙，请稍后再试……
+  81: 您还没有登录。
+  82: 活动抽奖还没有开始。
+  83: 活动抽奖已经结束，谢谢您的关注。
+  84: 您的积分不够。
+  85: 您的验证码错误
+  86: 您已经达到了每天抽奖的次数限制
+  87: 您已经达到了总抽奖次数限制

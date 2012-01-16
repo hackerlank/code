@@ -1,0 +1,14 @@
+#before_dispatcher_initialize:
+#  - {class: TMProfile, function: in, static: 1, data: ['total_execute']}
+#after_dispatcher_dispatch:
+#  - {class: TMProfile, function: out, static: 1, data: ['total_execute']}
+#before_lottery_run:
+#  - {class: TMProfile, function: in, static: 1, data: ['lottery_execute']}
+#after_lottery_run:
+#  - {class: TMProfile, function: out, static: 1, data: ['lottery_execute']}
+#before_sql_execute:
+#  - {class: Demo, function: profileIn, static: 1, data: ['sql_execute']}
+#after_sql_execute:
+#  - {class: Demo, function: profileOut, static: 1, data: ['sql_execute']}
+#befor_addScore:
+#  - {class: Demo, function: beforeAddScore}

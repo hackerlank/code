@@ -1,0 +1,18 @@
+userdbbak:
+  dbname: act_user
+actdbbak:
+  dbname: act_641009454
+read:
+  dbname:
+  test:
+    host:
+    username:
+    password:
+  beta:
+    host:
+    username:
+    password:
+  production:
+    host:
+    username:
+    password:

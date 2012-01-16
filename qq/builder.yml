@@ -1,0 +1,12 @@
+machine_ip: localhost
+appid: 4008401
+appname: laneige
+pathname: laneige
+tams_id: 641009454
+domain-prefix: laneige
+domain-postfix: .act.qq.com
+baseurl: http://test.qq.com/
+dbname: Vendor_DB_Laneige2011
+dbhost-online: 172.17.138.53
+serveradmin: qrangechen
+version: mvc1.0

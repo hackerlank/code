@@ -1,0 +1,2 @@
+default: [default, award]
+user: [saveInfo]

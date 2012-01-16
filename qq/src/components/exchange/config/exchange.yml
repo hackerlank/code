@@ -1,0 +1,108 @@
+##兑换记录明细表
+historyTable: Tbl_ExchangeHistory
+
+##日期设置,注意日期需要引号，不然会解析成timestamp
+date:
+  start: "2010-02-18 00:00:00"
+  end: "2010-09-15 17:00:00"
+##设置每天可兑换的时段
+time:
+  - 
+    start: 12:30:00
+    end: 23:59:59
+
+##兑换变量名，如果不设置默认是 exgid
+parameterNames:
+  des: exgid
+  verifycode: verifycode
+
+##积分操作相关的dao数据别名表
+dataAlias: user
+
+##兑换物品列表
+items:
+  ##红钻
+  1:
+    name: QQ红钻
+    ##需要的积分，详见score配置
+    need: ex_item_1
+    itemcode: mp1
+    limits:
+      #每人可以兑换次数
+      times: 1
+      #每人每天可以兑换次数限制
+      timesOneday: 0
+      #总的奖品数
+      items: 1500
+      #每天奖品数
+      itemsOneday: 6
+  2:
+    name: QQ黄钻
+    ##需要的积分，详见score配置
+    need: ex_item_2
+    itemcode: mp2
+    limits:
+      #每人可以兑换次数
+      times: 1
+      #每人每天可以兑换次数限制
+      timesOneday: 0
+      #总的奖品数
+      items: 1500
+      #每天奖品数
+      itemsOneday: 6
+  3:
+    name: QZONE皮肤
+    need: ex_item_4
+    itemcode: mp4
+    limits:
+      times: 1
+      timesOneday: 0
+      items: 5000
+      itemsOneday: 28
+  4:
+    name: QQ服装
+    need: ex_item_5
+    itemcode: mp5
+    limits:
+      times: 1
+      timesOneday: 0
+      items: 10000
+      itemsOneday: 56  
+
+##额外处理，比如添加积分等等
+hooks:
+  afterExchange:
+    className: ProjectHooks
+    functionName: afterExchange
+
+##返回编码
+code:
+  EXG_SUCCESS: 0
+  EXG_NOLOGIN: 1
+  EXG_SYSTEM_BUSY: 2
+  EXG_ERROR_VERIFY: 3
+  EXG_ERROR_ITEM: 4
+  EXG_NOT_BEGIN: 5
+  EXG_EXPIRED: 6
+  EXG_EXCEED_TIMES: 7
+  EXG_EXCEED_TIMES_ONEDAY: 8
+  EXG_EXCEED_ITEMS: 9
+  EXG_EXCEED_ITEMS_ONEDAY: 10
+  EXG_NOT_ENOUGH_SCORE: 11
+  EXG_NOT_IN_TIME: 12
+
+##返回提示
+messages:
+  0: 兑换成功。
+  1: 请先使用您的QQ号码登录^^
+  2: 系统繁忙，请稍候再试。
+  3: 验证码输入不正确
+  4: 兑换的物品不正确
+  5: 该物品的兑换还没有开始，谢谢您的关注。
+  6: 该物品的兑换已经结束，谢谢您的关注。
+  7: 该物品每人限制兑换%s次。
+  8: 该物品每人每天限制兑换%s次，请明天再继续吧。
+  9: 很抱歉，该物品已经兑换完了。
+  10: 很抱歉，已经达到该物品今天的兑换限额，请明天早点来兑换吧。
+  11: 很抱歉，您的积分不够。
+  12: 很抱歉，不在兑换时段以内。

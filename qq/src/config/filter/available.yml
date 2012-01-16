@@ -1,0 +1,10 @@
+name: NIKEBABY
+availableList:
+  - 
+    name: demoaward
+    fromdate: 2009-05-01
+    todate: 2019-09-01
+    isAjax: noajax
+    return: http://demo.qq.com
+    frommessage: 时间到了，看不了了，请去available.yml进行配置
+    tomessage: 时间到了，看不了了，请去available.yml进行配置

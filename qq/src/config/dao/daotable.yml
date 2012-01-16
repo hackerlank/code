@@ -1,0 +1,5 @@
+baseUser:
+  hot:
+    - [FTrueName, FNick, FSex, FAge, FBirthday, FDegree, FProvince, FCity, FCareer, FEmail, FTel, FMobile, FTime, FLastTime]
+  lazy:
+    - [FAddr, FZipCode, FIdcard, FBloodType, FSalary, FHeight, FWeight, FCollege, FHomePage, FFavorate, FPersonalDesc, FReliqion, FParty, FMarry, FZodiac, FZodiac_cn, FLastTime, FValue1, FValue2]

@@ -1,0 +1,19 @@
+debug_mode: true
+
+namespace: laneige
+tams_id: 641009454
+appid: 4008401
+domain: test.qq.com
+base_url: http://test.qq.com/
+dbname: Vendor_DB_Laneige2011
+error_log:
+  path: "log/error_log"
+  size: 134217728
+
+##additional
+filter_esc_enable: true
+hook: false
+mysqlStringColumns: ['FQQ', 'FDesId', 'FSrcId', 'FValue1', 'FSrcQQ', 'FDesQQ', 'FJoinQQ', 'FInviteQQ']
+
+##components
+components: []

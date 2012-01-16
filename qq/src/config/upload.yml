@@ -1,0 +1,22 @@
+upload:
+  upload_path: "/usr/local/tads/htdocs/test.qq.com_641009454_view/upload/"
+  download_path: "http://test.qq.com/upload/"
+  upload_one_day: 10
+  
+  file_max_size: 500
+  graphValidatedTypes: ['.jpg', '.gif']
+
+  audio_max_size: 1024
+  audioValidatedTypes: ['.mp3', '.wma']
+
+  video_max_size: 1024
+  videoValidatedTypes: ['.flv', '.wmv']
+
+  water_path: "/usr/local/tads/htdocs/test.qq.com_641009454_view/upload/water.png"
+  water_point: 2
+  water_x_pos: 10
+  water_y_pos: 10
+
+  thumb_width: 120
+  thumb_height: 105
+  thumb_pix: 'mini_'

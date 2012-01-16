@@ -1,0 +1,144 @@
+#保存数据库的配置，请选择 插入数据库 还是 更新数据库，如果注释这一系列选项则表示不保存到数据库
+save2db:
+  insert:
+    table: Tbl_File
+    urlField: FUrl
+    miniField: FMiniUrl
+    descField: FDesc
+    timeField: FTime
+    dateField: FDate
+    qqField: FQQ
+    #可增加其他带默认值的字段
+    otherDefaultValue:
+      FType: 1
+      FEnable: 2
+
+#save2db:
+#  update:
+#    table: Tbl_User
+#    urlField: FFileUrl
+#    miniField: FValue2
+#    descField: FFileDesc
+#    otherDefaultValue:
+#      FValue3: 2
+#    conditionField: FQQ
+#    staticCondition:
+#      FEnable: 0
+
+#是否限制每天的最大上传量，注意如果是更新某个数据库字段或者是不存入数据库，则不支持每天限制
+#onedayLimit: 1
+
+#文件类型，后缀名
+types: [.jpg, .gif]
+
+#文件大小限制, KB
+maxSize: 2048
+
+#如果是图片，可以限制尺寸
+maxImageSize:
+  #限定最小、最大长度
+  width:
+    min: 100
+    #max: 2000
+  #限定最小、最大高度
+  height:
+    min: 100
+  #限定图片的最大长宽乘积，防止图片处理时因为图片像素过高而使用内存太大
+  multiply:
+    max: 40000000
+
+#存储路径，如果不设置，将使用TMConfig中的  UPLOAD_PATH
+#uploadPath: /usr/local/tads/htdocs/nfc/src/web/data/
+#下载、显示路径，如果不设置，将使用TMConfig中的 DOWNLOAD_PATH
+#downloadPath: http://nfc.qq.com/data/
+
+#是否支持从QQ相册获取照片
+#enableFromQZone: false
+
+#是否生成缩略图（如果不需要缩略图，请把这一块全部注释）
+thumb:
+  #缩略图前缀
+  pix: mini_
+  #缩略图宽度
+  width: 100
+  #缩略图高度
+  height: 100
+  #是否按比例缩放
+  #如果不支持，则直接缩放至要求长宽
+  #默认为1，即支持按比例缩放
+  scale: 1
+  #是否延展图片
+  #如果支持延展，则统一按照 宽、高 两者中较大缩放比例进行缩放，例如 将 2000*1000 缩放至 50*100，最后得到的图片是 50*25
+  #如果不支持延展，则按照 宽、高 两者中较小的缩放比例进行缩放（较大缩放比例的那边，取中间部分进行缩放），例如 将 2000*1000 缩放至 50*100， 最后得到的图片是 50*100 （取2000*1000 的中间 500*1000 进行缩放）
+  #默认为1，即支持延展
+  stretch: 1
+  #是否支持自定义裁剪（前台js选择范围，后台剪切）
+  cut: 0
+
+#剪切设置
+cutinfo:
+  selector:
+    width: 360
+    height: 360
+  cutIframe:
+    width: 580
+    height: 460
+
+descMaxLength: 80
+
+errors:
+  UPLOAD_ERROR_SYSTEM: 1
+  UPLOAD_ERROR_WATER: 2
+  UPLOAD_ERROR_THUMB: 3
+  UPLOAD_ERROR_PIX: 4
+  UPLOAD_ERROR_SIZE: 5
+  UPLOAD_ERROR_COUNT: 6
+  UPLOAD_ERROR_ONE_DAY: 7
+
+#文字信息
+i18n:
+  errors:
+    1: 系统繁忙请稍后重新上传
+    2: 添加水印图失败，请重试
+    3: 生成缩略图失败，请重新上传
+    4: 您上传的文件格式不正确
+    5: 您上传的文件过大
+    6: 上传文件不能为空
+    7: 您今天上传的文件个数超过了限制
+  #入口页面
+  entry:
+    uploadSuccessInfo: 上传图片成功
+    cutIframeTitle: 自定义剪切
+    uploadIframeTitle: 上传图片
+  #上传页面
+  upload:
+    title: 上传图片
+    intro: <span style="font-weight:bold;color:#51AD23;">注意事项：</span><br/>&nbsp;&nbsp;1. 请上传一张图片尺寸不小于 100X100 的图片<br/>&nbsp;&nbsp;2. 支持文件格式：jpg,gif<br/>&nbsp;&nbsp;3. 图片大小不要超过2M<br/>&nbsp;&nbsp;4. 谢绝上传无版权内容！请确定您对您上传的图片拥有自主版权
+    browse: 浏览
+    upload: 上传图片
+  #执行上传，以及上传结果
+  doupload:
+    title: 上传图片结果
+    getImageSizeFailed: 获取图片大小失败，请检查图片是否正常
+    imageWidthMin: 图片宽度不应小于%s。
+    imageWidthMax: 图片宽度不应大于%s。
+    imageHeightMin: 图片高度不应小于%s。
+    imageHeightMax: 图片高度不应大于%s。
+    imageMultiplyMin: 图片尺寸太小。
+    imageMultiplyMax: 图片尺寸太大，请裁剪图片尺寸。
+    descTooLong: 图片描述不可以超过%s个字符
+  #剪切前台页面
+  cut:
+    title: 图片剪切
+    intro: 请拖动、缩放下图中的选择框，选择合适的部位进行剪切。
+    btn: 确定剪切
+    saving: 正在保存，请稍后……
+    imageSelectedTooSmall: 您选择的图像太小了。
+    noId: 没有获取到图片id
+    getInfoFailed: 没有获取到图片的相关信息
+    getImageSizeFailed: 无法获取图片的尺寸
+  #执行剪切，以及剪切结果
+  docut:
+    title: 图片剪切结果
+    noId: 没有获取到图片id
+    getInfoFailed: 没有获取到图片的相关信息

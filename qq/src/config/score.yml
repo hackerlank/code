@@ -1,0 +1,36 @@
+##加分策略
+strategies:
+  ##给攻略投票，为投票用户增加1分
+  vote: 1
+  ##配置也可以是更复杂的格式，如下所示
+  lottery: 
+    #积分数，分数也可以是负数【非必填，如果不填则必须在调用操作积分函数时作为参数传入】
+    value: -30
+  ##配置也可以是更复杂的格式，如下所示
+  lottery2: 
+    #积分数，分数也可以是负数【非必填，如果不填则必须在调用操作积分函数时作为参数传入】
+    value: -30
+    #加分次数限制，默认为不限制【非必填】
+    limit:
+      #每天最多加2次【非必填】
+      oneday: 200
+      #整个活动期间最多加10次【非必填】
+      total: 10000
+
+#数据保存别名设置
+dataAlias:
+  #给用户加分的默认配置，【【【【抽奖组件使用其作为默认数据存储别名】】】】
+  user:
+    #积分表的DAO别名
+    target: user
+    #字段名，默认是FScoreCount【非必填】
+    scoreField: FScoreCount
+    #详细记录表的DAO别名
+    detail: scoredetail
+  lottery:
+    #积分表的DAO别名
+    target: user
+    #字段名，默认是FScoreCount【非必填】
+    scoreField: FScoreCount
+    #详细记录表的DAO别名
+    detail: scoredetail

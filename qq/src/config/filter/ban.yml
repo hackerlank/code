@@ -1,0 +1,20 @@
+banList:
+  24033474: 
+    type: action
+    actions: {demo: [pagebar, pagebar2], default: [default]}
+
+#对整个项目禁用QQ号码    
+#banList:
+#  24033474: 
+#    type: project
+
+#对某些controller禁用QQ号码
+#banList:
+#  24033474:
+#    type: controller
+#    controllers: [demo]
+
+message:
+  project: 你已经被禁用
+  controller: 你在controller中被禁用
+  action: 你在action中被禁用

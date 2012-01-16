@@ -1,0 +1,82 @@
+##投票类型，默认为1，1：普通投票，2：手机投票，3:...
+voteType: 1
+
+##投票记录明细表
+historyTable: Tbl_VoteHistory
+
+##日期设置,注意日期需要引号，不然会解析成timestamp
+date:
+  start: "2009-11-01 00:00:00"
+  end: "2010-09-28 23:59:59"
+
+##是否需要验证码功能
+needVerifyCode: true
+
+##被投票对象，数据表设置
+table: Tbl_File
+countField: FVoteCount
+conditionField: FFileId
+conditionType: int
+
+##voteDesType (id,qq)二选一
+##如果投票的对象是QQ，请把这个配置修改为 voteDesType: qq
+voteDesType: id
+
+#是否需要验证码
+needVerifyCode: 0
+
+##被投票变量名，如果不设置默认是 vid
+parameterNames:
+  des: vid
+  verifycode: verifycode
+
+##是否允许给自己、自己的作品投票，0不允许，1允许
+##默认为1，即如果注释下面一行，则可以给自己投票
+voteSelf: 1
+
+##每次添加的票数
+count: 1
+
+##限制分别是：每天限制，每天对某个用户/作品限制，总限制，对某个用户/作品的限制
+oneDayLimit: 0
+oneDayPerObject: 0
+totalLimit: 0
+totalPerObject: 1
+
+##特殊用户，刷票用
+sQQs: 
+sCount: [50, 100]
+sOneDayLimit: 0
+sOneDayPerObject: 0
+sTotalLimit: 0
+sTotalPerObject: 0
+
+##额外处理，比如添加积分等等
+#hooks:
+#  afterVote:
+#    className: VoteHook
+#    functionName: addVoteScore
+
+##返回编码
+code:
+  VOTE_SUCCESS: 0
+  VOTE_NOLOGIN: 1
+  VOTE_ERROR_VERIFY: 2
+  VOTE_ERROR_ID: 3
+  VOTE_ERROR_COUNT: 4
+  VOTE_HAVE_VOTED: 5
+  VOTE_NOT_BEGIN: 6
+  VOTE_EXPIRED: 7
+  VOTE_SELF_NOT_ALLOWED: 8
+
+##返回提示
+messages:
+  0: 保存成功。
+  1: 请先使用您的QQ号码登录^^。
+  2: 验证码输入不正确。
+  3: ID不正确。
+  4: 票数不正确。
+  5: 您已经赞过该信息了。
+  6: 功能还没有开始，谢谢您的关注。
+  7: 功能已经结束，谢谢您的关注。
+  8: 不能给自己的作品投票。

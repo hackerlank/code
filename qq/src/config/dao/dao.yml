@@ -1,0 +1,5 @@
+baseUser: {dao: TMTTCDAO, object: TMBaseUser, keys: [FQQ], command: {find: APPUserCheckReq, save: APPUserInsertReq}}
+user: {dao: TMMysqlDAO, object: TMUser, table: Tbl_User, keys: [FQQ], autoKey: FUserId}
+comment: {dao: TMMysqlDAO, table: Tbl_Comment, keys: [FCommentId], autoKey: FCommentId}
+scoredetail: {dao: TMMysqlDAO, table: Tbl_ScoreDetail, keys: [FScoreDetailId], autoKey: FScoreDetailId}
+userInvite: {dao: TMMysqlDAO, table: Tbl_UserInvite, keys: [FJoinQQ], autoKey: FUserInviteId}
