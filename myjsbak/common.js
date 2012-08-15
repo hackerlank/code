@@ -27,7 +27,7 @@ function delCookie(name)
 function getUrlParam(name)
 {
 	var requestQueryString = window.location.search.substr(1);
-	var requestQueryArray = requestQureyString.split('&');
+	var requestQueryArray = requestQueryString.split('&');
 	var requestQueryParams = new Array();
 	for (var i = 0, iMax = requestQueryArray.length; i < iMax; i++) {
 		var tempArray = requestQueryArray[i].split('=');
