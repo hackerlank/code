@@ -1,0 +1,82 @@
+/* CSS Document */
+/* 重置 */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6,pre, form, fieldset, input, textarea, p, blockquote, th, td {padding:0;margin:0;}   
+fieldset, img {border:0;}   
+table{border-collapse:collapse;border-spacing:0;}   
+ol, ul {list-style:none;}   
+address, caption, cite, code, dfn, em, th, var {font-weight:normal;font-style:normal;}   
+caption, th {text-align:left;}   
+h1, h2, h3, h4, h5, h6 {font-size:100%;}   
+q:before, q:after {content:'';}  
+ins{ text-decoration:none;}
+
+.clearfix { *zoom:1}
+.clearfix:after {content: ".";display: block;clear: both;visibility: hidden;line-height: 0;height: 0;}
+.clear{ clear:both}
+
+a{blr:expression(this.onFocus=this.blur());} 
+a:focus { -moz-outline-style: none; } 
+
+a{color:#333; text-decoration:none}
+a:hover{color:#C00; text-decoration: underline;}
+
+a,area { blr:expression(this.onFocus=this.blur()) }
+*:focus { outline: none; }
+
+.overflow-hidden{ overflow:hidden}
+
+.hide{ display:none}
+.mt30{ margin-top:30px;}
+.mb40{ margin-bottom:40px;}
+.mb20{ margin-bottom:20px;}
+.mr10{ margin-right:10px;}
+.ml30{ margin-left:30px;}
+.txt-l{ text-align:left}
+.txt-r{ text-align:right !important}
+.txt-c{ text-align:center}
+.fl{ float:left}
+
+
+
+
+
+/*common*/
+body{ background:#f1f1f1 url(/images/sub-bg.png); font-family:simsun; font-size:12px;}
+.wp{ width:980px; margin:auto}
+
+.logo{ height:77px;}
+
+.menu{}
+.menu ul li{ width:123px; float:left; background:url(/images/menu-bg.png) no-repeat; height:48px; padding:0 0 0 21px; text-align:center}
+.menu ul li.current{background:url(/images/menu-bg-on.png) no-repeat;}
+
+.menu ul li a{ width:112px; height:27px; display:inline-block; font-family:"Microsoft YaHei",simsun; font-size:14px; font-weight:bold; line-height:27px; color:#FFF; margin:9px 0 0 0}
+.menu ul li.current a{ background:url(/images/menu-a-on.png);}
+
+.bd{ background:#FFF}
+.bd-l{ width:220px; float:left; padding:2px 0 0 0}
+.left-tt{ background:url(/images/left-top.png); height:28px; line-height:28px; font-size:14px; padding: 5px 0 0 30px; color:#333}
+.left-box{ border:1px solid #d1d1d1}
+.left-box dl{ padding:15px;}
+.left-box dl dt{ color:#0e74bb; font-size:14px; font-weight:bold; margin-bottom:5px;}
+.left-box dl dd{ margin-bottom:10px;}
+.left-box dl dd ul li{ float:left;margin-right:10px;}
+.left-box dl dd ul li a{ color:#888888;  line-height:20px;}
+.left-box dl dd ul li a.current{ color:#F90; font-weight:bold}
+.bd-r{ width:760px; float:left; padding:2px 0 0 0}
+.position{ color:#666666; font-weight:normal;padding:10px}
+.position strong{ font-weight:bold}
+
+.pro-list{ padding:10px 0 0 24px;}
+.pro-list li{ background:url(/images/pro-bg.png); width:209px; height:209px; float:left; margin:0 24px 24px 0; padding:11px 0 0 11px; }
+
+.pro-imgbox{ margin:2px 0 0 0}
+.pro-imgbox img{ float:left; margin-bottom:6px;}
+.big-img{ margin:0 8px 0 0}
+.pro-title{ height:40px; background:#000; clear:both; color:#FFF; font-size:14px; line-height:40px; padding:0 0 0 20px}
+
+.pro-detail-l{ float:left; width:202px; padding:20px 0 0 28px; line-height:28px; color:#666666}
+.pro-detail-l strong{ color:#000000}
+.pro-detail-r{ float:left; width:694px; padding:20px 27px; border-left:1px solid #e0e0e0; margin:4px 0; line-height:24px; color:#666666}
+.pro-detail-r p{ margin-bottom:20px;}
+.footer{ background:#020202; height:65px; font-family:Arial, Helvetica, sans-serif; color:#999999; line-height:65px; text-align:right; padding:0 20px 0 0; width:960px;}

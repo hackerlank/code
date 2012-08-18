@@ -1,0 +1,18 @@
+<?php
+/**
+ *@author:xiaoshengeer@gmail.com
+ *@create:2012-3-27
+ *@encoding:UTF-8 tab=4space
+ */
+class About extends CI_Controller
+{
+    public function __construct()
+    {
+        
+        parent::__construct();
+    }
+    public function Index()
+    {
+        $this->load->view('zh/abount_us.php');
+    }
+}

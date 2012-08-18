@@ -1,0 +1,80 @@
+@charset "utf-8";
+/* CSS Document */
+html,body,div,p,li,ul{
+	padding:0;
+	margin:0;
+	font-size:12px;
+	font-family:Arial, Helvetica, sans-serif}
+html{
+	height: 100%;}
+body{
+	min-height: 600px;
+	text-align: center;
+	min-width: 1000px;
+	background:#d3eaf6;
+	height: 100%;}
+.FirstDIV{
+	margin-top: -300px;
+	float: left;
+	width: 100%;
+	height: 50%;}
+.SecondDIV{
+	clear: both;
+	background:url(../images/login_bg.jpg) no-repeat;
+	margin-left: auto;
+	overflow:hidden;
+	width: 1000px;
+	margin-right: auto;
+	height: 600px;
+	text-align: left}
+.shop_bg{
+	background:url(../images/shop_login_bg.jpg) no-repeat}
+.login{
+	padding:223px 0 0 337px;
+	text-align:left;}
+.login ul{
+	list-style:none;}
+.login li{
+	list-style:none;
+	padding-bottom:25px;
+	*padding-bottom:21px;
+}
+.codeimg{
+	position:absolute;}
+.codeimg img{
+	margin:0 10px;}
+.codeimg .changeimg{
+	position:relative;
+	top:-8px;
+	color:#666;}
+.login li.last_btn{
+	padding-left:70px;}
+.login label{
+	width:70px;
+	text-align:right;
+	color:#333;
+	display:inline-block;
+	font-size:14px;
+	line-height:22px;
+}
+.loginput,.authcode{
+	width:202px;
+	height:16px;
+	border:1px solid #aecedd;
+	padding:3px;
+	}
+.authcode{
+	width:72px}
+.last_btn input{
+	width:80px;
+	height:28px;
+	border:0;
+	cursor:pointer;
+	line-height:24px;
+	color:#4685a4;
+	font-size:14px;
+	font-weight:bold;
+	margin-right:20px;
+	background:url(../images/login_btn.png);}
+.logbutton:hover{
+	color:#f60;}
