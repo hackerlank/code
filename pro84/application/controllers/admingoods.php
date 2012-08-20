@@ -89,6 +89,8 @@ class Admingoods extends CI_Controller
     }
     public function goodslist()
     {
+        $data['attrOption'] = $this->createAttrSonOption();
+        $data['goodsList'] = $this->Goods_model->GetGoodsLists();
         $data['view'] = 'goods_list';
         $this->load->view('admin/index.php',$data);
     }
@@ -285,10 +287,5 @@ class Admingoods extends CI_Controller
         $goodsInfo = $this->Goods_model->GetAttr($id);
         if ($goodsInfo['pid'] == 0) return $goodsInfo['id'];
         else return $this->getGoodsAttrPid($goodsInfo['pid']);
-    }
-    public function goodsLists()
-    {
-        $data['view'] = 'goods_list';
-        $this->load->view('admin/index.php',$data);
     }
 } 

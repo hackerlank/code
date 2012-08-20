@@ -45,6 +45,17 @@ class Goods_model extends CI_Model
         $query = $this->db->query("SELECT * FROM $this->goodsInfoTable WHERE id=$id");
         return $query->row_array(0);
     }
+    public function GetGoodsLists()
+    {
+        $goodsLists = array();
+        $query = $this->db->query("SELECT * FROM $this->goodsInfoTable");
+
+        if ($query->num_rows() > 0)
+            foreach ($query->result_array() as $row)
+                $goodsLists[] = $row;
+
+        return $goodsLists;
+    }
     public function SaveGoodsImg($gid, $path)
     {
         $sql = "INSERT INTO $this->goodsImgTable (gid, path) VALUES($gid, '$path')";

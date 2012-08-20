@@ -4,7 +4,7 @@
 </div>
 <div class='s_box'>
 <label>请选择分类：</label>
-<select name='goodsattr'><option>--请选择--</option></select>
+<select name='goodsattr'><option>--请选择--</option><?php echo $attrOption;?></select>
 </div>
 <table class="datelist-1" style="width:100%;">
 <thead>
