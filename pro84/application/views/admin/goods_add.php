@@ -1,3 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title> 后台系统</title>
+<link href="/css/model.css" rel="stylesheet" type="text/css" />
+<link href="/css/fed-std.css" rel="stylesheet" type="text/css" />
+<link href="/css/frame.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="/js/jquery.js"></script>
+<script language="javascript" src="/js/showbox.js"></script>
+</head>
+<body>
+     <div class="pd_10">
 <div class="tabstyle_1 clearfix">
     <ul>
         <li class="current" onclick="javascript:$(this).addClass('current').siblings().removeClass('current');$('#goodsinfo').show();$('#goodsimgs').hide();"><a href="#">基本信息</a></li>
@@ -74,6 +87,7 @@
 <div id="imglists">
 </div>
 <div style="display:block;"><iframe id="goodsimgiframe" src='/admingoods/addimg'></iframe></div>
+</div>
 </div>
 <script type="text/javascript" src="/js/jquery-ui-1.8.16.custom.min.js"></script>
 <script type="text/javascript" src="/js/jquery.ui.datepicker-zh-CN.js"></script>
@@ -164,3 +178,5 @@ $(function(){
 #imglists li{width:220px; height:230px;float:left;}
 #imglists li a{width:220px;}
 </style>
+</body>
+</html>

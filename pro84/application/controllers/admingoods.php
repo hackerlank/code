@@ -19,8 +19,7 @@ class Admingoods extends CI_Controller
         if ($id) {
             $data['info'] = $this->Goods_model->GetGoodsInfo($id);
         }
-        $data['view']        = 'goods_add';
-        $this->load->view('admin/index.php', $data);
+        $this->load->view('admin/goods_add.php', $data);
     }
     public function getGoodsAttr($type)
     {
@@ -91,14 +90,13 @@ class Admingoods extends CI_Controller
     {
         $data['attrOption'] = $this->createAttrSonOption();
         $data['goodsList'] = $this->Goods_model->GetGoodsLists();
-        $data['view'] = 'goods_list';
-        $this->load->view('admin/index.php',$data);
+        $this->load->view('admin/goods_list.php',$data);
     }
     public function attr()
     {
         $data['attrlist'] = $this->Goods_model->GetAttrList();
         $data['view'] = 'goods_attr';
-        $this->load->view('admin/index.php',$data);
+        $this->load->view('admin/goods_attr.php',$data);
     }
     public function addattr()
     {
@@ -146,18 +144,16 @@ class Admingoods extends CI_Controller
     public function authortype()
     {
         $data['attr_option'] = $this->createAttrOption();
-        $data['view'] = 'goods_attr_info';
         $data['title'] = "作者分类";
         $data['type'] = 'author_type';
-        $this->load->view('admin/index.php', $data);
+        $this->load->view('admin/goods_attr_info.php', $data);
     }
     public function craft()
     {
         $data['attr_option'] = $this->createAttrOption();
-        $data['view'] = 'goods_attr_info';
         $data['title'] = "工艺";
         $data['type'] = 'craft';
-        $this->load->view('admin/index.php', $data);
+        $this->load->view('admin/goods_attr_info.php', $data);
     }
     public function theme()
     {
@@ -165,7 +161,7 @@ class Admingoods extends CI_Controller
         $data['view'] = 'goods_attr_info';
         $data['title'] = "题材";
         $data['type'] = 'theme';
-        $this->load->view('admin/index.php', $data);
+        $this->load->view('admin/goods_attr_info.php', $data);
     }
     public function age()
     {
@@ -173,7 +169,7 @@ class Admingoods extends CI_Controller
         $data['view'] = 'goods_attr_info';
         $data['title'] = "创作时间";
         $data['type'] = 'age';
-        $this->load->view('admin/index.php', $data);
+        $this->load->view('admin/goods_attr_info.php', $data);
     }
     public function createAttrOption()
     {

@@ -81,7 +81,7 @@ class Admin extends CI_Controller
         $newPwd = $this->input->post("newpwd", '');
         $rePwd  = $this->input->post("repwd", '');
         
-        $data['view'] = 'admin_changepwd';
+        $data = array();
         if ($oldPwd && $newPwd && $rePwd) {
             $name = $this->session->userdata('adminname');
         
@@ -99,6 +99,6 @@ class Admin extends CI_Controller
             $query = $this->db->query("UPDATE adminuser SET pwd='".md5($newPwd)."' WHERE name='$name'");
             $data['errmsg'] = "密码更改成功";
         }
-        return $this->load->view('admin/index.php', $data);
+        return $this->load->view('admin/admin_changepwd.php', $data);
     }
 }

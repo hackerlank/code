@@ -6,13 +6,13 @@
                  <a href="#" class="more"></a>
             </div>
             <ul class="fed-menu-list">
-                <li><a href="/admingoods/attr">商品分类</a></li>
-                <li><a href="/admingoods/authortype">作者分类</a></li>
-                <li><a href="/admingoods/craft">工艺</a></li>
-                <li><a href="/admingoods/theme">题材</a></li>
-                <li><a href="/admingoods/age">创作时间</a></li>
-                <li><a href="/admingoods/add">添加商品</a></li>
-                <li><a href="/admingoods/goodslist">商品列表</a></li>
+                <li><a src="/admingoods/attr" href="javascript:;">商品分类</a></li>
+                <li><a src="/admingoods/authortype" href="javascript:;">作者分类</a></li>
+                <li><a src="/admingoods/craft" href="javascript:;">工艺</a></li>
+                <li><a src="/admingoods/theme" href="javascript:;">题材</a></li>
+                <li><a src="/admingoods/age" href="javascript:;">创作时间</a></li>
+                <li><a src="/admingoods/add" href="javascript:;">添加商品</a></li>
+                <li><a src="/admingoods/goodslist" href="javascript:;">商品列表</a></li>
             </ul>
         </div>
         <div class="fed-menu-box">
@@ -21,7 +21,7 @@
                  <a href="#" class="more"></a>
             </div>
             <ul class="fed-menu-list">
-                <li><a href="/admin/changepwd">更改密码</a></li>
+                <li><a src="/admin/changepwd" href="javascript:;">更改密码</a></li>
             </ul>
         </div>
     </div>

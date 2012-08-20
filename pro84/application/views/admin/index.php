@@ -19,12 +19,20 @@
     <div class="mainwrap">
     	<?php require_once 'left.php';?>
     <div class="m_content">
-     <div class="pd_10">
-        <?php require_once "{$view}.php";?>
-    </div>
+        <iframe src="" id="right" width="1000" height="700"></iframe>
     </div>
 </div>
 <script language="javascript" src="/js/jquery.tmpl.js"></script>
 <script language="javascript" src="/js/aside.js"></script>
+<script type="text/javascript">
+$(function(){
+    $('.fed-menu-list li a').live('click', function(){
+        var link = $(this).attr('src');
+        $("#right").attr('src',link);
+        $('.fed-menu-list li').removeClass("current");
+        $(this).parent().addClass("current");
+    });
+});
+</script>
 </body>
 </html>
