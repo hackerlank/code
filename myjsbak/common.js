@@ -38,7 +38,9 @@ function getUrlParam(name)
 
 String.prototype.substr = function(start, length){
     var str = '';
-    if ((start+length) > this.length) return str;
+    if (start > this.length) return str;
+    
+    length = (length > (this.length-start))?(this.length-start):length;
     for (var i=0;i<length;i++ )
         str += this[start++];
     return str;
