@@ -26,11 +26,11 @@
     </tr>
     <tr>
         <th>商品名称：</th>
-        <td><input type="text" class="input_w198" name='goods_name'   /></td><td>&nbsp;</td>
+        <td><input type="text" class="input_w198" name='goods_name' value="<?php echo $info['name'];?>"   /></td><td>&nbsp;</td>
     </tr>
     <tr>
         <th>作者：</th>
-        <td><input type="text" class="input_w198" name='author_name'   /></td><td>&nbsp;</td>
+        <td><input type="text" class="input_w198" name='author_name' value="<?php echo $info['author'];?>"   /></td><td>&nbsp;</td>
     </tr>
     <tr>
         <th>作者分类：</th>
@@ -39,11 +39,11 @@
     </tr>
     <tr>
         <th>职称：</th>
-        <td><input type="text" class="input_w198" name="author_title" /></td><td>&nbsp;</td>
+        <td><input type="text" class="input_w198" name="author_title" value="<?php echo $info['author_title'];?>" /></td><td>&nbsp;</td>
     </tr>
     <tr>
         <th>规格：</th>
-        <td><input type="text" class="input_w198" name="standard" /></td><td>&nbsp;</td>
+        <td><input type="text" class="input_w198" name="standard" value="<?php echo $info['standard'];?>" /></td><td>&nbsp;</td>
     </tr>
     <tr>
         <th>工艺：</th>
@@ -62,15 +62,15 @@
     </tr>
     <tr>
         <th>上架时间：</th>
-        <td><input type="text" class="input_w198 datepicker" name="time" /></td><td>&nbsp;</td>
+        <td><input type="text" class="input_w198 datepicker" name="time" value="<?php echo $info['time'];?>" /></td><td>&nbsp;</td>
     </tr>
     <tr>
         <th>价格区间：</th>
-        <td><input type="text" class="input_w198" name="price"  /></td><td>&nbsp;</td>
+        <td><input type="text" class="input_w198" name="price" value="<?php echo $info['price'];?>"  /></td><td>&nbsp;</td>
     </tr>
     <tr>
         <th>简介：</th>
-        <td><textarea id='goodsbrief' name="brief" cols="" rows="" class="textarea_w398"></textarea></td><td>&nbsp;</td>
+        <td><textarea id='goodsbrief' name="brief" cols="" rows="" class="textarea_w398"><?php echo $info['brief'];?></textarea></td><td>&nbsp;</td>
     </tr>
     <tr>
         <th>&nbsp;</th>
@@ -86,7 +86,13 @@
 <div id="goodsimgs" style="display:none;">
 <div id="imglists">
 </div>
-<div style="display:block;"><iframe id="goodsimgiframe" src='/admingoods/addimg'></iframe></div>
+<div style="display:block;">
+<?php
+    if ($imglist)
+        foreach ($imglist as $li)
+            echo '<li><a class="close">x</a><a href="javascript:;" onclick="javascript:showimg("'.$li['path'].'");"><img src="'.$li['path'].'" style="width:200px;height:200px;" /></a></li>';
+?>
+<iframe id="goodsimgiframe" src='/admingoods/addimg/<?php echo $gid;?>'></iframe></div>
 </div>
 </div>
 <script type="text/javascript" src="/js/jquery-ui-1.8.16.custom.min.js"></script>
@@ -125,7 +131,7 @@ function saveGoods()
     postdata.age = $("select[name='age']").val();
     postdata.time = $("input[name='time']").val();
     postdata.price = $("input[name='price']").val();
-    postdata.brief = $("#input[name='brief']").val();
+    postdata.brief = CKEDITOR.instances.goodsbrief.getData();
     
     if ('' == postdata.goods_name){
         alert('商品名不能为空！');return false;

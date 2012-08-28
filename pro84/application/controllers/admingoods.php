@@ -13,12 +13,15 @@ class Admingoods extends CI_Controller
         
         $data = array();
         $data['gid'] = intval($this->uri->segment(3,0));
-        $data['attrOption'] = $this->createAttrSonOption();
         
         $id = $this->uri->segment(3,0);
-        if ($id) {
-            $data['info'] = $this->Goods_model->GetGoodsInfo($id);
-        }
+
+        $data['info'] = array();
+        if ($id) $data['info'] = $this->Goods_model->GetGoodsInfo($id);
+
+        $data['imglist'] = array();
+        if ($id) $data['imglist'] = $this->Goods_model->GetGoodsImgList($id);
+        $data['attrOption'] = $this->createAttrSonOption($data['info']['goods_type']);
         $this->load->view('admin/goods_add.php', $data);
     }
     public function getGoodsAttr($type)
@@ -183,23 +186,27 @@ class Admingoods extends CI_Controller
         }
         return $optionStr;
     }
-    public function createAttrSonOption()
+    public function createAttrSonOption($selectedId = 0)
     {
         $optionStr = '';
         $attrlist = $this->Goods_model->GetAttrList();
         if ($attrlist) {
             foreach ($attrlist as $attr) {
-                $optionStr .= "<option value='{$attr['id']}'>{$attr['name']}</option>"; 
-                if ($attr['son']) $this->goodsAttrSonOption($attr['son'], $optionStr);
+                $selectedStr = '';
+                if ($attr['id'] == $selectedId) $selectedStr = "selected='selected'";
+                $optionStr .= "<option value='{$attr['id']}' $selectedStr>{$attr['name']}</option>"; 
+                if ($attr['son']) $this->goodsAttrSonOption($attr['son'], $optionStr, $selectedId);
             }
         }
         return $optionStr;
     }
-    public function goodsAttrSonOption($data, &$str)
+    public function goodsAttrSonOption($data, &$str, $selectedId = 0)
     {
         foreach ($data as $v) {
             $prestr = str_repeat('&nbsp;&nbsp;', $v['level']);
-            $str .= "<option value='{$v['id']}'>$prestr|--{$v['name']}</option>";
+            $selectedStr = '';
+            if ($v['id'] == $selectedId) $selectedStr = "selected='selected'";
+            $str .= "<option value='{$v['id']}' $selectedStr>$prestr|--{$v['name']}</option>";
             if ($v['son']) $this->GoodsAttrSonOption($v['son'], $str);
         }
     }
@@ -253,7 +260,7 @@ class Admingoods extends CI_Controller
         $atype = $this->input->post('atype', '');
         
         if ($aid && $atype) {
-            $list  = $this->Goods_model->GetAttrInfo($aid, $atype);
+            $list  = $this->Goods_model->GetAttrInfo(array('aid'=>$aid,'atype'=>$atype));
             if ($list) 
                 echo json_encode(array('err'=>0, 'list'=>$list));
             else
@@ -271,10 +278,10 @@ class Admingoods extends CI_Controller
         $aid = intval($this->input->post('aid', 0));
         $pid = $this->getGoodsAttrPid($aid);
         if ($pid) {
-            $author_type = $this->Goods_model->GetAttrInfo($pid, 'author_type');
-            $craft = $this->Goods_model->GetAttrInfo($pid, 'craft');
-            $theme = $this->Goods_model->GetAttrInfo($pid, 'theme');
-            $age = $this->Goods_model->GetAttrInfo($pid, 'age');
+            $author_type = $this->Goods_model->GetAttrInfo(array('aid'=>$pid, 'atype'=>'author_type'));
+            $craft = $this->Goods_model->GetAttrInfo(array('aid'=>$pid, 'atype'=>'craft'));
+            $theme = $this->Goods_model->GetAttrInfo(array('aid'=>$pid, 'atype'=>'theme'));
+            $age = $this->Goods_model->GetAttrInfo(array('aid'=>$pid, 'atype'=>'age'));
         }
         echo json_encode(array('author_type'=>$author_type, 'craft'=>$craft, 'theme'=>$theme, 'age'=>$age));
     }

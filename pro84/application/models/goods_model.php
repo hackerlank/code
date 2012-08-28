@@ -9,6 +9,7 @@ class Goods_model extends CI_Model
     public function __construct()
     {
         $this->load->database();
+         
     }
     public function GetGoodsAttrType($type)
     {
@@ -31,14 +32,7 @@ class Goods_model extends CI_Model
     }
     public function UpdateGoods($data, $id)
     {
-        $str = '';
-        foreach($data as $k=>$v) {
-            $str .= "$k='$v',";
-        }
-        $str = rtrim($str, ',');
-        $sql = "UPDATE $this->goodsInfoTable set $str WHERE id=$id";
-        $query = $this->db->query($sql);
-        return $this->db->affected_rows();
+        return $this->db->update($this->goodsInfoTable, $data, array('id'=>$id));
     }
     public function GetGoodsInfo($id)
     {
@@ -51,9 +45,17 @@ class Goods_model extends CI_Model
         $query = $this->db->query("SELECT * FROM $this->goodsInfoTable");
 
         if ($query->num_rows() > 0)
-            foreach ($query->result_array() as $row)
+            foreach ($query->result_array() as $row) {
+                $craft = self::GetAttrInfo(array('id'=>$row['craft']));
+                $theme = $this->GetAttrInfo(array('id'=>$row['theme']));
+                $age = $this->GetAttrInfo(array('id'=>$row['age']));
+                $author_type = $this->GetAttrInfo(array('id'=>$row['author_type']));
+                $row['craft'] = isset($craft[0]['val'])?$craft[0]['val']:'';
+                $row['theme'] = isset($theme[0]['val'])?$theme[0]['val']:'';
+                $row['age'] = isset($age[0]['val'])?$age[0]['val']:'';
+                $row['author_type'] = isset($author_type[0]['val'])?$author_type[0]['val']:'';
                 $goodsLists[] = $row;
-
+            }
         return $goodsLists;
     }
     public function SaveGoodsImg($gid, $path)
@@ -130,14 +132,22 @@ class Goods_model extends CI_Model
         $sql = "DELETE FROM $this->goodsAttrInfoTable WHERE id=$id";
         return $this->db->query($sql);
     }
-    public function GetAttrInfo($aid, $atype)
+    public function GetAttrInfo($arr)
     {
-        $sql = "SELECT * FROM $this->goodsAttrInfoTable WHERE aid=$aid and atype='$atype'";
         $data = array();
-        $query = $this->db->query($sql);
+        $query = $this->db->get_where($this->goodsAttrInfoTable, $arr);
         if ($query->num_rows() > 0)
             foreach ($query->result() as $row)
-                $data[] = array('id'=>$row->id, 'val'=>$row->val, 'atype'=>$row->atype);
+                $data[] = array('id'=>$row->id, 'aid'=>$row->aid, 'val'=>$row->val, 'atype'=>$row->atype);
         return $data;
+    }
+    public function GetGoodsImgList($gid)
+    {
+        $list = array();
+        $query = $this->db->get_where($this->goodsImgTable, array('gid'=>$gid));
+        if ($query->num_rows() > 0)
+            foreach($query->result() as $row)
+                $list[] = array('id'=>$row->id, 'path'=>$row->path);
+        return $list;
     }
 }

@@ -23,14 +23,24 @@
 <thead>
     <tr>
         <th>商品名</th>
-        <th>作者分类</th>
+        <th>作者</th>
         <th>工艺</th>
         <th>题材</th>
         <th>创作时间</th>
         <th>操作</th>
     </tr>
 </thead>
-<tbody></tbody>
+<tbody>
+<?php
+    foreach ($goodsList as $goods)
+        echo "<tr><td>{$goods['name']}</td>".
+             "<td>{$goods['author']}</td>".
+             "<td>{$goods['craft']}</td>".
+             "<td>{$goods['theme']}</td>".
+             "<td>{$goods['time']}</td>".
+             "<td><a href='/admingoods/add/{$goods['id']}'>编辑</a> | 删除</td></tr>";
+?>
+</tbody>
 </table>
 </div>
 </body>
