@@ -34,6 +34,7 @@ class Admingoods extends CI_Controller
         if (!$this->session->userdata("isadmin")) return $this->load->view("admin/login.php");
 
         $data = array();
+        $data['goods_type'] = $this->input->post('goods_type',0);
         $data['name'] = $this->input->post('goods_name', '');
         $data['author'] = $this->input->post('author_name', '');
         $data['author_type'] = $this->input->post('author_type', '');
@@ -73,9 +74,9 @@ class Admingoods extends CI_Controller
         if (!$gid) die("<scrpit>alert('非法数据');</script>");
         $config['upload_path'] = 'uploads/';
         $config['allowed_types'] = 'gif|jpg|png';
-        $config['max_size'] = "1000";
-        $config['max_width'] = "1024";
-        $config['max_height'] = "768";
+        $config['max_size'] = "0";
+        $config['max_width'] = "0";
+        $config['max_height'] = "0";
         $this->load->library('upload',$config);
         
         if($this->upload->do_upload('upload')) {
@@ -91,8 +92,10 @@ class Admingoods extends CI_Controller
     }
     public function goodslist()
     {
-        $data['attrOption'] = $this->createAttrSonOption();
-        $data['goodsList'] = $this->Goods_model->GetGoodsLists();
+        $gtype = intval($this->input->post('gtype',0));
+        $data['attrOption'] = $this->createAttrSonOption($gtype);
+        if ($gtype)
+            $data['goodsList'] = $this->Goods_model->GetGoodsLists($gtype);
         $this->load->view('admin/goods_list.php',$data);
     }
     public function attr()
@@ -290,5 +293,13 @@ class Admingoods extends CI_Controller
         $goodsInfo = $this->Goods_model->GetAttr($id);
         if ($goodsInfo['pid'] == 0) return $goodsInfo['id'];
         else return $this->getGoodsAttrPid($goodsInfo['pid']);
+    }
+    public function delimg($id)
+    {
+        if ($this->Goods_model->DelGoodsImg($id)) {
+            echo json_encode(array('err'=>0, 'msg'=>'删除成功'));
+        } else {
+            echo json_encode(array('err'=>1, 'msg'=>'删除失败'));
+        }
     }
 } 

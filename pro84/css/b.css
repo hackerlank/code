@@ -17,9 +17,6 @@ ins{ text-decoration:none;}
 a{blr:expression(this.onFocus=this.blur());} 
 a:focus { -moz-outline-style: none; } 
 
-a{color:#333; text-decoration:none}
-a:hover{color:#C00; text-decoration: underline;}
-
 a,area { blr:expression(this.onFocus=this.blur()) }
 *:focus { outline: none; }
 
@@ -31,52 +28,46 @@ a,area { blr:expression(this.onFocus=this.blur()) }
 .mb20{ margin-bottom:20px;}
 .mr10{ margin-right:10px;}
 .ml30{ margin-left:30px;}
-.txt-l{ text-align:left}
+.txt-l{ text-align:left !important}
 .txt-r{ text-align:right !important}
-.txt-c{ text-align:center}
+.txt-c{ text-align:center !important}
 .fl{ float:left}
 
 
+body{ background:url(../images/bg.jpg)}
+body.index{ background:#FFF; background:#fff url(../images/index-bg.jpg) repeat-x;}
+.wp{ width:1000px; margin:auto}
+.head{ background:url(../images/header.jpg); height:83px;}
+.catebox{ height:80px; border-bottom:3px solid #000000; background:#e5e5e5; overflow:hidden}
+.catebox h3{ float:left; font-size:28px; font-family:"微软雅黑"; font-weight:normal; margin:20px 40px 0 0}
+.catebox ul{ margin:30px 0 0 0; float:left}
+.catebox li{ float:left; font-size:12px; font-family:simsun; color:#333; font-weight:bold; margin-right:40px;}
+.catebox li a{ color:#333; text-decoration:none;width:90px; height:22px; line-height:22px; display:inline-block; text-align:center}
+.catebox li a.current{ background:url(../images/catemenu-bg.jpg); color:#FFF }
 
+.col-1,.col-2,.col-3,.col-4{ float:left; width:232px; margin-right:13px;}
+.prolist{ padding:13px 0 0 0}
+.prolist li{ border:1px solid #dad6d7; background:#FFF; padding:10px 14px; margin-bottom:13px;}
+.prolist li img{ margin-bottom:10px;}
+.prolist li p{ color:#666; font-size:12px; line-height:18px;}
+.prolist li p.numbox{ border-top:1px dotted #CCC; padding:5px 0 0 0; margin:5px 0 0 ; color:#999}
 
+.detail{border:1px solid #dad6d7; margin:13px auto 0 auto; padding:15px;}
+.detail-img{ float:left; margin-right:13px;}
+.pro-detail-r{ float:left; width:215px;}
+.pro-detail-r strong { color:#999}
+.pro-detail-r p{ margin-bottom:10px;}
+.pro-detail-r div.txt{ font-size:12px; line-height:20px;}
 
-/*common*/
-body{ background:#f1f1f1 url(/images/sub-bg.png); font-family:simsun; font-size:12px;}
-.wp{ width:980px; margin:auto}
+.pro-name{ height:30px; line-height:30px; border-bottom:1px solid #CCC; margin-bottom:13px; font-size:16px; padding:0 0 0 10px;}
 
-.logo{ height:77px;}
+.main{ background:url(../images/index.jpg); height:1076px; position:relative}
 
-.menu{}
-.menu ul li{ width:123px; float:left; background:url(/images/menu-bg.png) no-repeat; height:48px; padding:0 0 0 21px; text-align:center}
-.menu ul li.current{background:url(/images/menu-bg-on.png) no-repeat;}
+.menu-1{ width:140px; height:140px;position:absolute; left:82px; top:155px;}
+.menu-1 a{ width:40px; height:40px; position:absolute; left:48px ; top:52px;}
 
-.menu ul li a{ width:112px; height:27px; display:inline-block; font-family:"Microsoft YaHei",simsun; font-size:14px; font-weight:bold; line-height:27px; color:#FFF; margin:9px 0 0 0}
-.menu ul li.current a{ background:url(/images/menu-a-on.png);}
+.menu-2{ width:140px; height:140px;position:absolute; left:428px; top:75px;}
+.menu-2 a{ width:40px; height:40px; position:absolute; left:48px ; top:52px;}
 
-.bd{ background:#FFF}
-.bd-l{ width:220px; float:left; padding:2px 0 0 0}
-.left-tt{ background:url(/images/left-top.png); height:28px; line-height:28px; font-size:14px; padding: 5px 0 0 30px; color:#333}
-.left-box{ border:1px solid #d1d1d1}
-.left-box dl{ padding:15px;}
-.left-box dl dt{ color:#0e74bb; font-size:14px; font-weight:bold; margin-bottom:5px;}
-.left-box dl dd{ margin-bottom:10px;}
-.left-box dl dd ul li{ float:left;margin-right:10px;}
-.left-box dl dd ul li a{ color:#888888;  line-height:20px;}
-.left-box dl dd ul li a.current{ color:#F90; font-weight:bold}
-.bd-r{ width:760px; float:left; padding:2px 0 0 0}
-.position{ color:#666666; font-weight:normal;padding:10px}
-.position strong{ font-weight:bold}
-
-.pro-list{ padding:10px 0 0 24px;}
-.pro-list li{ background:url(/images/pro-bg.png); width:209px; height:209px; float:left; margin:0 24px 24px 0; padding:11px 0 0 11px; }
-
-.pro-imgbox{ margin:2px 0 0 0}
-.pro-imgbox img{ float:left; margin-bottom:6px;}
-.big-img{ margin:0 8px 0 0}
-.pro-title{ height:40px; background:#000; clear:both; color:#FFF; font-size:14px; line-height:40px; padding:0 0 0 20px}
-
-.pro-detail-l{ float:left; width:202px; padding:20px 0 0 28px; line-height:28px; color:#666666}
-.pro-detail-l strong{ color:#000000}
-.pro-detail-r{ float:left; width:694px; padding:20px 27px; border-left:1px solid #e0e0e0; margin:4px 0; line-height:24px; color:#666666}
-.pro-detail-r p{ margin-bottom:20px;}
-.footer{ background:#020202; height:65px; font-family:Arial, Helvetica, sans-serif; color:#999999; line-height:65px; text-align:right; padding:0 20px 0 0; width:960px;}
+.menu-3{ width:140px; height:140px;position:absolute; left:588px; top:103px;}
+.menu-3 a{ width:40px; height:40px; position:absolute; left:48px ; top:52px;}

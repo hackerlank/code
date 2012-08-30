@@ -37,12 +37,23 @@ class Goods_model extends CI_Model
     public function GetGoodsInfo($id)
     {
         $query = $this->db->query("SELECT * FROM $this->goodsInfoTable WHERE id=$id");
-        return $query->row_array(0);
+        $info = $query->row_array(0);
+ 
+        $craft = self::GetAttrInfo(array('id'=>$info['craft']));
+        $theme = $this->GetAttrInfo(array('id'=>$info['theme']));
+        $age = $this->GetAttrInfo(array('id'=>$info['age']));
+        $author_type = $this->GetAttrInfo(array('id'=>$info['author_type']));
+        
+        $info['craft_name'] = $craft[0]['val'];
+        $info['theme_name'] = $theme[0]['val'];
+        $info['age_name'] = $age[0]['val'];
+        $info['author_type_name'] = $author_type[0]['val'];
+        return $info;
     }
-    public function GetGoodsLists()
+    public function GetGoodsLists($gtype)
     {
         $goodsLists = array();
-        $query = $this->db->query("SELECT * FROM $this->goodsInfoTable");
+        $query = $this->db->query("SELECT * FROM $this->goodsInfoTable where goods_type=$gtype");
 
         if ($query->num_rows() > 0)
             foreach ($query->result_array() as $row) {
@@ -61,6 +72,7 @@ class Goods_model extends CI_Model
     public function SaveGoodsImg($gid, $path)
     {
         $sql = "INSERT INTO $this->goodsImgTable (gid, path) VALUES($gid, '$path')";
+        $this->db->update($this->goodsInfoTable,array('img'=>$path), array('id'=>$gid));
         $this->db->query($sql);
         return $this->db->insert_id();
     }
@@ -88,10 +100,10 @@ class Goods_model extends CI_Model
         $query = $this->db->query($sql);
         return $query->row_array();
     }
-    public function GetAttrList()
+    public function GetAttrList($pid=0)
     {
         $attrArray = array();
-        $sql = "SELECT * FROM $this->goodsAttrTable WHERE pid=0";
+        $sql = "SELECT * FROM $this->goodsAttrTable WHERE pid=$pid";
         $query  = $this->db->query($sql);
 
         if ($query->num_rows() > 0) 

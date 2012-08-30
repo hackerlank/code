@@ -1,32 +1,36 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link type="text/css" href="css/b.css" rel="stylesheet" />
-<title>中国非物质文化遗产保护基金会</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="/css/b.css" rel="stylesheet" type="text/css" />
+<title>非物质文化遗产</title>
 </head>
 
-<body>
-<div class="wp">
-    <h1 class="logo"><img src="images/logo.png" /></h1>
-    <div class="menu">
-        <ul>
-            <li class="current"><a href="/">首 页</a></li>
-            <li><a href="/about">基金会介绍</a></li>
-            <li><a href="/goods/">电子艺术馆</a></li>
-            <li><a href="/about">常年展示馆</a></li>
-            <li><a href="/about">广而告知</a></li>
-            <li><a href="#">论 坛</a></li>
-        </ul>
+<body class="index">
+<div class="wp main">
+	<div class="menu-1">
+    	<span id="menu-1"></span>
+        <a href="/goods/index/5"></a>
     </div>
-    <div><img src="images/banner.jpg" /></div>
+    <div class="menu-2">
+    	<span id="menu-2"></span>
+        <a href="#"></a>
+    </div>
+    <div class="menu-3">
+    	<span id="menu-3"></span>
+        <a href="#"></a>
+    </div>
 </div>
-<div class="wp"><div style="padding:10px 0"><img src="images/index.jpg" /></div></div>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/jq.layer.js"></script>
+<script type="text/javascript" src="/js/swfobject.js"></script>
+<script type="text/javascript">
+$(function(){
+	swfobject.embedSWF("/images/tx.swf", "menu-1", "140", "140", "9.0.0","swf/expressInstall.swf","",{FlashVars:"setmenu=2",wmode:"transparent"},"");
+	swfobject.embedSWF("/images/tx.swf", "menu-2", "140", "140", "9.0.0","swf/expressInstall.swf","",{FlashVars:"setmenu=2",wmode:"transparent"},"");
+	swfobject.embedSWF("/images/tx.swf", "menu-3", "140", "140", "9.0.0","swf/expressInstall.swf","",{FlashVars:"setmenu=2",wmode:"transparent"},"");
+});
 
-
-<div class="footer wp">CopyRight @ Intangible Cultural Heritage Protection Fund
-</div>
+</script>
 </body>
 </html>
-
-

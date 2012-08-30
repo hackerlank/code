@@ -16,9 +16,13 @@
     <p class="page_info">商品列表管理</p>
 </div>
 <div class='s_box'>
+<form method="post">
 <label>请选择分类：</label>
-<select name='goodsattr'><option>--请选择--</option><?php echo $attrOption;?></select>
+<select name='gtype'><option>--请选择--</option><?php echo $attrOption;?></select>
+<input type="submit" class="btn_lv3_1" value="确定" />
+</form>
 </div>
+<?php if($goodsList):?>
 <table class="datelist-1" style="width:100%;">
 <thead>
     <tr>
@@ -42,6 +46,7 @@
 ?>
 </tbody>
 </table>
+<?php endif;?>
 </div>
 </body>
 </html>

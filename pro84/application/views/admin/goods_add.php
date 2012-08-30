@@ -84,14 +84,14 @@
 </form>
 </div>
 <div id="goodsimgs" style="display:none;">
-<div id="imglists">
-</div>
 <div style="display:block;">
+<div id="imglists">
 <?php
     if ($imglist)
         foreach ($imglist as $li)
-            echo '<li><a class="close">x</a><a href="javascript:;" onclick="javascript:showimg("'.$li['path'].'");"><img src="'.$li['path'].'" style="width:200px;height:200px;" /></a></li>';
+            echo "<li><a class='close' onclick='javascript:delimg({$li['id']});'>x</a><a href='javascript:;' onclick='javascript:showimg(\"{$li['path']}\");'><img src='{$li['path']}' style='width:200px;height:200px;' /></a></li>";
 ?>
+</div>
 <iframe id="goodsimgiframe" src='/admingoods/addimg/<?php echo $gid;?>'></iframe></div>
 </div>
 </div>
@@ -131,6 +131,7 @@ function saveGoods()
     postdata.age = $("select[name='age']").val();
     postdata.time = $("input[name='time']").val();
     postdata.price = $("input[name='price']").val();
+    postdata.goods_type = $("select[name='goodsattr']").val();
     postdata.brief = CKEDITOR.instances.goodsbrief.getData();
     
     if ('' == postdata.goods_name){
@@ -159,26 +160,68 @@ function showimg(path)
 $(function(){
     $("select[name='goodsattr']").live('click',function(){
         var aid = parseInt($(this).val());
-        $.post('/admingoods/getGoodsAttrInfoLists', {'aid': aid}, function(data){
-            var authorTypeOption = '';
-            var craftOption = '';
-            var themeOption = '';
-            var ageOption = '';
-            for (var i = 0, iMax = data['author_type'].length; i < iMax; i++)
-                authorTypeOption += "<option value='"+data['author_type'][i]['id']+"'>"+data['author_type'][i]['val']+"</option>"; 
-            for (var i = 0, iMax = data['craft'].length; i < iMax; i++)
-                craftOption += "<option value='"+data['craft'][i]['id']+"'>"+data['craft'][i]['val']+"</option>"; 
-            for (var i = 0, iMax = data['theme'].length; i < iMax; i++)
-                themeOption += "<option value='"+data['theme'][i]['id']+"'>"+data['theme'][i]['val']+"</option>"; 
-            for (var i = 0, iMax = data['age'].length; i < iMax; i++)
-                ageOption += "<option value='"+data['age'][i]['id']+"'>"+data['age'][i]['val']+"</option>";
-            $("select[name='author_type']").html(authorTypeOption);
-            $("select[name='craft']").html(craftOption);
-            $("select[name='theme']").html(themeOption);
-            $("select[name='age']").html(ageOption);
-        }, 'json');
+        setGoodsAttrOption(aid);
     });
+
+    var gtype = $("select[name='goodsattr']").val();
+    if (gtype) setGoodsAttrOption(gtype);
+    
+
 });
+function setGoodsAttrOption(aid)
+{
+    var author_type;
+    var craft;
+    var theme;
+    var age;
+    <?php
+    if ($info) {
+    echo "author_type = {$info['author_type']};";
+    echo "craft = {$info['craft']};";
+    echo "theme = {$info['theme']};";
+    echo "age={$info['age']};";
+    }
+    ?>
+    $.post('/admingoods/getGoodsAttrInfoLists', {'aid': aid}, function(data){
+        var authorTypeOption = '';
+        var craftOption = '';
+        var themeOption = '';
+        var ageOption = '';
+        for (var i = 0, iMax = data['author_type'].length; i < iMax; i++) {
+            var selectedStr = '';
+            if(data['author_type'][i]['id'] == author_type) selectedStr = "selected='selected'";
+            authorTypeOption += "<option value='"+data['author_type'][i]['id']+"'"+selectedStr+">"+data['author_type'][i]['val']+"</option>"; 
+        }
+        for (var i = 0, iMax = data['craft'].length; i < iMax; i++){
+            var selectedStr = '';
+            if(data['craft'][i]['id'] == craft) selectedStr = "selected='selected'";
+            craftOption += "<option value='"+data['craft'][i]['id']+"'"+selectedStr+">"+data['craft'][i]['val']+"</option>"; 
+        }
+        for (var i = 0, iMax = data['theme'].length; i < iMax; i++) {
+            var selectedStr = '';
+            if(data['theme'][i]['id'] == theme) selectedStr = "selected='selected'";
+            themeOption += "<option value='"+data['theme'][i]['id']+"'"+selectedStr+">"+data['theme'][i]['val']+"</option>"; 
+        }
+        for (var i = 0, iMax = data['age'].length; i < iMax; i++) {
+            var selectedStr = '';
+            if(data['age'][i]['id'] == age) selectedStr = "selected='selected'";
+            ageOption += "<option value='"+data['age'][i]['id']+"'>"+data['age'][i]['val']+"</option>";
+        }
+        $("select[name='author_type']").html(authorTypeOption);
+        $("select[name='craft']").html(craftOption);
+        $("select[name='theme']").html(themeOption);
+        $("select[name='age']").html(ageOption);
+    }, 'json');
+}
+function delimg(id)
+{
+    var is_sure = confirm("确认删除吗？");
+    if (is_sure) {
+        $.post('/admingoods/delimg/'+id, '', function(data){
+            if (data.err==0) {jsex.dialog.showmsg(data.msg);}
+        },'json')
+    }
+}
 </script>
 <style type="text/css">
 #imglists li{width:220px; height:230px;float:left;}
