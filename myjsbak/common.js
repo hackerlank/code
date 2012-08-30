@@ -36,15 +36,6 @@ function getUrlParam(name)
 	return requestQueryParams[name];
 }
 
-String.prototype.substr = function(start, length){
-    var str = '';
-    if (start > this.length) return str;
-    
-    length = (length > (this.length-start))?(this.length-start):length;
-    for (var i=0;i<length;i++ )
-        str += this[start++];
-    return str;
-}
 
 Array.prototype.remove = function(str){
     for(var i=0, iMax = this.length;i<iMax;i++)
