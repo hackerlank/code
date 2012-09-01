@@ -20,8 +20,6 @@ class Admingoods extends CI_Controller
         $data['info'] = array();
         if ($id) $data['info'] = $this->Goods_model->GetGoodsInfo($id);
 
-        $data['imglist'] = array();
-        if ($id) $data['imglist'] = $this->Goods_model->GetGoodsImgList($id);
         $data['attrOption'] = $this->createAttrSonOption($data['info']['goods_type']);
         $this->load->view('admin/goods_add.php', $data);
     }
@@ -87,7 +85,7 @@ class Admingoods extends CI_Controller
             $img = '/uploads/'.$data['file_name'];
             $thumb_img = '/uploads/'.$this->createMiniImg($img);
             $this->Goods_model->SaveGoodsImg($gid, $img, $thumb_img);
-            echo "<script type='text/javascript'>window.parent.$callback('$img');window.location.href='/admingoods/addimg/$gid';</script>'";
+            echo "<script type='text/javascript'>window.parent.$callback('$thumb_img');window.location.href='/admingoods/addimg/$gid';</script>'";
         } else{
             $msg = strip_tags($this->upload->display_errors());
             echo "<script type='text/javascript'>alert('$msg')</script>";
@@ -310,7 +308,7 @@ class Admingoods extends CI_Controller
         $query = $this->db->query("select * from goods_info");
         foreach ($query->result_array() as $row) {
             $filename = '/uploads/'.$this->createMiniImg($row['img']);
-            if ($this->db->query("update goods_info set thumb_img='{$filename}'")) {
+            if ($this->db->query("update goods_info set thumb_img='{$filename}' where id={$row['id']}")) {
                 echo $row['id'].'<br />';
             }
         }

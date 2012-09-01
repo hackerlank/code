@@ -420,3 +420,54 @@ ERROR - 2012-09-01 11:37:16 --> Severity: Notice  --> getimagesize(): Read error
 ERROR - 2012-09-01 11:37:16 --> Your server does not support the GD function required to process this type of image.
 ERROR - 2012-09-01 11:37:22 --> 404 Page Not Found --> favicon.ico
 ERROR - 2012-09-01 11:38:25 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 12:22:50 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 12:22:59 --> 404 Page Not Found --> favicon.ico
+ERROR - 2012-09-01 12:23:17 --> 404 Page Not Found --> favicon.ico
+ERROR - 2012-09-01 12:23:18 --> 404 Page Not Found --> favicon.ico
+ERROR - 2012-09-01 12:23:36 --> 404 Page Not Found --> favicon.ico
+ERROR - 2012-09-01 12:29:23 --> 404 Page Not Found --> favicon.ico
+ERROR - 2012-09-01 12:31:20 --> Severity: Notice  --> getimagesize(): Read error! /var/www/code/pro84/application/controllers/admingoods.php 327
+ERROR - 2012-09-01 12:31:20 --> Severity: Warning  --> Division by zero /var/www/code/pro84/application/controllers/admingoods.php 328
+ERROR - 2012-09-01 12:31:20 --> Severity: Notice  --> getimagesize(): Read error! /var/www/code/pro84/system/libraries/Image_lib.php 1337
+ERROR - 2012-09-01 12:31:20 --> Your server does not support the GD function required to process this type of image.
+ERROR - 2012-09-01 12:31:22 --> Severity: Notice  --> getimagesize(): Read error! /var/www/code/pro84/application/controllers/admingoods.php 327
+ERROR - 2012-09-01 12:31:22 --> Severity: Warning  --> Division by zero /var/www/code/pro84/application/controllers/admingoods.php 328
+ERROR - 2012-09-01 12:31:22 --> Severity: Notice  --> getimagesize(): Read error! /var/www/code/pro84/system/libraries/Image_lib.php 1337
+ERROR - 2012-09-01 12:31:22 --> Your server does not support the GD function required to process this type of image.
+ERROR - 2012-09-01 12:31:44 --> Severity: Notice  --> getimagesize(): Read error! /var/www/code/pro84/application/controllers/admingoods.php 327
+ERROR - 2012-09-01 12:31:44 --> Severity: Warning  --> Division by zero /var/www/code/pro84/application/controllers/admingoods.php 328
+ERROR - 2012-09-01 12:31:44 --> Severity: Notice  --> getimagesize(): Read error! /var/www/code/pro84/system/libraries/Image_lib.php 1337
+ERROR - 2012-09-01 12:31:44 --> Your server does not support the GD function required to process this type of image.
+ERROR - 2012-09-01 12:31:51 --> 404 Page Not Found --> favicon.ico
+ERROR - 2012-09-01 12:33:58 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 12:34:05 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 12:34:13 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 12:34:22 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 12:35:31 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 12:35:44 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 12:35:50 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 12:35:54 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 12:36:01 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 12:36:32 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 12:36:39 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 12:38:24 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 12:38:27 --> Severity: Notice  --> Undefined variable: imglist /var/www/code/pro84/application/views/admin/goods_add.php 91
+ERROR - 2012-09-01 12:39:58 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 12:40:09 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 12:40:17 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 12:40:48 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 12:43:45 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 12:43:53 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 12:44:07 --> Severity: Notice  --> Undefined index: goods_type /var/www/code/pro84/application/controllers/admingoods.php 23
+ERROR - 2012-09-01 12:44:07 --> Severity: Notice  --> Undefined index: name /var/www/code/pro84/application/views/admin/goods_add.php 29
+ERROR - 2012-09-01 12:44:07 --> Severity: Notice  --> Undefined index: author /var/www/code/pro84/application/views/admin/goods_add.php 33
+ERROR - 2012-09-01 12:44:07 --> Severity: Notice  --> Undefined index: author_title /var/www/code/pro84/application/views/admin/goods_add.php 42
+ERROR - 2012-09-01 12:44:07 --> Severity: Notice  --> Undefined index: standard /var/www/code/pro84/application/views/admin/goods_add.php 46
+ERROR - 2012-09-01 12:44:07 --> Severity: Notice  --> Undefined index: time /var/www/code/pro84/application/views/admin/goods_add.php 65
+ERROR - 2012-09-01 12:44:07 --> Severity: Notice  --> Undefined index: price /var/www/code/pro84/application/views/admin/goods_add.php 69
+ERROR - 2012-09-01 12:44:07 --> Severity: Notice  --> Undefined index: brief /var/www/code/pro84/application/views/admin/goods_add.php 73
+ERROR - 2012-09-01 12:44:07 --> Severity: Notice  --> Undefined index: thumb_img /var/www/code/pro84/application/views/admin/goods_add.php 90
+ERROR - 2012-09-01 12:44:07 --> Severity: Notice  --> Undefined index: pid /var/www/code/pro84/application/controllers/admingoods.php 295
+ERROR - 2012-09-01 12:44:07 --> Severity: Notice  --> Undefined index: id /var/www/code/pro84/application/controllers/admingoods.php 295
+ERROR - 2012-09-01 12:44:09 --> Severity: Notice  --> Undefined index: pid /var/www/code/pro84/application/controllers/admingoods.php 295
+ERROR - 2012-09-01 12:44:09 --> Severity: Notice  --> Undefined index: id /var/www/code/pro84/application/controllers/admingoods.php 295

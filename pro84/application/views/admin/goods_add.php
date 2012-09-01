@@ -87,9 +87,7 @@
 <div style="display:block;">
 <div id="imglists">
 <?php
-    if ($imglist)
-        foreach ($imglist as $li)
-            echo "<li><a class='close' onclick='javascript:delimg({$li['id']});'>x</a><a href='javascript:;' onclick='javascript:showimg(\"{$li['path']}\");'><img src='{$li['path']}' style='width:200px;height:200px;' /></a></li>";
+     echo "<img src='{$info['thumb_img']}' style='width:200px;height:200px;' />";
 ?>
 </div>
 <iframe id="goodsimgiframe" src='/admingoods/addimg/<?php echo $gid;?>'></iframe></div>
@@ -149,8 +147,8 @@ function saveGoods()
 }
 function addimg(path)
 {
-    var str = '<li><a class="close">x</a><a href="javascript:;" onclick="javascript:showimg("'+path+'");"><img src="'+path+'" style="width:200px;height:200px;" /></a></li>';
-    $("#imglists").append(str);
+    var str = '<img src="'+path+'" style="width:200px;height:200px;" /></a>';
+    $("#imglists").html(str);
 }
 function showimg(path)
 {
