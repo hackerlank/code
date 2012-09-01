@@ -471,3 +471,28 @@ ERROR - 2012-09-01 12:44:07 --> Severity: Notice  --> Undefined index: pid /var/
 ERROR - 2012-09-01 12:44:07 --> Severity: Notice  --> Undefined index: id /var/www/code/pro84/application/controllers/admingoods.php 295
 ERROR - 2012-09-01 12:44:09 --> Severity: Notice  --> Undefined index: pid /var/www/code/pro84/application/controllers/admingoods.php 295
 ERROR - 2012-09-01 12:44:09 --> Severity: Notice  --> Undefined index: id /var/www/code/pro84/application/controllers/admingoods.php 295
+ERROR - 2012-09-01 12:52:30 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 13:16:17 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 14:16:40 --> 404 Page Not Found --> favicon.ico
+ERROR - 2012-09-01 14:18:13 --> 404 Page Not Found --> favicon.ico
+ERROR - 2012-09-01 14:18:19 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 14:18:19 --> 404 Page Not Found --> favicon.ico
+ERROR - 2012-09-01 14:18:25 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 14:18:25 --> 404 Page Not Found --> favicon.ico
+ERROR - 2012-09-01 14:18:25 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 14:18:26 --> 404 Page Not Found --> favicon.ico
+ERROR - 2012-09-01 14:18:27 --> 404 Page Not Found --> favicon.ico
+ERROR - 2012-09-01 14:18:29 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 14:18:29 --> 404 Page Not Found --> favicon.ico
+ERROR - 2012-09-01 14:18:47 --> 404 Page Not Found --> favicon.ico
+ERROR - 2012-09-01 14:18:49 --> 404 Page Not Found --> favicon.ico
+ERROR - 2012-09-01 14:18:53 --> 404 Page Not Found --> favicon.ico
+ERROR - 2012-09-01 14:18:53 --> 404 Page Not Found --> favicon.ico
+ERROR - 2012-09-01 14:18:54 --> 404 Page Not Found --> favicon.ico
+ERROR - 2012-09-01 14:19:13 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 14:19:22 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 14:19:44 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 14:19:51 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 14:20:00 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 14:42:53 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 14:42:53 --> 404 Page Not Found --> favicon.ico
