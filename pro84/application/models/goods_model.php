@@ -69,11 +69,11 @@ class Goods_model extends CI_Model
             }
         return $goodsLists;
     }
-    public function SaveGoodsImg($gid, $path)
+    public function SaveGoodsImg($gid, $img, $thumb_img)
     {
-        $sql = "INSERT INTO $this->goodsImgTable (gid, path) VALUES($gid, '$path')";
-        $this->db->update($this->goodsInfoTable,array('img'=>$path), array('id'=>$gid));
-        $this->db->query($sql);
+        //$sql = "INSERT INTO $this->goodsImgTable (gid, path) VALUES($gid, '$img')";
+        $this->db->update($this->goodsInfoTable,array('img'=>$img, 'thumb_img'=>$thumb_img), array('id'=>$gid));
+        //$this->db->query($sql);
         return $this->db->insert_id();
     }
     public function AddAttr($data)

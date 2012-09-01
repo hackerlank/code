@@ -6,6 +6,7 @@ class Admingoods extends CI_Controller
         parent::__construct();
         $this->load->library('session');
         $this->load->model('Goods_model');
+        $this->load->database();
     }
     public function Add()
     {
@@ -77,14 +78,16 @@ class Admingoods extends CI_Controller
         $config['max_size'] = "0";
         $config['max_width'] = "0";
         $config['max_height'] = "0";
+        $config['file_name'] = time().'.'.pathinfo($_FILES['upload']['name'], PATHINFO_EXTENSION);
         $this->load->library('upload',$config);
         
         if($this->upload->do_upload('upload')) {
             $callback = $this->input->post('callback');
             $data = $this->upload->data();
-            $path = "/uploads/".$data['orig_name'];
-            $this->Goods_model->SaveGoodsImg($gid, $path);
-            echo "<script type='text/javascript'>window.parent.$callback('$path');window.location.href='/admingoods/addimg/$gid';</script>'";
+            $img = '/uploads/'.$data['file_name'];
+            $thumb_img = '/uploads/'.$this->createMiniImg($img);
+            $this->Goods_model->SaveGoodsImg($gid, $img, $thumb_img);
+            echo "<script type='text/javascript'>window.parent.$callback('$img');window.location.href='/admingoods/addimg/$gid';</script>'";
         } else{
             $msg = strip_tags($this->upload->display_errors());
             echo "<script type='text/javascript'>alert('$msg')</script>";
@@ -301,5 +304,32 @@ class Admingoods extends CI_Controller
         } else {
             echo json_encode(array('err'=>1, 'msg'=>'删除失败'));
         }
+    }
+    public function miniImg()
+    {
+        $query = $this->db->query("select * from goods_info");
+        foreach ($query->result_array() as $row) {
+            $filename = '/uploads/'.$this->createMiniImg($row['img']);
+            if ($this->db->query("update goods_info set thumb_img='{$filename}'")) {
+                echo $row['id'].'<br />';
+            }
+        }
+    }
+    public function createMiniImg($img)
+    {
+        $config = array();
+        $config['image_library'] = 'gd2';
+        $config['source_image'] = BASEPATH.'..'.$img;
+        $config['create_thumb'] = TRUE;
+        $config['maintain_ratio'] = TRUE;
+        $config['quality'] = 60;
+        $config['width'] = 202;
+        $img_info = getimagesize($config['source_image']);
+        $config['height'] = ceil(($img_info[1]*$config['width'])/$img_info[0]);
+        $this->load->library('image_lib'); 
+        $this->image_lib->initialize($config);
+        $this->image_lib->resize();
+        $path_info = pathinfo($config['source_image']);
+        return $path_info['filename'].'_'.'thumb.'.$path_info['extension'];
     }
 } 
