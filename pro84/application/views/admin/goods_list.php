@@ -16,10 +16,10 @@
     <p class="page_info">商品列表管理</p>
 </div>
 <div class='s_box'>
-<form method="post">
+<form method="get">
 <label>请选择分类：</label>
-<select name='gtype'><option>--请选择--</option><?php echo $attrOption;?></select>
-<input type="submit" class="btn_lv3_1" value="确定" />
+ <select name='gtype' id='gtype'><option value='0'>--请选择--</option><?php echo $attrOption;?></select>
+<input id='gotolists' type="button" class="btn_lv3_1" value="确定" />
 </form>
 </div>
 <?php if($goodsList):?>
@@ -34,19 +34,44 @@
         <th>操作</th>
     </tr>
 </thead>
-<tbody>
+<tbody id="goodslist">
 <?php
     foreach ($goodsList as $goods)
-        echo "<tr><td>{$goods['name']}</td>".
+        echo "<tr id='good_{$goods['id']}'><td>{$goods['name']}</td>".
              "<td>{$goods['author']}</td>".
              "<td>{$goods['craft']}</td>".
              "<td>{$goods['theme']}</td>".
              "<td>{$goods['time']}</td>".
-             "<td><a href='/admingoods/add/{$goods['id']}'>编辑</a> | 删除</td></tr>";
+             "<td><a href='javascript:;' onclick='javascript:showimg(\"{$goods['thumb_img']}\");'>图片预览</a> | <a href='/admingoods/add/{$goods['id']}'>编辑</a> | <a href='javascript:;' onclick='javascript:delGoods({$goods['id']});'>删除</a></td></tr>";
 ?>
 </tbody>
 </table>
+<?php echo $pagination;?>
 <?php endif;?>
 </div>
+<script type="text/javascript">
+$("#goodslist tr:even").addClass("eq");
+$("#goodslist tr").live('mouseover', function(){$(this).addClass('over');});
+$("#goodslist tr").live('mouseout', function(){$(this).removeClass('over');});
+function showimg(path)
+{
+    var str = "<img src='"+path+"' />";
+    jsex.dialog.showmsgauto(str, '图片预览');
+}
+function delGoods(id)
+{
+    var is_sure = confirm("确定删除吗？");
+    if (is_sure) {
+        $.post('/admingoods/delgoods/'+id,'',function(data){
+            if (data.err) alert(data.msg);
+            else $('#good_'+id).remove();
+        },'json'); 
+    }
+}
+$("#gotolists").click(function(){
+    var gtype = $('#gtype').val();
+    if (gtype) window.location.href= "/admingoods/goodslist/"+gtype;
+});
+</script>
 </body>
 </html>

@@ -404,6 +404,7 @@ form{
 .datelist-1 thead th input{ vertical-align:middle;}
 .datelist-1 td{ text-align:center; line-height:40px;}
 .datelist-1 tr.eq td{ background:#f1f1f1;}
+.datelist-1 tr.over td{ background:#65ABD1;}
 .datelist-1 td a{ color:#0066cc; text-decoration:underline; margin:0 10px;}
 .datelist-1 td a.order_1,.datelist-1 td a.order_2{background:url(../images/tbl_order_ico.png);margin:0 3px; width:10px; height:10px; display:inline-block; }
 .datelist-1 td a.order_1{}

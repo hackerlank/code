@@ -93,11 +93,31 @@ class Admingoods extends CI_Controller
     }
     public function goodslist()
     {
-        $gtype = intval($this->input->post('gtype',0));
+        $gtype = $this->uri->segment(3,0);
+        $page = $this->uri->segment(4,1);
         $data['attrOption'] = $this->createAttrSonOption($gtype);
-        if ($gtype)
-            $data['goodsList'] = $this->Goods_model->GetGoodsLists($gtype);
+        if ($gtype) {
+            $goods_total = $this->Goods_model->GetGoodsTotal($gtype);
+            $per_page = 10;
+            $total_pages = ceil($goods_total/$per_page);
+            if ($page > $total_pages || $page < 1) $page = 1;
+            $data['goodsList'] = $this->Goods_model->GetGoodsLists($gtype, ($page-1)*$per_page, $per_page);
+            $data['pagination'] = $this->createPagination("/admingoods/goodslist/$gtype", $goods_total, $per_page, $page);
+        }
+        
         $this->load->view('admin/goods_list.php',$data);
+    }
+    public function createPagination($base_url, $total_rows, $per_page, $cur_page)
+    {
+        $this->load->library('custompagination');
+        $config['base_url'] = $base_url;
+        $config['total_rows'] = $total_rows;
+        $config['per_page'] = $per_page;
+        $config['cur_page'] = $cur_page;
+        $config['uri_segment'] = 4;
+        $config['num_links'] = 6;
+        $this->custompagination->initialize($config);
+        return $this->custompagination->create_links(); 
     }
     public function attr()
     {
@@ -305,6 +325,7 @@ class Admingoods extends CI_Controller
     }
     public function miniImg()
     {
+        /*
         $query = $this->db->query("select * from goods_info");
         foreach ($query->result_array() as $row) {
             $filename = '/uploads/'.$this->createMiniImg($row['img']);
@@ -312,6 +333,7 @@ class Admingoods extends CI_Controller
                 echo $row['id'].'<br />';
             }
         }
+        */
     }
     public function createMiniImg($img)
     {
@@ -329,5 +351,13 @@ class Admingoods extends CI_Controller
         $this->image_lib->resize();
         $path_info = pathinfo($config['source_image']);
         return $path_info['filename'].'_'.'thumb.'.$path_info['extension'];
+    }
+    public function delGoods()
+    {
+        $id = intval($this->uri->segment(3,0));
+        if($this->Goods_model->DelGoods($id))
+            echo json_encode(array('err'=>0,'msg'=>'操作成功'));
+        else
+            echo json_encode(array('err'=>1, 'msg'=>'操作失败'));
     }
 } 

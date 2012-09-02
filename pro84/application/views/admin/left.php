@@ -2,6 +2,16 @@
     <div class="fed-menu">
         <div class="fed-menu-box">
             <div class="fed-menu-title tit_on">
+                <span>新闻资讯</span>
+                <a href="#" class="more"></a>
+            </div>
+            <ul class="fed-menu-list">
+                <li><a src="/adminarticle/typelists/1" href='javascript:;'>新闻类型</a></li>
+                <li><a src="/adminarticle/lists/1" href='javascript:;'>新闻列表</a></li>
+            </ul>
+        </div>
+        <div class="fed-menu-box">
+            <div class="fed-menu-title tit_on">
                 <span>商品管理</span>
                  <a href="#" class="more"></a>
             </div>

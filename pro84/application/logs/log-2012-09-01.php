@@ -496,3 +496,304 @@ ERROR - 2012-09-01 14:19:51 --> Severity: Notice  --> Undefined variable: goodsL
 ERROR - 2012-09-01 14:20:00 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
 ERROR - 2012-09-01 14:42:53 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
 ERROR - 2012-09-01 14:42:53 --> 404 Page Not Found --> favicon.ico
+ERROR - 2012-09-01 20:50:25 --> 404 Page Not Found --> favicon.ico
+ERROR - 2012-09-01 21:17:48 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 21:26:16 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 21:31:07 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 21:39:41 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 21:40:35 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 21:47:06 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 21:47:15 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 21:47:19 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 21:47:56 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 21:48:04 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 21:48:33 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 21:59:39 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 22:01:02 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 22:01:03 --> Severity: Notice  --> Undefined index: goods_type /var/www/code/pro84/application/controllers/admingoods.php 23
+ERROR - 2012-09-01 22:01:03 --> Severity: Notice  --> Undefined index: name /var/www/code/pro84/application/views/admin/goods_add.php 29
+ERROR - 2012-09-01 22:01:03 --> Severity: Notice  --> Undefined index: author /var/www/code/pro84/application/views/admin/goods_add.php 33
+ERROR - 2012-09-01 22:01:03 --> Severity: Notice  --> Undefined index: author_title /var/www/code/pro84/application/views/admin/goods_add.php 42
+ERROR - 2012-09-01 22:01:03 --> Severity: Notice  --> Undefined index: standard /var/www/code/pro84/application/views/admin/goods_add.php 46
+ERROR - 2012-09-01 22:01:03 --> Severity: Notice  --> Undefined index: time /var/www/code/pro84/application/views/admin/goods_add.php 65
+ERROR - 2012-09-01 22:01:03 --> Severity: Notice  --> Undefined index: price /var/www/code/pro84/application/views/admin/goods_add.php 69
+ERROR - 2012-09-01 22:01:03 --> Severity: Notice  --> Undefined index: brief /var/www/code/pro84/application/views/admin/goods_add.php 73
+ERROR - 2012-09-01 22:01:03 --> Severity: Notice  --> Undefined index: thumb_img /var/www/code/pro84/application/views/admin/goods_add.php 90
+ERROR - 2012-09-01 22:01:03 --> Severity: Notice  --> Undefined index: pid /var/www/code/pro84/application/controllers/admingoods.php 295
+ERROR - 2012-09-01 22:01:03 --> Severity: Notice  --> Undefined index: id /var/www/code/pro84/application/controllers/admingoods.php 295
+ERROR - 2012-09-01 22:01:04 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 22:01:06 --> Severity: Notice  --> Undefined index: goods_type /var/www/code/pro84/application/controllers/admingoods.php 23
+ERROR - 2012-09-01 22:01:06 --> Severity: Notice  --> Undefined index: name /var/www/code/pro84/application/views/admin/goods_add.php 29
+ERROR - 2012-09-01 22:01:06 --> Severity: Notice  --> Undefined index: author /var/www/code/pro84/application/views/admin/goods_add.php 33
+ERROR - 2012-09-01 22:01:06 --> Severity: Notice  --> Undefined index: author_title /var/www/code/pro84/application/views/admin/goods_add.php 42
+ERROR - 2012-09-01 22:01:06 --> Severity: Notice  --> Undefined index: standard /var/www/code/pro84/application/views/admin/goods_add.php 46
+ERROR - 2012-09-01 22:01:06 --> Severity: Notice  --> Undefined index: time /var/www/code/pro84/application/views/admin/goods_add.php 65
+ERROR - 2012-09-01 22:01:06 --> Severity: Notice  --> Undefined index: price /var/www/code/pro84/application/views/admin/goods_add.php 69
+ERROR - 2012-09-01 22:01:06 --> Severity: Notice  --> Undefined index: brief /var/www/code/pro84/application/views/admin/goods_add.php 73
+ERROR - 2012-09-01 22:01:06 --> Severity: Notice  --> Undefined index: thumb_img /var/www/code/pro84/application/views/admin/goods_add.php 90
+ERROR - 2012-09-01 22:01:06 --> Severity: Notice  --> Undefined index: pid /var/www/code/pro84/application/controllers/admingoods.php 295
+ERROR - 2012-09-01 22:01:06 --> Severity: Notice  --> Undefined index: id /var/www/code/pro84/application/controllers/admingoods.php 295
+ERROR - 2012-09-01 22:01:08 --> Severity: Notice  --> Undefined index: pid /var/www/code/pro84/application/controllers/admingoods.php 295
+ERROR - 2012-09-01 22:01:08 --> Severity: Notice  --> Undefined index: id /var/www/code/pro84/application/controllers/admingoods.php 295
+ERROR - 2012-09-01 22:01:17 --> Severity: Notice  --> Undefined index: goods_type /var/www/code/pro84/application/controllers/admingoods.php 23
+ERROR - 2012-09-01 22:01:17 --> Severity: Notice  --> Undefined index: name /var/www/code/pro84/application/views/admin/goods_add.php 29
+ERROR - 2012-09-01 22:01:17 --> Severity: Notice  --> Undefined index: author /var/www/code/pro84/application/views/admin/goods_add.php 33
+ERROR - 2012-09-01 22:01:17 --> Severity: Notice  --> Undefined index: author_title /var/www/code/pro84/application/views/admin/goods_add.php 42
+ERROR - 2012-09-01 22:01:17 --> Severity: Notice  --> Undefined index: standard /var/www/code/pro84/application/views/admin/goods_add.php 46
+ERROR - 2012-09-01 22:01:17 --> Severity: Notice  --> Undefined index: time /var/www/code/pro84/application/views/admin/goods_add.php 65
+ERROR - 2012-09-01 22:01:17 --> Severity: Notice  --> Undefined index: price /var/www/code/pro84/application/views/admin/goods_add.php 69
+ERROR - 2012-09-01 22:01:17 --> Severity: Notice  --> Undefined index: brief /var/www/code/pro84/application/views/admin/goods_add.php 73
+ERROR - 2012-09-01 22:01:17 --> Severity: Notice  --> Undefined index: thumb_img /var/www/code/pro84/application/views/admin/goods_add.php 90
+ERROR - 2012-09-01 22:01:17 --> Severity: Notice  --> Undefined index: pid /var/www/code/pro84/application/controllers/admingoods.php 295
+ERROR - 2012-09-01 22:01:17 --> Severity: Notice  --> Undefined index: id /var/www/code/pro84/application/controllers/admingoods.php 295
+ERROR - 2012-09-01 22:01:41 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 22:16:29 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 22:20:59 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 22:22:50 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 22:29:46 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 22:30:42 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 22:31:34 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 23:20:40 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:43 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:54 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:20:58 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:10 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:21:13 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:42 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:45 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:25:52 --> Severity: Notice  --> Undefined index: goods_type /var/www/code/pro84/application/controllers/admingoods.php 23
+ERROR - 2012-09-01 23:25:52 --> Severity: Notice  --> Undefined index: name /var/www/code/pro84/application/views/admin/goods_add.php 29
+ERROR - 2012-09-01 23:25:52 --> Severity: Notice  --> Undefined index: author /var/www/code/pro84/application/views/admin/goods_add.php 33
+ERROR - 2012-09-01 23:25:52 --> Severity: Notice  --> Undefined index: author_title /var/www/code/pro84/application/views/admin/goods_add.php 42
+ERROR - 2012-09-01 23:25:52 --> Severity: Notice  --> Undefined index: standard /var/www/code/pro84/application/views/admin/goods_add.php 46
+ERROR - 2012-09-01 23:25:52 --> Severity: Notice  --> Undefined index: time /var/www/code/pro84/application/views/admin/goods_add.php 65
+ERROR - 2012-09-01 23:25:52 --> Severity: Notice  --> Undefined index: price /var/www/code/pro84/application/views/admin/goods_add.php 69
+ERROR - 2012-09-01 23:25:52 --> Severity: Notice  --> Undefined index: brief /var/www/code/pro84/application/views/admin/goods_add.php 73
+ERROR - 2012-09-01 23:25:52 --> Severity: Notice  --> Undefined index: thumb_img /var/www/code/pro84/application/views/admin/goods_add.php 90
+ERROR - 2012-09-01 23:25:52 --> Severity: Notice  --> Undefined index: pid /var/www/code/pro84/application/controllers/admingoods.php 295
+ERROR - 2012-09-01 23:25:52 --> Severity: Notice  --> Undefined index: id /var/www/code/pro84/application/controllers/admingoods.php 295
+ERROR - 2012-09-01 23:25:53 --> Severity: Notice  --> Undefined index: pid /var/www/code/pro84/application/controllers/admingoods.php 295
+ERROR - 2012-09-01 23:25:53 --> Severity: Notice  --> Undefined index: id /var/www/code/pro84/application/controllers/admingoods.php 295
+ERROR - 2012-09-01 23:26:00 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 23:26:03 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:26:03 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:26:03 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:26:03 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:26:03 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:26:03 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:26:03 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:26:03 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:26:03 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:26:03 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:26:03 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:26:03 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:26:03 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:26:03 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:26:03 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:26:03 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:26:03 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:26:03 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:26:03 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:26:03 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:26:03 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:26:03 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:26:03 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:26:03 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:26:03 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:26:03 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:26:03 --> Severity: Notice  --> Undefined index:  /var/www/code/pro84/application/views/admin/goods_list.php 45
+ERROR - 2012-09-01 23:27:02 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 23:27:21 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 23:29:03 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 23:30:40 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 23:32:42 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 23:32:49 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 23:33:27 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 23:33:51 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 23:34:25 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 23:34:34 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 23:34:44 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 23:37:54 --> Severity: Notice  --> Undefined variable: goodsList /var/www/code/pro84/application/views/admin/goods_list.php 25
+ERROR - 2012-09-01 23:46:37 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 23:46:47 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 23:47:01 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 23:48:28 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 23:48:52 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 23:50:22 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 23:51:55 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 23:51:59 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 23:52:02 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 23:52:10 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20
+ERROR - 2012-09-01 23:52:17 --> Severity: Notice  --> Undefined index: author_type_nmae /var/www/code/pro84/application/views/zh/goods_info.php 20

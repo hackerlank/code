@@ -10,6 +10,7 @@
 <script language="javascript" src="/js/showbox.js"></script>
 </head>
 <body>
+<a href="/admingoods/goodslist/<?php echo $info['goods_type'];?>" class="btn_lv3_1" style="margin-left:10px;">返回列表</a>
      <div class="pd_10">
 <div class="tabstyle_1 clearfix">
     <ul>

@@ -50,10 +50,10 @@ class Goods_model extends CI_Model
         $info['author_type_name'] = $author_type[0]['val'];
         return $info;
     }
-    public function GetGoodsLists($gtype)
+    public function GetGoodsLists($gtype, $offset, $row_count)
     {
         $goodsLists = array();
-        $query = $this->db->query("SELECT * FROM $this->goodsInfoTable where goods_type=$gtype");
+        $query = $this->db->query("SELECT * FROM $this->goodsInfoTable where goods_type=$gtype limit $offset, $row_count");
 
         if ($query->num_rows() > 0)
             foreach ($query->result_array() as $row) {
@@ -68,6 +68,11 @@ class Goods_model extends CI_Model
                 $goodsLists[] = $row;
             }
         return $goodsLists;
+    }
+    public function GetGoodsTotal($gtype)
+    {
+        $this->db->where('goods_type', $gtype);
+        return $this->db->count_all_results($this->goodsInfoTable);
     }
     public function SaveGoodsImg($gid, $img, $thumb_img)
     {
@@ -161,5 +166,9 @@ class Goods_model extends CI_Model
             foreach($query->result() as $row)
                 $list[] = array('id'=>$row->id, 'path'=>$row->path);
         return $list;
+    }
+    public function DelGoods($id)
+    {
+        return $this->db->query("delete from {$this->goodsInfoTable} where id=$id");
     }
 }

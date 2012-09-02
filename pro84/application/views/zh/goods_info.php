@@ -14,7 +14,7 @@
 <div class="wp">
 	<div class="detail clearfix">
     <h2 class="pro-name"><?php echo $info['name'];?></h2>
-    	<img src="<?php echo $info['img'];?>" class="detail-img" width="738px" height="738px">
+    	<div class="detail-img"><img src="<?php echo $info['img'];?>" class="detailimg" style="max-width:738px;display:none;" /></div>
         <div class="pro-detail-r">
         	<p><strong>作者：</strong><?php echo $info['author'];?></p>
             <p><strong>作者分类：</strong><?php echo $info['author_type_nmae'];?></p>
@@ -27,6 +27,16 @@
         </div>
     </div>
 </div>
+<div id="qqfloat" style="width:90px; height:150px;z-index: 999; left: 90%; visibility: visible; position: absolute; top: 259px;">
+<div style="width:8px; height:150px; float:left; background:url(http://im.bizapp.qq.com:8000/bg_1.gif) no-repeat;"></div>
+<div style="float:left; width:74px; height:150px; background:url(http://im.bizapp.qq.com:8000/middle.jpg) no-repeat; ">
+        <div style="height:80px;  clear:both;margin-top:40px;width:74px; float:left; background:url(http://im.bizapp.qq.com:8000/face.jpg) no-repeat;"></div>
+        <div style="clear:both;width:74px;">
+        <a style="padding-top:15px;height:20px; background:url(http://im.bizapp.qq.com:8000/btn_2.gif) no-repeat;  display:block;" target="_blank" href="tencent://message/?uin=912445635"></a>
+        </div>
+</div>
+<div style="width:8px; height:150px; float:left; background:url(http://im.bizapp.qq.com:8000/bg_1.gif) right;"></div>
+</div>
 <script type="text/javascript">
 $(function(){
     var pid = <?php echo $ptype;?>;
@@ -34,46 +44,43 @@ $(function(){
         var str = '';
         for(var i=0, iMax=data['list'].length; i < iMax; i++)
             str += "<li><a tid='"+data['list'][i]['id']+"' href='/goods/index/<?php echo $ptype;?>/"+data['list'][i]['id']+"'>"+data['list'][i]['name']+"</a></li>";
-        str = "<div class='wp'><h3>"+data['info']['name']+"</h3><ul>"+str+"</ul></div>";
+        str = "<div class='wp'><h3>"+data['info']['name']+"</h3><ul>"+str+"</ul><p class='back'><a href='#'>返回</a> | <a href='/'>首页</a></p></div>";
         $("#typelist").html(str);
 
-        $('#typelist ul li a').eq(0).addClass('current');
+        $('#typelist ul li a[tid="<?php echo $info['goods_type'];?>"]').addClass('current');
 
-        $("#typelist ul li a").live('click', function(){
-            $('#typelist ul li a').removeClass('current');
-            $(this).addClass('current');
-            var gtype = parseInt($(this).attr('tid'));
-            getGoodsLists(gtype);
-        });
     },'json');
     
 
 });
-function getGoodsLists(gtype)
-{
-        $.post('/goods/lists/'+gtype, '', function(data){
-            var listArr = [];
-            var tempArr = [];
-            for(var i=0,j=1, iMax=data['list'].length;i < iMax;i++,j++) {
-                tempArr.push(data['list'][i]);
-                if (3 ==j) {
-                    listArr.push(tempArr);
-                    tempArr = [];
-                    j = 1;
-                }
-            }
-            if (tempArr.length>0) listArr.push(tempArr);
-            var str = '';
-            for (var i=0, iMax=listArr.length; i < iMax; i++) {
-                var tmpStr = '';
-                for (k in listArr[i]) {
-                    tmpStr += "<li><a href='/goods/info/"+listArr[i][k]['id']+"'><img src='"+listArr[i][k]['img']+"' width='202px' /></a><p>"+listArr[i][k]['name']+"</p><p class='numbox'>喜欢</p></li>";
-                }
-                str += "<ul class='col-"+(i+1)+"'>"+tmpStr+"</ul>"
-            }
-            $('.prolist').html(str);
-        },'json');
+var imgsrc = $('.detailimg').attr("src");
+var img_tmp = new Image();
+img_tmp.src = imgsrc;
+img_tmp.onload = function () {
+    if (img_tmp.widhth > 738){
+        var h = parseInt((img_tmp.height*738)/img_tmp.width);
+        $('.detailimg').attr('width', '738px');
+        $('.detailimg').attr('height', h+'px');
+    }
+    $('.detailimg').show();
 }
+
+var end_point=325;
+function qqmenu(){
+    var starp,endp;
+    starp=parseInt($('#qqfloat').css("top"),10);
+    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    //endp=end_point+document.documentElement.scrollTop;
+    endp=end_point+scrollTop;
+    if(starp!=endp){
+        var scrollp=Math.ceil( Math.abs( endp - starp ) / 15 );
+        var n=parseInt($('#qqfloat').css("top"),10)+((endp<starp)?-scrollp:scrollp);
+        $('#qqfloat').css("top",n);
+    }
+    setTimeout("qqmenu()",20);
+    //$('#error').text(scrollTop);
+}
+qqmenu();
 </script>
 </body>
 </html>
