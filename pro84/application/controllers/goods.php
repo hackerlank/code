@@ -33,7 +33,9 @@ class Goods extends CI_Controller
     public function lists()
     {
         $gtype = intval($this->uri->segment(3,0));
-        echo json_encode(array('list'=>$this->Goods_model->GetGoodsLists($gtype, 0, 100)));
+        $offset = intval($this->uri->segment(4,0));
+        $row_nums = 12;
+        echo json_encode(array('list'=>$this->Goods_model->GetGoodsLists($gtype, $offset, $row_nums)));
         exit;
     }
     
