@@ -50,6 +50,7 @@ $(function(){
             $('.col-4').html('');
             $('input[name="goods_total"]').val(0);
             last_load_offset = -1;
+            load_completed = false;
             getGoodsLists(gtype);
         });
     },'json');
