@@ -13,6 +13,6 @@ class About extends CI_Controller
     }
     public function Index()
     {
-        $this->load->view('zh/abount_us.php');
+        $this->load->view('zh/about.html');
     }
 }

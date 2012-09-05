@@ -15,16 +15,16 @@
     </div>
     <div class="menu-2">
         <span id="menu-2"></span>
-        <a href="#"></a>
+        <a href="/media/lists/1/1"></a>
     </div>
     <div class="menu-3">
         <span id="menu-3"></span>
-        <a href="#"></a>
+        <a href="/media/lists/2/4"></a>
     </div>
     
     <div class="menu-4">
         <span id="menu-4"></span>
-        <a href="#"></a>
+        <a href="/about"></a>
     </div>
     <div class="indexfooter">
         <p style=" margin-bottom:10px;">Copyright &copy; 中国非物质文化遗产保护基金会  <span class="ml30">沪ICP备11030245号</span></p>
