@@ -892,3 +892,14 @@ ERROR - 2012-09-05 11:59:30 --> Severity: Notice  --> Undefined variable: list /
 ERROR - 2012-09-05 11:59:30 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
 ERROR - 2012-09-05 11:59:30 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
 ERROR - 2012-09-05 11:59:30 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 15:43:08 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 15:43:08 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 15:43:08 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 15:43:08 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 15:43:10 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 15:43:10 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 15:43:10 --> Severity: Notice  --> Undefined variable: res /var/www/code/pro84/application/controllers/adminarticle.php 111
+ERROR - 2012-09-05 15:43:10 --> Severity: Notice  --> Undefined variable: id /var/www/code/pro84/application/views/admin/article_art.php 45
+ERROR - 2012-09-05 15:43:10 --> Severity: Notice  --> Undefined variable: id /var/www/code/pro84/application/views/admin/article_art.php 45
+ERROR - 2012-09-05 15:43:10 --> 404 Page Not Found --> admin/upload
+ERROR - 2012-09-05 15:43:37 --> 404 Page Not Found --> admin/uploadimg

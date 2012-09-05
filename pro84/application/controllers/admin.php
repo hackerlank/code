@@ -101,4 +101,34 @@ class Admin extends CI_Controller
         }
         return $this->load->view('admin/admin_changepwd.php', $data);
     }
+    public function uploadimg()
+    {
+        if (!$this->session->userdata('isadmin')) {
+            echo json_encode(array('code'=>'1','msg'=>'没有权限'));
+            return;
+        }
+        $callback = $this->uri->segment(3, '');//img label
+        $config['upload_path'] = 'uploads/';
+        $config['allowed_types'] = 'gif|jpg|png|zip';
+        $config['max_size'] = '40000';
+        $config['max_width']  = '10240';
+        $config['max_height']  = '7680';
+        $config['file_name'] = time().'.'.pathinfo($_FILES['upload']['name'], PATHINFO_EXTENSION);
+        if (isset($_GET['CKEditorFuncNum']))
+            $funcNum = $_GET['CKEditorFuncNum'];
+        $this->load->library('upload', $config);
+        if ( ! $this->upload->do_upload("upload")) {
+            $error = array('error' => $this->upload->display_errors());
+        } else {
+            $data = array('upload_data' => $this->upload->data());
+            if (isset($funcNum))
+                echo "<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction($funcNum, '/uploads/{$data['upload_data']['file_name']}', '成功');</script>";
+            elseif (''!=$callback){
+                echo "<script>window.parent.$callback('/uploads/{$data['upload_data']['file_name']}');window.location.href='/admin/upload/{$callback}';</script>";
+            }else{
+                $str = "<li class='span6'><a class='close'>x</a><img src='/uploads/{$data['file_data']['orig_name']}' /><input type='hidden' name='img[]' value='/uploads/{$data['upload_data']['file_name']}' /></li>";
+                echo '<script>window.parent.$("#imglists").append("'.$str.'");window.location.href="/admin/upload";</script>';
+            }
+        }
+    }
 }
