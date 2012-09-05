@@ -903,3 +903,33 @@ ERROR - 2012-09-05 15:43:10 --> Severity: Notice  --> Undefined variable: id /va
 ERROR - 2012-09-05 15:43:10 --> Severity: Notice  --> Undefined variable: id /var/www/code/pro84/application/views/admin/article_art.php 45
 ERROR - 2012-09-05 15:43:10 --> 404 Page Not Found --> admin/upload
 ERROR - 2012-09-05 15:43:37 --> 404 Page Not Found --> admin/uploadimg
+ERROR - 2012-09-05 16:05:20 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 16:05:20 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 16:05:20 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 16:05:20 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 16:05:24 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 16:05:24 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 16:05:24 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 16:05:24 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 16:05:24 --> Severity: Notice  --> Undefined variable: id /var/www/code/pro84/application/views/admin/article_art.php 45
+ERROR - 2012-09-05 16:05:24 --> Severity: Notice  --> Undefined variable: id /var/www/code/pro84/application/views/admin/article_art.php 45
+ERROR - 2012-09-05 16:05:25 --> 404 Page Not Found --> admin/upload
+ERROR - 2012-09-05 16:05:29 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 16:05:29 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 16:05:29 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 16:05:29 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 16:05:41 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 16:05:41 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 16:05:41 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 16:05:41 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 16:05:42 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 16:05:45 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 16:05:45 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 16:05:45 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 16:05:45 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 16:05:45 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 16:05:47 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 16:05:47 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 16:05:47 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 16:05:47 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
+ERROR - 2012-09-05 16:05:47 --> Severity: Notice  --> Undefined variable: list /var/www/code/pro84/application/models/articles.php 23
