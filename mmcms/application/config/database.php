@@ -49,8 +49,8 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = 'root';
+$db['default']['username'] = 'mmcms';
+$db['default']['password'] = 'mmcms';
 $db['default']['database'] = 'mmcms';
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
