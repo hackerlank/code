@@ -16,10 +16,10 @@
     <p class="back"><a href="#">返回</a> | <a href="/">首页</a></p></div>
 </div>
 <div class="wp newslist">
-    <ul>
+    <ul class="clearfix">
     <?php
         foreach ($lists['list'] as $li)
-            echo "<li><span>[{$li['date']}]</span>. <a href='/media/info/{$li['id']}'>{$li['title']}</a></li>";
+            echo "<li><span><img src='{$li['imgurl']}' style='whidth:204px;height:138px' /></span> a href='/media/info/{$li['id']}'>{$li['title']}</a></li>";
     ?>
     </ul>
     <div class="page" style="display:none;">

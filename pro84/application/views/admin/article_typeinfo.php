@@ -60,7 +60,6 @@
         <td>
         <input type="radio" name="template" value="medialists1" />模版一<span onclick="javascript:showimg('/images/media/medialists1.jpg');">[预览]</span>
         <input type="radio" name="template" value="medialists2" />模版二<span onclick="javascript:showimg('/images/media/medialists2.jpg');">[预览]</span>
-        <input type="radio" name="template" value="medialists3" />模版三<span onclick="javascript:showimg('/images/media/medialists3.jpg');">[预览]</span>
         </td>
     </tr>
     <tr>
