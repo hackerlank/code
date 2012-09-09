@@ -68,9 +68,18 @@
     </td>
     </tr>
     <tr>
+        <th>时间：</th>
+        <td><input type="text" name="date" value="<?php echo $info['date'];?>" class="datepicker" /></td>
+    </tr>
+    <tr>
     	<th>内容:</th>
     	<td><textarea name="content" id="content" class="span9"><?php if (isset($info['content'])) echo $info['content'];?></textarea></td>
     </tr>
+<?php if ($template=='medialistis3'):?>
+    <tr><th>展览时间</th><td><input type='text' name='show_time' class='datepicker' value='<?php echo $info['show_time'];?>' /></td></tr>
+    <tr><th>展览地点</th><td><input type="text" name='show_area' value="<?php echo $info['show_area'];?>" /></td></tr>
+    <tr><th>展览链接</th><td><input type="text" name="show_link" value="<?php echo $info['show_link'];?>" /></td></tr>
+<?php endif;?>
     <tr>
         <th>
         	<input type="hidden" name="id" value="<?php if (isset($info['id'])) echo $info['id'];?>" />
@@ -81,8 +90,14 @@
     
 </table>
 </form>
+<script type="text/javascript" src="/js/jquery-ui-1.8.16.custom.min.js"></script>
+<script type="text/javascript" src="/js/jquery.ui.datepicker-zh-CN.js"></script>
 <script type="text/javascript" src="/js/ckeditor/ckeditor.js"></script>    
+<link href="/css/redmond/jquery-ui-1.8.10.custom.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
+$(function(){
+     $('.datepicker').datepicker({dateFormat: 'yy-mm-dd'});
+});
 function saveart()
 {
 	var data = CKEDITOR.instances.content.getData();

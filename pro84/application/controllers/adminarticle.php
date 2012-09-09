@@ -125,6 +125,11 @@ class adminarticle extends CI_Controller
          $data['content'] = trim($this->input->post('content'));
          $data['imgurl'] = trim($this->input->post('newsimg'));
          $data['title'] = trim($this->input->post('title'));
+         $data['date'] = trim($this->input->post('date',''));
+         $data['show_time'] = trim($this->input->post('show_time',''));
+         $data['show_area'] = trim($this->input->post('show_area',''));
+         $data['show_link'] = trim($this->input->post('show_link',''));
+         if (''==$data['date']) $data['date'] = date('Y-m-d');
          
          $id = intval($this->input->post('id',0));
          if ($id)

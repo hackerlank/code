@@ -101,7 +101,7 @@ class Articles extends CI_Model
         }
         else
             $limit = "";
-        $query = $this->db->query("SELECT * from {$this->artTable} ".$where.$limit);
+        $query = $this->db->query("SELECT * from {$this->artTable} ".$where.' order by date desc '.$limit);
         $list = array();
         foreach ($query->result_array() as $row) {
             $row['typename'] = $typelist[$row['atype']];
@@ -127,14 +127,14 @@ class Articles extends CI_Model
     }
     public function AddArt($data)
     {
-        $data['time'] = date("Y-m-d H:i:s");
-        $data['date'] = date("Y-m-d");
+        //$data['time'] = date("Y-m-d H:i:s");
+        //$data['date'] = date("Y-m-d");
         return $this->db->insert("{$this->artTable}",$data);
     }
     public function UpdateArt($id,$data)
     {
-        $data['time'] = date("Y-m-d H:i:s");
-        $data['date'] = date("Y-m-d");
+        //$data['time'] = date("Y-m-d H:i:s");
+        //$data['date'] = date("Y-m-d");
         $str = '';
         foreach ($data as $k=>$v) {
             $str .= "$k={$this->db->escape($v)},";
