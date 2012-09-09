@@ -75,8 +75,9 @@ class adminarticle extends CI_Controller
         $id = intval($this->input->post('id',0));
         $pid = intval($this->input->post('pid',0));
         $typename = trim($this->input->post('typename',''));
+        $template = trim($this->input->post('template',''));
         
-        $res = $this->Articles->UpdateType($id, $typename, $pid);
+        $res = $this->Articles->UpdateType($id, $typename, $pid, $template);
         echo json_encode($res);
     }
     public function lists()

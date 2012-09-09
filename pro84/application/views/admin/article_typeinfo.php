@@ -56,11 +56,21 @@
     	</td>
     </tr>
     <tr>
+        <th>列表模版</th>
+        <td>
+        <input type="radio" name="template" value="medialists1" />模版一<span onclick="javascript:showimg('/images/media/medialists1.jpg/');">[预览]</span>
+        </td>
+    </tr>
+    <tr>
     <th></th>
     <td><input type="button" value="保 存" class="btn_lv3_1" onclick="savetype();" /></td>
     </tr>
 </table>
 <script type="text/javascript">
+<?php
+if ($info['template'])
+ echo '$("input[value=\''.$info['template'].'\']").attr("checked","checked");';
+?>
 function savetype()
 {
 	var pid = parseInt($("#typepid").val());
@@ -72,11 +82,18 @@ function savetype()
 		return false;
 	}
 	if (pid==typeid) pid=0;
-	var postdata = {'id': typeid, 'pid': pid, 'typename': typename}
+    var template = $('input[name="template"]:checked').val();
+    if (undefined == template){jsex.dialog.showmsg('请选择模版');return false;}
+	var postdata = {'id': typeid, 'pid': pid, 'typename': typename,'template':template};
 	$.post('/adminarticle/updatetype',postdata,function(data){
 		jsex.dialog.showmsg(data.msg);
 		setTimeout('window.location.reload();',3000);
 	},'json');
+}
+function showimg(path)
+{
+    var str = "<img src='"+path+"' />";
+    jsex.dialog.showmsgauto(str, '图片预览');
 }
 </script>
 </body></html>

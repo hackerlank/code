@@ -66,9 +66,9 @@ class Articles extends CI_Model
      * @param unknown_type $typename
      * @param unknown_type $pid
      */
-    public function UpdateType($id,$typename, $pid)
+    public function UpdateType($id,$typename, $pid, $template)
     {
-        $this->db->query("UPDATE {$this->typeTable} set typename={$this->db->escape($typename)},pid=$pid where id={$id}");
+        $this->db->query("UPDATE {$this->typeTable} set typename={$this->db->escape($typename)},template='$template',pid=$pid where id={$id}");
         return array('code'=>0,'msg'=>'更新成功');
     }
     /**

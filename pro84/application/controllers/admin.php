@@ -131,4 +131,9 @@ class Admin extends CI_Controller
             }
         }
     }
+    public function upload()
+    {
+        $data['callback'] = $this->uri->segment(3,'');
+        $this->load->view('/admin/upload.php',$data);
+    }
 }

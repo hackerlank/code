@@ -22,8 +22,9 @@ class Media extends CI_Controller
         $data['lists'] = $this->Articles->GetLists(" WHERE atype=$stype",0, 30);
         
         //if (!$data['lists']['list']) {header('Location: /');exit;}
-        
-        $this->load->view('zh/media_lists.php',$data);
+        $typeinfo = $this->Articles->GetTypelists("WHERE id=$stype");
+        $template = empty($typeinfo[0]['template']) ? "medialistst1" : $typeinfo[0]['template'];
+        $this->load->view("zh/$template.php",$data);
     }
     
     public function info()
