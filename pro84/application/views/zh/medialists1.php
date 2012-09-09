@@ -19,7 +19,7 @@
     <ul class="clearfix">
     <?php
         foreach ($lists['list'] as $li)
-            echo "<li><span><img src='{$li['imgurl']}' style='whidth:204px;height:138px' /></span> a href='/media/info/{$li['id']}'>{$li['title']}</a></li>";
+            echo "<li><span><img src='{$li['imgurl']}' style='whidth:204px;height:138px' /></span> <a href='/media/info/{$li['id']}'>{$li['title']}</a></li>";
     ?>
     </ul>
     <div class="page" style="display:none;">
