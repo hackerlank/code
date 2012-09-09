@@ -75,11 +75,9 @@
     	<th>内容:</th>
     	<td><textarea name="content" id="content" class="span9"><?php if (isset($info['content'])) echo $info['content'];?></textarea></td>
     </tr>
-<?php if ($template=='medialistis3'):?>
-    <tr><th>展览时间</th><td><input type='text' name='show_time' class='datepicker' value='<?php echo $info['show_time'];?>' /></td></tr>
-    <tr><th>展览地点</th><td><input type="text" name='show_area' value="<?php echo $info['show_area'];?>" /></td></tr>
-    <tr><th>展览链接</th><td><input type="text" name="show_link" value="<?php echo $info['show_link'];?>" /></td></tr>
-<?php endif;?>
+    <tr class="medialists3" style="display:none;"><th>展览时间</th><td><input type='text' name='show_time' class='datepicker' value='<?php echo $info['show_time'];?>' /></td></tr>
+    <tr class="medialists3" style="display:none;"><th>展览地点</th><td><input type="text" name='show_area' value="<?php echo $info['show_area'];?>" /></td></tr>
+    <tr class="medialists3" style="display:none;"><th>展览链接</th><td><textarea name="show_link" style="width:500px;"><?php echo $info['show_link'];?></textarea></td></tr>
     <tr>
         <th>
         	<input type="hidden" name="id" value="<?php if (isset($info['id'])) echo $info['id'];?>" />
@@ -97,6 +95,15 @@
 <script type="text/javascript">
 $(function(){
      $('.datepicker').datepicker({dateFormat: 'yy-mm-dd'});
+    $('#typepid').live('change',function(){
+        var typepid = $(this).val();
+        if (typepid) {
+            $.post('/adminarticle/gettypeinfo',{'typeid':typepid}, function(data){
+                if(data['info']['template'] == 'medialists3') $('.medialists3').show();
+                else $('.medialists3').hide();
+            },'json');
+        }
+    });
 });
 function saveart()
 {

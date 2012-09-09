@@ -151,4 +151,12 @@ class adminarticle extends CI_Controller
         else
             echo json_encode(array('code'=>1,'msg'=>'操作失败'));
     }
+    public function gettypeinfo()
+    {
+        $typeid = intval($this->input->post('typeid',0));
+        if ($typeid) {
+            $typeinfo = $this->Articles->GetTypelists("WHERE id=$typeid");
+            die(json_encode(array('info'=>$typeinfo[0])));
+        }
+    }
 }

@@ -19,7 +19,7 @@
     <ul class="clearfix">
     <?php
         foreach ($lists['list'] as $li)
-            echo "<li><span><img src='{$li['imgurl']}' style='whidth:204px;height:138px' /></span> a href='{$li['show_link']}' target='_blank'>{$li['title']}</a>".
+            echo "<li><span><img src='{$li['imgurl']}' style='whidth:204px;height:138px' /></span> <a href='{$li['show_link']}' target='_blank'>{$li['title']}</a>".
                     "<p>展览时间：{$li['show_date']} 展览地点:{$li['show_area']}</p>".
                     "<dl><dt>展览介绍：</dt><dd>{$li['content']}</dd></li>";
     ?>
