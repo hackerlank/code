@@ -30,7 +30,7 @@ $(function(){
         var str = '';
         for(var i=0, iMax=data['list'].length; i < iMax; i++)
             str += "<li><a tid='"+data['list'][i]['id']+"'>"+data['list'][i]['name']+"</a></li>";
-        str = "<div class='wp'><h3>"+data['info']['name']+"</h3><ul>"+str+"</ul><p class='back'><a href='#'>返回</a> | <a href='/'>首页</a></p></div>";
+        str = "<div class='wp'><h3>"+data['info']['name']+"</h3><ul>"+str+"</ul><p class='back'><a href='javascript:history.go(-1);'>返回</a> | <a href='/'>首页</a></p></div>";
         $("#typelist").html(str);
 
         <?php 

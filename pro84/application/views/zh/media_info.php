@@ -13,7 +13,7 @@
     <div class="wp"><h3></h3>
     <ul>
     </ul>
-    <p class="back"><a href="#">返回</a> | <a href="/">首页</a></p></div>
+    <p class="back"><a href="javascript:history.go(-1);">返回</a> | <a href="/">首页</a></p></div>
     </div>
 </div>
 <div class="wp">

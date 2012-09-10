@@ -13,14 +13,15 @@
     <div class="wp"><h3></h3>
     <ul>
     </ul>
-    <p class="back"><a href="#">返回</a> | <a href="/">首页</a></p></div>
+    <p class="back"><a href="javascript:history.go(-1);">返回</a> | <a href="/">首页</a></p></div>
 </div>
 <div class="wp huodonglist">
     <ul class="clearfix">
     <?php
         foreach ($lists['list'] as $li)
             echo "<li><span><img src='{$li['imgurl']}' style='whidth:204px;height:138px' /></span> <a href='/media/info/{$li['id']}' target='_blank'>{$li['title']}</a>".
-                    "<p>展览时间：{$li['show_date']} 展览地点:{$li['show_area']}</p>".
+                    "<p>展览开始时间：{$li['show_start_date']} 展览结束时间: {$li['show_end_date']}</p>".
+                    "<p>展览地点:{$li['show_area']}</p>".
                     "<dl><dt>展览介绍：</dt><dd>{$li['description']}</dd></li>";
     ?>
     </ul>
