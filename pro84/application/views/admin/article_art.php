@@ -75,7 +75,7 @@
     	<th>内容:</th>
     	<td><textarea name="content" id="content" class="span9"><?php if (isset($info['content'])) echo $info['content'];?></textarea></td>
     </tr>
-    <tr class="medialists3" style="display:none;"><th>展览时间</th><td><input type='text' name='show_time' class='datepicker' value='<?php echo $info['show_time'];?>' /></td></tr>
+    <tr class="medialists3" style="display:none;"><th>展览时间</th><td><input type='text' name='show_date' class='datepicker' value='<?php echo $info['show_time'];?>' /></td></tr>
     <tr class="medialists3" style="display:none;"><th>展览地点</th><td><input type="text" name='show_area' value="<?php echo $info['show_area'];?>" /></td></tr>
     <tr class="medialists3" style="display:none;"><th>展览链接</th><td><textarea name="show_link" style="width:500px;"><?php echo $info['show_link'];?></textarea></td></tr>
     <tr>
