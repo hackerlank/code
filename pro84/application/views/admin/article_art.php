@@ -10,9 +10,10 @@
 <script language="javascript" src="/js/showbox.js"></script>
 </head>
 <body>
+<div class="pd_10">
 <div>
 	<h2><?php echo $title;?>编辑</h2>
-    <p class="page_info">对<?php echo $title;?>进行编辑</p>
+    <p class="page_info">对<?php echo $title;?>进行编辑.备注：排序时按照新闻发布时间先后，时间可以自己选择，默认去当前时间。</p>
 </div>
 <form action="/adminarticle/saveart" method="post" id="artform" name="artform">
 <table class="bk_form_tbl">
@@ -23,35 +24,7 @@
     <tr>
         <th>类别:</th>
         <td>
-        <?php
-            $str = '';
-            function createstype($data, &$str,$id)
-            {
-                foreach ($data as $k=>$v) {
-                    if(!empty($v)) {
-                        $prestr = str_repeat('&nbsp;&nbsp;',$v['listid']);
-                        if ($id==$v['id']) 
-                            $selected = " selected='selected'";
-                        else 
-                            $selected = '';
-                        $str .= "<option $selected value='{$v['id']}'>$prestr|--{$v['typename']}</option>";
-                        if (!empty($v['son']))
-                            createstype($v['son'], $str,$total,$id,$pid);
-                    }
-                }
-                    
-            }
-            foreach ($typelist as $row){
-                if ($info['atype']==$row['id']) 
-                    $selected = " selected='selected'";
-                else 
-                    $selected = '';
-                $str .= "<option $selected value='{$row['id']}'>{$row['typename']}</option>";
-                if (!empty($row['son']))
-                    createstype($row['son'],$str,$info['atype']);
-            } 
-        ?>
-        <select id="typepid" name="atype"><?php echo $str;?></select>
+        <select id="typepid" name="atype"><?php echo $type_option;?></select>
         </td>
     </tr>
     <tr>
@@ -68,16 +41,17 @@
     </td>
     </tr>
     <tr>
-        <th>时间：</th>
-        <td><input type="text" name="date" value="<?php echo $info['date'];?>" class="datepicker" /></td>
+        <th>发布时间：</th>
+        <td><input type="text" name="time" value="<?php echo $info['time'];?>" class="timepicker" /><span style="color:red;">前台显示顺序可通过此时间调整</span></td>
     </tr>
     <tr>
     	<th>内容:</th>
     	<td><textarea name="content" id="content" class="span9"><?php if (isset($info['content'])) echo $info['content'];?></textarea></td>
     </tr>
     <tr><th>简介:</th><td><textarea name="description" style="width:400px;height:200px;"><?php echo $info['description'];?></textarea></td></tr>
-    <tr class="medialists2" style="display:none;"><th>展览开始时间</th><td><input type='text' name='show_start_date' class='datepicker' value='<?php echo $info['show_start_date'];?>' /></td></tr>
-    <tr class="medialists2" style="display:none;"><th>展览结束时间</th><td><input type='text' name='show_end_date' class='datepicker' value='<?php echo $info['show_end_date'];?>' /></td></tr>
+    <tr class="medialists2" style="display:none;"><th>展览开始时间</th><td><input type='text' name='show_start_time' class='timepicker' value='<?php echo $info['show_start_time'];?>' /></td></tr>
+    <tr class="medialists2" style="display:none;"><th>展览结束时间</th><td><input type='text' name='show_end_time' class='timepicker' value='<?php echo $info['show_end_time'];?>' /></td></tr>
+	<tr><th>展览地点：</th><td><textarea id="show_area" style="width:400px;height:20px;"><?php echo $info['show_area'];?></textarea></td></tr>
     <tr>
         <th>
         	<input type="hidden" name="id" value="<?php if (isset($info['id'])) echo $info['id'];?>" />
@@ -92,9 +66,12 @@
 <script type="text/javascript" src="/js/jquery.ui.datepicker-zh-CN.js"></script>
 <script type="text/javascript" src="/js/ckeditor/ckeditor.js"></script>    
 <link href="/css/redmond/jquery-ui-1.8.10.custom.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="/js/jquery-ui-timepicker-zh-CN.js"></script>
 <script type="text/javascript">
 $(function(){
-     $('.datepicker').datepicker({dateFormat: 'yy-mm-dd'});
+    $('.datepicker').datepicker({dateFormat: 'yy-mm-dd'});
+	$('.timepicker').datetimepicker({showSecond: true, dateFormat: 'yy-mm-dd', timeFormat: 'hh:mm:ss'});
     $('#typepid').live('change',function(){
         var typepid = $(this).val();
         if (typepid) medialists2show(typepid);
@@ -108,6 +85,7 @@ function medialists2show(typeid)
     },'json');
 }
 <?php
+if ($info)
     echo "medialists2show({$info['atype']});";
 ?>
 function saveart()
@@ -150,4 +128,5 @@ function addNewImg(src)
     $("#newsimgdiv").show();
 }
 </script>
+</div>
 </body></html>

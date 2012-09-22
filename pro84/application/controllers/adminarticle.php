@@ -6,13 +6,19 @@
  */
 class adminarticle extends CI_Controller
 {
-    //type 1:新闻   2：解决方案
     public function __construct()
     {
         parent::__construct();
         $this->load->model("Articles");
         $this->load->library('session');
     }
+	public function get_aticle_name($type)
+	{
+		switch($type) {
+			case 1:
+				return "新闻";
+		}
+	}
     public function typelists()
     {
         if (!$this->session->userdata('isadmin')) return $this->load->view("/admin/login.php");
@@ -24,10 +30,8 @@ class adminarticle extends CI_Controller
         
         $data['view'] = "article_typelist";
         
-        if (1 == $type)
-            $data['title'] = "新闻";
-        elseif (2 == $type)
-            $data['title'] = "解决方案";
+        $data['title'] = $this->get_aticle_name($type);
+		$data['type_option'] = $this->create_type_option($type);
         $this->load->view("/admin/article_typelist.php",$data);
     }
     public function addtype()
@@ -62,10 +66,8 @@ class adminarticle extends CI_Controller
         $data['info'] = $res[0];
         
         
-        if (1 == $type)
-            $data['title'] = "新闻";
-        elseif (2 == $type)
-            $data['title'] = "解决方案";
+        
+        $data['title'] = $this->get_aticle_name($type);
         $this->load->view("/admin/article_typeinfo.php",$data);
     }
     public function updatetype()
@@ -85,35 +87,46 @@ class adminarticle extends CI_Controller
         if (!$this->session->userdata('isadmin')) return $this->load->view("/admin/login.php");
         
         $pagesize = 10;
-        $type = intval($this->uri->segment(3,0));
-        $page = intval($this->uri->segment(4,0));
-        $res = $this->Articles->GetLists("WHERE status=0 and type=$type", $page, $pagesize);
+        $article_type = intval($this->uri->segment(3,0));
+		$news_type = intval($this->uri->segment(4,0));
+        $page = intval($this->uri->segment(5,1));
+        $total_pages = $this->Articles->GetArticleTotal($news_type);
+        if ($page > $total_pages || $page < 1) $page = 1;
+        $data['list'] = $this->Articles->GetLists("WHERE status=0 and atype=$news_type", $page, $pagesize);
+        $data['pagination'] = $this->createPagination("/adminarticle/lists/$article_type/$news_type", $total_pages, $pagesize, $page);
         
-        $data['list'] = $res['list'];
-        $data['type'] = $type;
-        if (1 == $type)
-            $data['title'] = "新闻";
-        elseif (2 == $type)
-            $data['title'] = "解决方案";
+        $data['news_type'] = $news_type;
+        $data['title'] = $this->get_aticle_name($article_type);
+		$data['type_option'] = $this->create_type_option($article_type,$news_type);
         $this->load->view("/admin/article_list.php",$data);
+    }
+    public function createPagination($base_url, $total_rows, $per_page, $cur_page)
+    {
+        $this->load->library('custompagination');
+        $config['base_url'] = $base_url;
+        $config['total_rows'] = $total_rows;
+        $config['per_page'] = $per_page;
+        $config['cur_page'] = $cur_page;
+        $config['uri_segment'] = 4;
+        $config['num_links'] = 6;
+        $this->custompagination->initialize($config);
+        return $this->custompagination->create_links(); 
     }
     public function addart()
     {
         if (!$this->session->userdata('isadmin')) return $this->load->view("/admin/login.php");
         
-        $type = intval($this->uri->segment(3,0));
+        $article_type = intval($this->uri->segment(3,0));
         $id = intval($this->uri->segment(4,0));
         $data['type'] = $type;
         
-        $data['typelist'] = $this->Articles->GetTypelists("WHERE type=$type and pid=0");
+        
         if ($id)
             $res = $this->Articles->GetInfo("id=$id");
         
         $data['info'] = $res[0];
-        if (1 == $type)
-            $data['title'] = "新闻";
-        elseif (2 == $type)
-            $data['title'] = "解决方案";
+        $data['title'] = $this->get_aticle_name($article_type);
+		$data['type_option'] = $this->create_type_option($article_type,$res[0]['atype']);
         $this->load->view("/admin/article_art.php",$data);
     }
     public function saveart()
@@ -125,12 +138,12 @@ class adminarticle extends CI_Controller
          $data['content'] = trim($this->input->post('content'));
          $data['imgurl'] = trim($this->input->post('newsimg'));
          $data['title'] = trim($this->input->post('title'));
-         $data['date'] = trim($this->input->post('date',''));
-         $data['show_start_date'] = trim($this->input->post('show_start_date',''));
-         $data['show_end_date'] = trim($this->input->post('show_end_date',''));
+         $data['time'] = trim($this->input->post('time',''));
+         $data['show_start_time'] = trim($this->input->post('show_start_date',''));
+         $data['show_end_time'] = trim($this->input->post('show_end_date',''));
          $data['show_area'] = trim($this->input->post('show_area',''));
          $data['description'] = trim($this->input->post('show_link',''));
-         if (''==$data['date']) $data['date'] = date('Y-m-d');
+         if (''==$data['time']) $data['time'] = time('Y-m-d H:i:s');
          
          $id = intval($this->input->post('id',0));
          if ($id)
@@ -160,4 +173,35 @@ class adminarticle extends CI_Controller
             die(json_encode(array('info'=>$typeinfo[0])));
         }
     }
+	public function create_type_option($article_type, $news_type_id=0)
+	{
+		$type_lists = $this->Articles->GetTypelists("WHERE type=$article_type and pid=0");
+
+		$option_str = '';
+		if ($type_lists)
+			foreach($type_lists as $row) {
+				$stelected = '';
+				if ($row['id'] == $news_type_id) $selected = "selected='selected'";
+				$option_str .= "<option $selected value='{$row['id']}'>{$row['typename']}</option>";
+
+				 if (!empty($row['son']))
+                    $this->create_stype_option($row['son'],$option_str,$news_type_id);
+			}
+
+		return $option_str;
+	}
+	public function create_stype_option($lists, &$str, $type_id)
+	{
+		foreach ($lists as $k=>$v) {
+			if(!empty($v)) {
+				$prestr = str_repeat('&nbsp;&nbsp;',$v['listid']);
+				$selected = '';
+				if ($type_id==$v['id']) $selected = " selected='selected'";
+					
+				$str .= "<option $selected value='{$v['id']}'>$prestr|--{$v['typename']}</option>";
+				if (!empty($v['son']))
+					createstype($v['son'], $str,$type_id);
+			}
+		}
+	}
 }

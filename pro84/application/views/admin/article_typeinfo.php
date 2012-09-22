@@ -10,6 +10,7 @@
 <script language="javascript" src="/js/showbox.js"></script>
 </head>
 <body>
+<div class="pd_10">
 <div>
 	<h2><?php echo $title;?>类别</h2>
     <p class="page_info">对<?php echo $title;?>类别进行管理，编辑等</p>
@@ -97,4 +98,5 @@ function showimg(path)
     jsex.dialog.showmsgauto(str, '图片预览');
 }
 </script>
+</div>
 </body></html>

@@ -10,13 +10,17 @@
 <script language="javascript" src="/js/showbox.js"></script>
 </head>
 <body>
+<div class="pd_10">
 <div>
 	<h2><?php echo $title;?>列表</h2>
     <p class="page_info">对<?php echo $title;?>进行管理，编辑等</p>
 </div>
 <div class="s_box">
-<a class="btn_lv4_1" href="/adminarticle/addart/<?php echo $type;?>">添加<?php echo $title;?></a>
+<label for="newstpyename" style="display:inline;">请选择分类：</label>
+<select id="atype"><option value="0">顶级分类</option><?php echo $type_option;?></select>
+<input id='gotolists' type="button" class="btn_lv3_1" value="确定" />
 </div>
+<?php if($list):?>
 <table class="datelist-1">
 	<thead>
 	<tr>
@@ -32,25 +36,22 @@
         foreach ($list as $row) {
             $str .= '<tr>'.
                     '<td>'.$row['typename'].'</td>'.
-                    "<td><a href='/adminarticle/addart/{$type}/{$row['id']}'>{$row['title']}</a></td>".
+                    "<td><a href='/adminarticle/addart/{$row['type']}/{$row['id']}'>{$row['title']}</a></td>".
                     '<td>'.$row['date'].'</td>'.
-                    "<td><a href='/adminarticle/addart/{$type}/{$row['id']}' >编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href='#' newsid='{$row['id']}' class='delnews'>删除</a></td>".
+                    "<td><a href='/adminarticle/addart/{$row['type']}/{$row['id']}' >编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href='#' newsid='{$row['id']}' class='delnews'>删除</a></td>".
                     '</tr>';
         }
         echo $str; 
     ?>
     </tbody>
     </table>
+<?php endif;?>
 <script type="text/javascript">
 $(function(){
 	//设置样式
 	$('tr:odd').addClass('eq');
-	<?php 
-	if (1== $type) 
-	    echo  '$(".fed-menu-list li").removeClass("current").eq(1).addClass("current");';
-	elseif (2 == $type)
-	    echo '$(".fed-menu-list li").removeClass("current").eq(5).addClass("current");';
-	?>
+	$("tr").live('mouseover', function(){$(this).addClass('over');});
+	$("tr").live('mouseout', function(){$(this).removeClass('over');});
 	//删除新闻
 	$(".delnews").live('click',function(){
 		var id = parseInt($(this).attr('newsid'));
@@ -59,6 +60,12 @@ $(function(){
 			setTimeout('window.location.reload();',3000);
 		},'json');
 	});
+	$("#gotolists").click(function(){
+    var atype = $('#atype').val();
+    if (atype) window.location.href= "/adminarticle/lists/1/"+atype;
 });
+});
+
 </script>
+</div>
 </body></html>

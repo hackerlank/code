@@ -53,16 +53,32 @@ $(function(){
     
 
 });
+
 var imgsrc = $('.detailimg').attr("src");
 var img_tmp = new Image();
 img_tmp.src = imgsrc;
-img_tmp.onload = function () {
-    if (img_tmp.widhth > 738){
-        var h = parseInt((img_tmp.height*738)/img_tmp.width);
-        $('.detailimg').attr('width', '738px');
-        $('.detailimg').attr('height', h+'px');
-    }
-    $('.detailimg').show();
+if (img_tmp.complete)
+{
+	showimg(img_tmp);
+} else {
+	img_tmp.onload = function () {
+		showimg(img_tmp);
+	}
+}
+
+function showimg(img)
+{
+	if (img.width > 738)
+	{
+		var width = 738;
+		var height = parseInt((img.height*738)/img.width);
+	}else {
+		var width = img.width;
+		var height = img.height;
+	}
+	$('.detailimg').attr('width', width);
+	$('.detailimg').attr('height', height);
+	$('.detailimg').show();
 }
 
 var end_point=325;

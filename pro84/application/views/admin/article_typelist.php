@@ -10,31 +10,14 @@
 <script language="javascript" src="/js/showbox.js"></script>
 </head>
 <body>
+<div class="pd_10">
 <div>
 	<h2><?php echo $title;?>类型列表</h2>
     <p class="page_info">对<?php echo $title;?>类型进行管理，编辑等</p>
 </div>
 <div class="s_box">
 <label for="newstpyename" style="display:inline;">类别：</label>
-<?php
-    $str = '';
-    function createstype($data, &$str)
-    {
-        foreach ($data as $v)
-            if(!empty($v)) {
-                $prestr = str_repeat('&nbsp;&nbsp;',$v['listid']);
-                $str .= "<option value='{$v['id']}'>$prestr|--{$v['typename']}</option>";
-                if (!empty($v['son']))
-                    createstype($v['son'], $str);
-            }
-    }
-    foreach ($typelist as $row){
-        $str .= "<option value='{$row['id']}'>{$row['typename']}</option>";
-        if (!empty($row['son']))
-            createstype($row['son'],$str);
-    } 
-?>
-<select id="typepid"><option value="0">顶级分类</option><?php echo $str;?></select>
+<select id="typepid"><option value="0">顶级分类</option><?php echo $type_option;?></select>
 <input type="hidden" name="atype" id="atype" value="<?php echo $type;?>" /> 
 <input type="text" name="typename" id="typename" value="" />    
 <button class="btn_lv4_1" onclick="javascript:addnewstype();">添加</button>
@@ -109,5 +92,6 @@ function addnewstype()
 	},'json');
 }
 </script>
+</div>
 </body>
 </html>

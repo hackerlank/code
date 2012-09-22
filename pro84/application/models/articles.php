@@ -12,6 +12,11 @@ class Articles extends CI_Model
     {
         $this->load->database();
     }
+    public function GetArticleTotal($atype)
+    {
+        $this->db->where('atype', $atype);
+        return $this->db->count_all_results($this->artTable);
+    }
 	/**
      * 无极分类：取出子类
      */
@@ -86,9 +91,6 @@ class Articles extends CI_Model
     }
     public function GetLists($where='',$page,$pagesize)
     {
-        //total
-        $query = $this->db->query("SELECT COUNT(*) as total FROM {$this->artTable} $where");
-        $total = ceil(($query->row()->total)/$pagesize);
         //list
         $typelistsinfo = $this->GetTypelists("");
         foreach ($typelistsinfo as $v){
@@ -107,8 +109,7 @@ class Articles extends CI_Model
             $row['typename'] = $typelist[$row['atype']];
             $list[] = $row;
         } 
-        $query = $this->db->query("SELECT count(*) as total from {$this->artTable}");
-        return array('total'=>$total,'list'=>$list,'page'=>$page);
+        return $list;
     }
     public function GetInfo($where)
     {

@@ -7,6 +7,7 @@
             </div>
             <ul class="fed-menu-list">
                 <li><a src="/adminarticle/typelists/1" href='javascript:;'>新闻类型</a></li>
+				<li><a src="/adminarticle/addart/1" href='javascript:;'>添加新闻</a></li>
                 <li><a src="/adminarticle/lists/1" href='javascript:;'>新闻列表</a></li>
             </ul>
         </div>

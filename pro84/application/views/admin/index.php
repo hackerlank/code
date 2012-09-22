@@ -19,7 +19,7 @@
     <div class="mainwrap">
     	<?php require_once 'left.php';?>
     <div class="m_content">
-        <iframe src="" id="right" width="1000" height="700"></iframe>
+        <iframe src="" id="right" width="1000" height="700" frameborder="0" ></iframe>
     </div>
 </div>
 <script language="javascript" src="/js/jquery.tmpl.js"></script>

@@ -100,7 +100,7 @@
 <link href="/css/redmond/jquery-ui-1.8.10.custom.css" rel="stylesheet" type="text/css" />
 <script type='text/javascript'>
 $(function(){
-     $('.datepicker').datepicker({dateFormat: 'yy-mm-dd'});
+     $('.timepicker').datetimepicker({showSecond: true, dateFormat: 'yy-mm-dd', timeFormat: 'hh:mm:ss'});
 });
 CKEDITOR.replace( 'goodsbrief',
 		{
@@ -222,9 +222,5 @@ function delimg(id)
     }
 }
 </script>
-<style type="text/css">
-#imglists li{width:220px; height:230px;float:left;}
-#imglists li a{width:220px;}
-</style>
 </body>
 </html>
