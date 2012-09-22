@@ -45,6 +45,7 @@
     ?>
     </tbody>
     </table>
+<?php echo $pagination;?>
 <?php endif;?>
 <script type="text/javascript">
 $(function(){
