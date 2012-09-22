@@ -18,7 +18,7 @@
 <div class="wp newslist">
     <ul class="clearfix">
     <?php
-        foreach ($lists['list'] as $li)
+        foreach ($lists as $li)
             echo "<li><span><img src='{$li['imgurl']}' style='whidth:204px;height:138px' /></span> <a href='/media/info/{$li['id']}'>{$li['title']}</a></li>";
     ?>
     </ul>

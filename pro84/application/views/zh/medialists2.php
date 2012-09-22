@@ -18,7 +18,7 @@
 <div class="wp huodonglist">
     <ul class="clearfix">
     <?php
-        foreach ($lists['list'] as $li)
+        foreach ($lists as $li)
             echo "<li><span><img src='{$li['imgurl']}' style='whidth:204px;height:138px' /></span> <a href='/media/info/{$li['id']}' target='_blank'>{$li['title']}</a>".
                     "<p>展览开始时间：{$li['show_start_date']} 展览结束时间: {$li['show_end_date']}</p>".
                     "<p>展览地点:{$li['show_area']}</p>".
