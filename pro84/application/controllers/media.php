@@ -19,7 +19,7 @@ class Media extends CI_Controller
         $data['ptype'] = $ptype;
         $data['stype'] = $stype;
 
-        $data['lists'] = $this->Articles->GetLists(" WHERE atype=$stype",0, 30);
+        $data['lists'] = $this->Articles->GetLists(" WHERE atype=$stype",1, 30);
         
         //if (!$data['lists']['list']) {header('Location: /');exit;}
         $typeinfo = $this->Articles->GetTypelists("WHERE id=$stype");
