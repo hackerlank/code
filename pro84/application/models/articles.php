@@ -98,7 +98,6 @@ class Articles extends CI_Model
         }
         
         if ($pagesize) {
-            $page = ($page>0 && $page <= $total)?$page:1;
             $limit = " limit ".($page-1)*$pagesize.",{$pagesize}";
         }
         else
