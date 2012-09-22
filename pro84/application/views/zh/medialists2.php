@@ -29,23 +29,7 @@
         <a href="#">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">6</a>
     </div>
 </div>
-<script type="text/javascript">
-var ptype = <?php echo $ptype;?>;
-var stype = <?php echo $stype;?>;
-$.post('/media/gettypelists/'+ptype, '', function(data){
-    if (data.list) {
-        $('.wp h3').text(data['list']['typename']);
-        var str = '';
-        for (var i=0, iMax=data['list']['son'].length; i<iMax;i++) {
-            if (data['list']['son'][i]['id'] == stype) 
-                str += "<li><a href='/media/lists/"+ptype+"/"+data['list']['son'][i]['id']+"' class='current'>"+data['list']['son'][i]['typename']+"</a></li>";
-            else
-                str += "<li><a href='/media/lists/"+ptype+"/"+data['list']['son'][i]['id']+"'>"+data['list']['son'][i]['typename']+"</a></li>";
-        }
-        $('.catebox ul').html(str);
-    }
-}, 'json');
-</script>
+
 </body>
 </html>
 
