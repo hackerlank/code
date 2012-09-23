@@ -102,7 +102,8 @@ class Articles extends CI_Model
         }
         else
             $limit = "";
-        $query = $this->db->query("SELECT * from {$this->artTable} ".$where.' order by date desc '.$limit);
+
+        $query = $this->db->query("SELECT * from {$this->artTable} ".$where.' order by time desc, id desc '.$limit);
         $list = array();
         foreach ($query->result_array() as $row) {
             $row['typename'] = $typelist[$row['atype']];
