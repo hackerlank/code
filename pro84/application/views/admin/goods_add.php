@@ -20,10 +20,10 @@
 </div>
 <div id="goodsinfo">
 <form method="post" id="goodsform">
-    <table class="bk_form_tbl">
+    <table class="bk_form_tbl" id="goodsinfotable">
     <tr>
         <th>商品分类</th>
-        <td><select name="goodsattr"><option value="0">--请选择--</option><?php echo $attrOption;?><select></td>
+        <td><select name="goods_type"><option value="0">--请选择--</option><?php echo $attrOption;?><select></td>
     </tr>
     <tr>
         <th>商品名称：</th>
@@ -34,11 +34,6 @@
         <td><input type="text" class="input_w198" name='author_name' value="<?php echo $info['author'];?>"   /></td><td>&nbsp;</td>
     </tr>
     <tr>
-        <th>作者分类：</th>
-        <td><select name="author_type" class="select_w100" >
-        </select></td><td>&nbsp;</td>
-    </tr>
-    <tr>
         <th>职称：</th>
         <td><input type="text" class="input_w198" name="author_title" value="<?php echo $info['author_title'];?>" /></td><td>&nbsp;</td>
     </tr>
@@ -47,23 +42,8 @@
         <td><input type="text" class="input_w198" name="standard" value="<?php echo $info['standard'];?>" /></td><td>&nbsp;</td>
     </tr>
     <tr>
-        <th>工艺：</th>
-        <td><select name="craft" class="select_w100" >
-        </select></td><td>&nbsp;</td>
-    </tr>
-    <tr>
-        <th>题材：</th>
-        <td><select name="theme" class="select_w100" >
-        </select></td><td>&nbsp;</td>
-    </tr>
-    <tr>
-        <th>创作时间：</th>
-        <td><select name="age" class="select_w100" >
-        </select></td><td>&nbsp;</td>
-    </tr>
-    <tr>
         <th>上架时间：</th>
-        <td><input type="text" class="input_w198 datepicker" name="time" value="<?php echo $info['time'];?>" /></td><td>&nbsp;</td>
+        <td><input type="text" class="input_w198 timepicker" name="time" value="<?php echo $info['time'];?>" /></td><td>&nbsp;</td>
     </tr>
     <tr>
         <th>价格区间：</th>
@@ -95,50 +75,33 @@
 </div>
 </div>
 <script type="text/javascript" src="/js/jquery-ui-1.8.16.custom.min.js"></script>
-<script type="text/javascript" src="/js/jquery.ui.datepicker-zh-CN.js"></script>
-<script type="text/javascript" src="/js/ckeditor/ckeditor.js"></script>    
+<script type="text/javascript" src="/js/ckeditor/ckeditor.js"></script>   
 <link href="/css/redmond/jquery-ui-1.8.10.custom.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="/js/jquery-ui-timepicker-zh-CN.js"></script>
 <script type='text/javascript'>
 $(function(){
      $('.timepicker').datetimepicker({showSecond: true, dateFormat: 'yy-mm-dd', timeFormat: 'hh:mm:ss'});
 });
-CKEDITOR.replace( 'goodsbrief',
-		{
-			extraPlugins : 'abbr',
-			toolbar :
-			[
-				[ 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat' ],
-				[ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote','CreateDiv','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','BidiLtr','BidiRtl' ],
-				[ 'Link','Unlink' ],
-				[ 'Image','Table','HorizontalRule','SpecialChar','PageBreak' ],
-				[ 'Styles','Format','Font','FontSize' ],
-				[ 'TextColor','BGColor' ],
-				[ 'Maximize', 'ShowBlocks','-','About' ]
-			],
-			filebrowserUploadUrl : '/admin/uploadimg'
-		});
+CKEDITOR.replace('goodsbrief', {filebrowserUploadUrl: '/admin/uploadimg'});
 function saveGoods()
 {
-    var postdata = {};
-    postdata.goods_name = $("input[name='goods_name']").val();
-    postdata.author_name = $("input[name='author_name']").val();
-    postdata.author_type = $("select[name='author_type']").val();
-    postdata.author_title = $("input[name='author_title']").val();
-    postdata.standard = $("input[name='standard']").val();
-    postdata.craft = $("select[name='craft']").val();
-    postdata.theme = $("select[name='theme']").val();
-    postdata.age = $("select[name='age']").val();
-    postdata.time = $("input[name='time']").val();
-    postdata.price = $("input[name='price']").val();
-    postdata.goods_type = $("select[name='goodsattr']").val();
-    postdata.brief = CKEDITOR.instances.goodsbrief.getData();
-    
-    if ('' == postdata.goods_name){
+    var postsdata = '';
+    $.each($('select'), function(i,n){
+        postsdata += '"'+$(n).attr('name')+'":"'+$(n).val()+'",';
+    });
+    postsdata += '"name":"'+$("input[name='goods_name']").val()+'",';
+    postsdata += '"author":"'+$("input[name='author_name']").val()+'",';
+    postsdata += '"author_title":"'+$("select[name='author_type']").val()+'",';
+    postsdata += '"standard":"'+$("input[name='standard']").val()+'",';
+    postsdata += '"time":"'+$("input[name='time']").val()+'",';
+    postsdata += '"price":"'+$("input[name='price']").val()+'"';
+
+    if ('' == $("input[name='goods_name']").val()){
         alert('商品名不能为空！');return false;
     }
     var gid = parseInt($("input[name='gid']").val());
-    if (gid) postdata.id = gid;
-    $.post('/admingoods/savegoods',postdata,function(data){
+    $.post('/admingoods/savegoods',{'goods':'{'+postsdata+'}', 'id':gid, 'brief':CKEDITOR.instances.goodsbrief.getData()},function(data){
         alert(data.msg);
         if (0 == data.err && data.gid) {
             $("input[name='gid']").val(data.gid);
@@ -157,59 +120,38 @@ function showimg(path)
     jsex.dialog.showmsgauto(str, '图片预览');
 }
 $(function(){
-    $("select[name='goodsattr']").live('click',function(){
+    $("select[name='goods_type']").live('click',function(){
         var aid = parseInt($(this).val());
         setGoodsAttrOption(aid);
     });
 
-    var gtype = $("select[name='goodsattr']").val();
+    var gtype = $("select[name='goods_type']").val();
     if (gtype) setGoodsAttrOption(gtype);
     
 
 });
 function setGoodsAttrOption(aid)
 {
-    var author_type;
-    var craft;
-    var theme;
-    var age;
-    <?php
-    if ($info) {
-    echo "author_type = {$info['author_type']};";
-    echo "craft = {$info['craft']};";
-    echo "theme = {$info['theme']};";
-    echo "age={$info['age']};";
-    }
-    ?>
+	$('.customattr').remove();
     $.post('/admingoods/getGoodsAttrInfoLists', {'aid': aid}, function(data){
-        var authorTypeOption = '';
-        var craftOption = '';
-        var themeOption = '';
-        var ageOption = '';
-        for (var i = 0, iMax = data['author_type'].length; i < iMax; i++) {
-            var selectedStr = '';
-            if(data['author_type'][i]['id'] == author_type) selectedStr = "selected='selected'";
-            authorTypeOption += "<option value='"+data['author_type'][i]['id']+"'"+selectedStr+">"+data['author_type'][i]['val']+"</option>"; 
+    	<?php
+    		if ($info)
+    			foreach ($info as $k=>$v){
+    				if($k != 'brief')echo "var g_{$k}='{$v}';";
+    			}
+		?>
+    	for(var flag in data['attrs']) {
+        	var selectedStr = '<tr class="customattr"><th>'+data['flags'][flag]+'</th><td><select name="'+flag+'">';
+        	for(var k in data['attrs'][flag]){
+        		var str = '';
+            	<?php if($info):?>
+            	if(k == eval('g_'+flag)) str = "selected='selected'";
+            	<?php endif;?>
+            	selectedStr += "<option value='"+k+"'"+str+">"+data['attrs'][flag][k]+"</option>";
+            }
+            selectedStr += '</selected></td></tr>';
+            $('#goodsinfotable tr').eq(0).after(selectedStr);
         }
-        for (var i = 0, iMax = data['craft'].length; i < iMax; i++){
-            var selectedStr = '';
-            if(data['craft'][i]['id'] == craft) selectedStr = "selected='selected'";
-            craftOption += "<option value='"+data['craft'][i]['id']+"'"+selectedStr+">"+data['craft'][i]['val']+"</option>"; 
-        }
-        for (var i = 0, iMax = data['theme'].length; i < iMax; i++) {
-            var selectedStr = '';
-            if(data['theme'][i]['id'] == theme) selectedStr = "selected='selected'";
-            themeOption += "<option value='"+data['theme'][i]['id']+"'"+selectedStr+">"+data['theme'][i]['val']+"</option>"; 
-        }
-        for (var i = 0, iMax = data['age'].length; i < iMax; i++) {
-            var selectedStr = '';
-            if(data['age'][i]['id'] == age) selectedStr = "selected='selected'";
-            ageOption += "<option value='"+data['age'][i]['id']+"'>"+data['age'][i]['val']+"</option>";
-        }
-        $("select[name='author_type']").html(authorTypeOption);
-        $("select[name='craft']").html(craftOption);
-        $("select[name='theme']").html(themeOption);
-        $("select[name='age']").html(ageOption);
     }, 'json');
 }
 function delimg(id)

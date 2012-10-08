@@ -26,7 +26,6 @@
 	<tr>
     	<th>新闻类别</th>
     	<th>标题</th>
-    	<th>发布日期</th>
     	<th class="r">操作</th>
       </tr>
     </thead>
@@ -36,9 +35,8 @@
         foreach ($list as $row) {
             $str .= '<tr>'.
                     '<td>'.$row['typename'].'</td>'.
-                    "<td><a href='/adminarticle/addart/{$row['type']}/{$row['id']}'>{$row['title']}</a></td>".
-                    '<td>'.$row['date'].'</td>'.
-                    "<td><a href='/adminarticle/addart/{$row['type']}/{$row['id']}' >编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href='#' newsid='{$row['id']}' class='delnews'>删除</a></td>".
+                    "<td><a href='/adminarticle/addart/1/{$row['id']}'>{$row['title']}</a></td>".
+                    "<td><a href='/adminarticle/addart/1/{$row['id']}' >编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href='#' newsid='{$row['id']}' class='delnews'>删除</a></td>".
                     '</tr>';
         }
         echo $str; 

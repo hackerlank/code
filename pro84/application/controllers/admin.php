@@ -108,12 +108,18 @@ class Admin extends CI_Controller
             return;
         }
         $callback = $this->uri->segment(3, '');//img label
-        $config['upload_path'] = 'uploads/';
+        
+        $upload_dir = date("Ymd");
+        if (!file_exists(FCPATH.'uploads/'.$upload_dir))
+        	mkdir(FCPATH.'uploads/'.$upload_dir, 0777);
+        
+        $config['upload_path'] = 'uploads/'.$upload_dir;
         $config['allowed_types'] = 'gif|jpg|png|zip';
         $config['max_size'] = '40000';
         $config['max_width']  = '10240';
         $config['max_height']  = '7680';
         $config['file_name'] = time().'.'.pathinfo($_FILES['upload']['name'], PATHINFO_EXTENSION);
+
         if (isset($_GET['CKEditorFuncNum']))
             $funcNum = $_GET['CKEditorFuncNum'];
         $this->load->library('upload', $config);
@@ -122,11 +128,11 @@ class Admin extends CI_Controller
         } else {
             $data = array('upload_data' => $this->upload->data());
             if (isset($funcNum))
-                echo "<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction($funcNum, '/uploads/{$data['upload_data']['file_name']}', '成功');</script>";
+                echo "<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction($funcNum, '/{$config['upload_path']}/{$data['upload_data']['file_name']}', '成功');</script>";
             elseif (''!=$callback){
-                echo "<script>window.parent.$callback('/uploads/{$data['upload_data']['file_name']}');window.location.href='/admin/upload/{$callback}';</script>";
+                echo "<script>window.parent.$callback('/{$config['upload_path']}/{$data['upload_data']['file_name']}');window.location.href='/admin/upload/{$callback}';</script>";
             }else{
-                $str = "<li class='span6'><a class='close'>x</a><img src='/uploads/{$data['file_data']['orig_name']}' /><input type='hidden' name='img[]' value='/uploads/{$data['upload_data']['file_name']}' /></li>";
+                $str = "<li class='span6'><a class='close'>x</a><img src='/{$config['upload_path']}/{$data['file_data']['orig_name']}' /><input type='hidden' name='img[]' value='/{$config['upload_path']}/{$data['upload_data']['file_name']}' /></li>";
                 echo '<script>window.parent.$("#imglists").append("'.$str.'");window.location.href="/admin/upload";</script>';
             }
         }

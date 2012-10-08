@@ -5,6 +5,9 @@
 <title>非物质文化遗产</title>
 <link href="/css/b.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="/js/jquery.js"></script>
+<style type="text/css">
+#typelist ul li a {cursor:pointer;}
+</style>
 </head>
 
 <body>

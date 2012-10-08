@@ -25,7 +25,7 @@ class Admingoods extends CI_Controller
     }
     public function getGoodsAttr($type)
     {
-        $value = $this->Goods_model->GetGoodsAttrType($type);
+        $value = $this->Goods_model->GetGoodsType($type);
         return explode(',',$value);
     }
     public function saveGoods()
@@ -33,19 +33,12 @@ class Admingoods extends CI_Controller
         if (!$this->session->userdata("isadmin")) return $this->load->view("admin/login.php");
 
         $data = array();
-        $data['goods_type'] = $this->input->post('goods_type',0);
-        $data['name'] = $this->input->post('goods_name', '');
-        $data['author'] = $this->input->post('author_name', '');
-        $data['author_type'] = $this->input->post('author_type', '');
-        $data['author_title'] = $this->input->post('author_title', '');
-        $data['standard'] = $this->input->post('standard', '');
-        $data['craft'] = $this->input->post('craft', '');
-        $data['theme'] = $this->input->post('theme', '');
-        $data['age'] = $this->input->post('age', '');
-        $data['time'] = $this->input->post('time', '');
-        $data['price'] = $this->input->post('price', '');
+        $data = json_decode($this->input->post('goods'), true);
         $data['brief'] = $this->input->post('brief', '');
 
+        if (!$data['time'])
+        	$data['time'] = date("Y-m-d H:i:s");
+        	
         $id = intval($this->input->post('id',0));
         if ($id) {
             $res = $this->Goods_model->UpdateGoods($data, $id);
@@ -71,7 +64,13 @@ class Admingoods extends CI_Controller
     {
         $gid = intval($this->input->post('gid',0));
         if (!$gid) die("<scrpit>alert('非法数据');</script>");
-        $config['upload_path'] = 'uploads/';
+        
+        $upload_dir = date("Ymd");
+        if (!file_exists(FCPATH.'uploads/'.$upload_dir))
+        	mkdir(FCPATH.'uploads/'.$upload_dir, 0777);
+      
+        $config['upload_path'] = 'uploads/'.$upload_dir;
+        
         $config['allowed_types'] = 'gif|jpg|png';
         $config['max_size'] = "0";
         $config['max_width'] = "0";
@@ -82,8 +81,8 @@ class Admingoods extends CI_Controller
         if($this->upload->do_upload('upload')) {
             $callback = $this->input->post('callback');
             $data = $this->upload->data();
-            $img = '/uploads/'.$data['file_name'];
-            $thumb_img = '/uploads/'.$this->createMiniImg($img);
+            $img = '/'.$config['upload_path'].'/'.$data['file_name'];
+            $thumb_img = '/'.$config['upload_path'].'/'.$this->createMiniImg($img);
             $this->Goods_model->SaveGoodsImg($gid, $img, $thumb_img);
             echo "<script type='text/javascript'>window.parent.$callback('$thumb_img');window.location.href='/admingoods/addimg/$gid';</script>'";
         } else{
@@ -119,20 +118,21 @@ class Admingoods extends CI_Controller
         $this->custompagination->initialize($config);
         return $this->custompagination->create_links(); 
     }
-    public function attr()
+    public function type()
     {
-        $data['attrlist'] = $this->Goods_model->GetAttrList();
+        $data['attrlist'] = $this->Goods_model->GetTypeList();
+        $data['optionStr'] = $this->createAttrSonOption();
         $data['view'] = 'goods_attr';
-        $this->load->view('admin/goods_attr.php',$data);
+        $this->load->view('admin/goods_type.php',$data);
     }
-    public function addattr()
+    public function addtype()
     {
         $data = array();
         $data['pid'] = intval($this->input->post('pid', 0));
         $data['name'] = trim($this->input->post('name', ''));
 
         if ($data['name']) {
-            $res = $this->Goods_model->AddAttr($data);
+            $res = $this->Goods_model->AddType($data);
             if ($res) 
                 echo json_encode(array('err'=>0, 'msg'=>'添加成功'));
             else
@@ -141,11 +141,11 @@ class Admingoods extends CI_Controller
             echo json_encode(array('err'=>2, 'msg'=>'分类名不能为空'));
         }
     }
-    public function delattr()
+    public function deltype()
     {
         $id = intval($this->input->post('id', 0));
         if ($id) {
-            $res = $this->Goods_model->DelAttr($id);
+            $res = $this->Goods_model->DelType($id);
             if ($res) 
                 echo json_encode(array('err'=>0, 'msg'=>'删除商品分类成功'));
             else
@@ -154,12 +154,12 @@ class Admingoods extends CI_Controller
             echo json_encode(array('err'=>1, 'msg'=>'请指定要删除的分类'));
         }
     }
-    public function updateattr()
+    public function updatetype()
     {
         $id = intval($this->input->post('id', 0));
         $name = trim($this->input->post('name', ''));
         if ($id && $name) {
-            $res = $this->Goods_model->UpdateAttr($id, $name);
+            $res = $this->Goods_model->UpdateType($id, $name);
             if ($res)
                 echo json_encode(array('err'=>0, 'msg'=>'修改商品分类名成功'));
             else
@@ -168,40 +168,10 @@ class Admingoods extends CI_Controller
             echo json_encode(array('err'=>0 ,'msg'=>'请指定要修改商品分类及其分类名'));
         }
     }
-    public function authortype()
-    {
-        $data['attr_option'] = $this->createAttrOption();
-        $data['title'] = "作者分类";
-        $data['type'] = 'author_type';
-        $this->load->view('admin/goods_attr_info.php', $data);
-    }
-    public function craft()
-    {
-        $data['attr_option'] = $this->createAttrOption();
-        $data['title'] = "工艺";
-        $data['type'] = 'craft';
-        $this->load->view('admin/goods_attr_info.php', $data);
-    }
-    public function theme()
-    {
-        $data['attr_option'] = $this->createAttrOption();
-        $data['view'] = 'goods_attr_info';
-        $data['title'] = "题材";
-        $data['type'] = 'theme';
-        $this->load->view('admin/goods_attr_info.php', $data);
-    }
-    public function age()
-    {
-        $data['attr_option'] = $this->createAttrOption();
-        $data['view'] = 'goods_attr_info';
-        $data['title'] = "创作时间";
-        $data['type'] = 'age';
-        $this->load->view('admin/goods_attr_info.php', $data);
-    }
     public function createAttrOption()
     {
         $optionStr = '';
-        $attrlist = $this->Goods_model->GetAttrList();
+        $attrlist = $this->Goods_model->GetTypeList();
         if ($attrlist) {
             foreach ($attrlist as $attr) {
                 $optionStr .= "<option value='{$attr['id']}'>{$attr['name']}</option>"; 
@@ -213,7 +183,7 @@ class Admingoods extends CI_Controller
     public function createAttrSonOption($selectedId = 0)
     {
         $optionStr = '';
-        $attrlist = $this->Goods_model->GetAttrList();
+        $attrlist = $this->Goods_model->GetTypeList();
         if ($attrlist) {
             foreach ($attrlist as $attr) {
                 $selectedStr = '';
@@ -243,7 +213,7 @@ class Admingoods extends CI_Controller
         if ($aid && $attrinfo && $atype) {
             $res = $this->Goods_model->AddAttrInfo($aid, $attrinfo, $atype);
             if ($res)
-                echo json_encode(array('err'=>0, 'msg'=>'添加成功'));
+                echo json_encode(array('err'=>0, 'msg'=>'添加成功', 'id'=>$res));
             else
                 echo json_encode(array('err'=>2, 'msg'=>'添加失败' ));
         } else {
@@ -300,20 +270,21 @@ class Admingoods extends CI_Controller
         $theme = array();
         $age = array();
         $aid = intval($this->input->post('aid', 0));
-        $pid = $this->getGoodsAttrPid($aid);
-        if ($pid) {
-            $author_type = $this->Goods_model->GetAttrInfo(array('aid'=>$pid, 'atype'=>'author_type'));
-            $craft = $this->Goods_model->GetAttrInfo(array('aid'=>$pid, 'atype'=>'craft'));
-            $theme = $this->Goods_model->GetAttrInfo(array('aid'=>$pid, 'atype'=>'theme'));
-            $age = $this->Goods_model->GetAttrInfo(array('aid'=>$pid, 'atype'=>'age'));
-        }
-        echo json_encode(array('author_type'=>$author_type, 'craft'=>$craft, 'theme'=>$theme, 'age'=>$age));
+        $pid = $this->getGoodsTypePid($aid);
+        
+        $attrArr = array();
+        $attrArr = $this->Goods_model->getGoodsAttrByAid($pid, $attrArr);
+        if ($aid != $pid)
+        	$attrArr = $this->Goods_model->getGoodsAttrByAid($aid, $attrArr);
+        	
+        $attrFlagArr = $this->Goods_model->getGoodsAttrFlg();
+        echo json_encode(array('flags'=>$attrFlagArr, 'attrs'=>$attrArr));
     }
-    public function getGoodsAttrPid($id)
+    public function getGoodsTypePid($id)
     {
-        $goodsInfo = $this->Goods_model->GetAttr($id);
+        $goodsInfo = $this->Goods_model->GetType($id);
         if ($goodsInfo['pid'] == 0) return $goodsInfo['id'];
-        else return $this->getGoodsAttrPid($goodsInfo['pid']);
+        else return $this->getGoodsTypePid($goodsInfo['pid']);
     }
     public function delimg($id)
     {
@@ -359,5 +330,52 @@ class Admingoods extends CI_Controller
             echo json_encode(array('err'=>0,'msg'=>'操作成功'));
         else
             echo json_encode(array('err'=>1, 'msg'=>'操作失败'));
+    }
+    public function attrcustom()
+    {
+    	$gtype = intval($this->uri->segment(3,0));
+    	$data['attrflag'] = $this->uri->segment(4, '');
+    	$data['attrlists'] = $this->Goods_model->getGoodsAttrLists();
+    	$data['optionStr'] = $this->createAttrSonOption($gtype);
+    	
+    	
+    	$goods_pid = $this->getGoodsTypePid($gtype);
+    	if ($data['attrflag']) {
+    		$data['goodsattr'] = array();
+    		$data['goodsattr'] = array_merge($data['goodsattr'], $this->Goods_model->GetAttrInfo(array('aid'=>$goods_pid, 'atype'=>$data['attrflag'])));
+    		if ($goods_pid != $gtype)
+    			$data['goodsattr'] = array_merge($data['goodsattr'], $this->Goods_model->GetAttrInfo(array('aid'=>$gtype, 'atype'=>$data['attrflag'])));
+    	}
+    	
+    	$this->load->view('admin/goods_attr_custom.php', $data);
+    }
+    public function addattr()
+    {
+    	$data['attrlists'] = $this->Goods_model->getGoodsAttrLists();
+    	$this->load->view('admin/goods_attr.php',$data);
+    }
+    public function addgoodsattr()
+    {
+    	$attrname = trim($this->input->post('attrname'));
+    	$attrid = $this->Goods_model->addGoodsAttr(array('val'=>$attrname));
+    	$attrflag = 'gooodsattr_'.$attrid;
+    	$this->Goods_model->updateGoodsAttr(array('flag'=>$attrflag), array('id'=>$attrid));
+    	$this->Goods_model->alterGoodsInfoFields($attrflag);
+    	echo json_encode(array('err'=>false, 'attrid'=>$attrid, 'attrflag'=>$attrflag));
+    }
+    public function updategoodsattr()
+    {
+    	$attrid = intval($this->input->post('id', 0));
+    	$attrname = trim($this->input->post('val', ''));
+    	if ($attrid && $attrname)
+    		$this->Goods_model->updateGoodsAttr(array('val'=>$attrname), array('id'=>$attrid));
+    }
+    public function delgoodsattr()
+    {
+    	$attrid = intval($this->input->post('id', 0));
+    	if ($attrid && $this->Goods_model->delGoodsAttr($attrid))
+    		echo json_encode(array('err'=>false, 'msg'=>'删除成功'));
+    	else
+    		echo json_encode(array('err'=>true, 'msg'=>'删除失败'));
     }
 } 

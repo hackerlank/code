@@ -36,7 +36,7 @@
         <a href="javascript:;" class="btn" onclick="javascript:$('input[name=newsimg]').val('');$('#newsimgdiv').hide();">删除</a>
         </div>
         <div style="height:30px;float:left;">
-        <iframe style="float:left;" src="/admin/upload/addNewImg"  frameborder="0"  height="100%" width="100%" scrolling="auto" allowtransparency="true"></iframe>
+        <iframe style="float:left;" src="/admin/upload/addNewImg"  frameborder="0"  height="100%" width="100%" scrolling="no" allowtransparency="true"></iframe>
         </div>
     </td>
     </tr>
@@ -48,10 +48,7 @@
     	<th>内容:</th>
     	<td><textarea name="content" id="content" class="span9"><?php if (isset($info['content'])) echo $info['content'];?></textarea></td>
     </tr>
-    <tr><th>简介:</th><td><textarea name="description" style="width:400px;height:200px;"><?php echo $info['description'];?></textarea></td></tr>
-    <tr class="medialists2" style="display:none;"><th>展览开始时间</th><td><input type='text' name='show_start_time' class='timepicker' value='<?php echo $info['show_start_time'];?>' /></td></tr>
-    <tr class="medialists2" style="display:none;"><th>展览结束时间</th><td><input type='text' name='show_end_time' class='timepicker' value='<?php echo $info['show_end_time'];?>' /></td></tr>
-	<tr><th>展览地点：</th><td><textarea id="show_area" style="width:400px;height:20px;"><?php echo $info['show_area'];?></textarea></td></tr>
+    <tr><th>简介:</th><td><textarea id="description" name="description" style="width:400px;height:200px;"><?php echo $info['description'];?></textarea></td></tr>
     <tr>
         <th>
         	<input type="hidden" name="id" value="<?php if (isset($info['id'])) echo $info['id'];?>" />
@@ -72,54 +69,32 @@
 $(function(){
     $('.datepicker').datepicker({dateFormat: 'yy-mm-dd'});
 	$('.timepicker').datetimepicker({showSecond: true, dateFormat: 'yy-mm-dd', timeFormat: 'hh:mm:ss'});
-    $('#typepid').live('change',function(){
-        var typepid = $(this).val();
-        if (typepid) medialists2show(typepid);
-    });
 });
-function medialists2show(typeid)
-{
-    $.post('/adminarticle/gettypeinfo',{'typeid':typeid}, function(data){
-        if(data['info']['template'] == 'medialists2') $('.medialists2').show();
-        else $('.medialists2').hide();
-    },'json');
-}
-<?php
-if ($info)
-    echo "medialists2show({$info['atype']});";
-?>
+
 function saveart()
 {
-	var data = CKEDITOR.instances.content.getData();
+	var content = CKEDITOR.instances.content.getData();
+	var description = CKEDITOR.instances.description.getData();
 	var title = $("#title").val();
 	title = title.replace(/\s+/gm,'');
-	data = data.replace(/\s+/gm,'');
+	content = content.replace(/\s+/gm,'');
 	if ('' == title) {
 		jsex.dialog.showmsg('新闻标题不能为空!');
 		return false;
 	}
-	if('' == data) {
+	if('' == content) {
 		jsex.dialog.showmsg('新闻内容不能为空！');
 		return false;
 	}else
-		$("#content").val(data);
+		$("#content").val(content);
+	
+	$("#description").val(description);
 	$("#artform").submit();
 }
-CKEDITOR.replace( 'content',
-	{
-		extraPlugins : 'abbr',
-		toolbar :
-		[
-			[ 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat' ],
-			[ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote','CreateDiv','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','BidiLtr','BidiRtl' ],
-			[ 'Link','Unlink' ],
-			[ 'Image','Table','HorizontalRule','SpecialChar','PageBreak' ],
-			[ 'Styles','Format','Font','FontSize' ],
-			[ 'TextColor','BGColor' ],
-			[ 'Maximize', 'ShowBlocks','-','About' ]
-		],
-		filebrowserUploadUrl : '/admin/uploadimg'
-	});
+
+CKEDITOR.replace('content', {filebrowserUploadUrl: '/admin/uploadimg'});
+CKEDITOR.replace('description', {filebrowserUploadUrl: '/admin/uploadimg'});
+
 //添加图片
 function addNewImg(src)
 {

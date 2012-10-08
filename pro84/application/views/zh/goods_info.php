@@ -32,7 +32,7 @@
 <div style="float:left; width:74px; height:150px; background:url(http://im.bizapp.qq.com:8000/middle.jpg) no-repeat; ">
         <div style="height:80px;  clear:both;margin-top:40px;width:74px; float:left; background:url(http://im.bizapp.qq.com:8000/face.jpg) no-repeat;"></div>
         <div style="clear:both;width:74px;">
-        <a style="padding-top:15px;height:20px; background:url(http://im.bizapp.qq.com:8000/btn_2.gif) no-repeat;  display:block;" target="_blank" href="tencent://message/?uin=912445635"></a>
+        <a style="padding-top:15px;height:20px; background:url(http://im.bizapp.qq.com:8000/btn_2.gif) no-repeat;  display:block;" target="_blank" href="tencent://message/?uin=71811124"></a>
         </div>
 </div>
 <div style="width:8px; height:150px; float:left; background:url(http://im.bizapp.qq.com:8000/bg_1.gif) right;"></div>

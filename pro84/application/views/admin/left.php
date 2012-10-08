@@ -17,13 +17,11 @@
                  <a href="#" class="more"></a>
             </div>
             <ul class="fed-menu-list">
-                <li><a src="/admingoods/attr" href="javascript:;">商品分类</a></li>
-                <li><a src="/admingoods/authortype" href="javascript:;">作者分类</a></li>
-                <li><a src="/admingoods/craft" href="javascript:;">工艺</a></li>
-                <li><a src="/admingoods/theme" href="javascript:;">题材</a></li>
-                <li><a src="/admingoods/age" href="javascript:;">创作时间</a></li>
-                <li><a src="/admingoods/add" href="javascript:;">添加商品</a></li>
+                <li><a src="/admingoods/type" href="javascript:;">商品分类</a></li>
+                <li><a src="/admingoods/addattr" href="javascript:;">添加商品属性</a></li>
+                <li><a src="/admingoods/attrcustom" href="javascript:;">自定义商品分类</a></li>
                 <li><a src="/admingoods/goodslist" href="javascript:;">商品列表</a></li>
+                <li><a src="/admingoods/add" href="javascript:;">添加商品</a></li>
             </ul>
         </div>
         <div class="fed-menu-box">

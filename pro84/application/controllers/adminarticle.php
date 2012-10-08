@@ -117,6 +117,7 @@ class adminarticle extends CI_Controller
         if (!$this->session->userdata('isadmin')) return $this->load->view("/admin/login.php");
         
         $article_type = intval($this->uri->segment(3,0));
+
         $id = intval($this->uri->segment(4,0));
         $data['type'] = $type;
         
@@ -139,11 +140,9 @@ class adminarticle extends CI_Controller
          $data['imgurl'] = trim($this->input->post('newsimg'));
          $data['title'] = trim($this->input->post('title'));
          $data['time'] = trim($this->input->post('time',''));
-         $data['show_start_time'] = trim($this->input->post('show_start_date',''));
-         $data['show_end_time'] = trim($this->input->post('show_end_date',''));
-         $data['show_area'] = trim($this->input->post('show_area',''));
-         $data['description'] = trim($this->input->post('show_link',''));
-         if (''==$data['time']) $data['time'] = time('Y-m-d H:i:s');
+         
+         $data['description'] = trim($this->input->post('description',''));
+         if (!$data['time']) $data['time'] = date('Y-m-d H:i:s');
          
          $id = intval($this->input->post('id',0));
          if ($id)

@@ -30,7 +30,6 @@
         <th>作者</th>
         <th>工艺</th>
         <th>题材</th>
-        <th>创作时间</th>
         <th>操作</th>
     </tr>
 </thead>
@@ -41,7 +40,6 @@
              "<td>{$goods['author']}</td>".
              "<td>{$goods['craft']}</td>".
              "<td>{$goods['theme']}</td>".
-             "<td>{$goods['time']}</td>".
              "<td><a href='javascript:;' onclick='javascript:showimg(\"{$goods['thumb_img']}\");'>图片预览</a> | <a href='/admingoods/add/{$goods['id']}'>编辑</a> | <a href='javascript:;' onclick='javascript:delGoods({$goods['id']});'>删除</a></td></tr>";
 ?>
 </tbody>

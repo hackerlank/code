@@ -1,4 +1,4 @@
-<!DCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -19,10 +19,8 @@
     <ul class="clearfix">
     <?php
         foreach ($lists as $li)
-            echo "<li><span><img src='{$li['imgurl']}' style='whidth:400px;height:571px' /></span> <a href='/media/info/{$li['id']}' target='_blank'>{$li['title']}</a>".
-                    "<p>展览开始时间：{$li['show_start_date']} 展览结束时间: {$li['show_end_date']}</p>".
-                    "<p>展览地点:{$li['show_area']}</p>".
-                    "<dl><dt>展览介绍：</dt><dd>{$li['description']}</dd></li>";
+            echo "<li><span><img src='{$li['imgurl']}' style='width:204px;height:291px;' /></span> <a href='/media/info/{$li['id']}' target='_blank'>{$li['title']}</a>".
+                    "{$li['description']}</li>";
     ?>
     </ul>
     <div class="page" style="display:none;">

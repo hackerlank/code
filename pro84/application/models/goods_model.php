@@ -2,18 +2,19 @@
 class Goods_model extends CI_Model
 {
     private $goodsInfoTable = 'goods_info';
-    private $goodsAttrTable = 'goods_attr';
+    private $goodsTypeTable = 'goods_type';
     private $goodsAttrInfoTable = "goods_attr_info";
     private $goodsImgTable = 'goods_img';
+    private $goodsAttrTable = 'goods_attr';
     
     public function __construct()
     {
         $this->load->database();
          
     }
-    public function GetGoodsAttrType($type)
+    public function GetGoodsType($type)
     {
-        $query = $this->db->query("SELECT value FROM $this->goodsAttrTable WHERE type='$type'");
+        $query = $this->db->query("SELECT value FROM $this->goodsTypeTable WHERE type='$type'");
         return $query->row()->value;
     }
     public function SaveGoods($data)
@@ -53,7 +54,7 @@ class Goods_model extends CI_Model
     public function GetGoodsLists($gtype, $offset, $row_count)
     {
         $goodsLists = array();
-        $query = $this->db->query("SELECT * FROM $this->goodsInfoTable where goods_type=$gtype limit $offset, $row_count");
+        $query = $this->db->query("SELECT * FROM $this->goodsInfoTable where goods_type=$gtype order by time desc,id desc limit $offset, $row_count");
 
         if ($query->num_rows() > 0)
             foreach ($query->result_array() as $row) {
@@ -81,51 +82,51 @@ class Goods_model extends CI_Model
         //$this->db->query($sql);
         return $this->db->insert_id();
     }
-    public function AddAttr($data)
+    public function AddType($data)
     {
-        $sql  = "INSERT INTO $this->goodsAttrTable (name, pid) VALUES ('{$data['name']}', {$data['pid']})";
+        $sql  = "INSERT INTO $this->goodsTypeTable (name, pid) VALUES ('{$data['name']}', {$data['pid']})";
         if ($this->db->query($sql))
             return $this->db->insert_id();
         else
             return false;
     }
-    public function UpdateAttr($id, $name)
+    public function UpdateType($id, $name)
     {
-        $sql = "UPDATE $this->goodsAttrTable SET name='$name' WHERE id=$id";
+        $sql = "UPDATE $this->goodsTypeTable SET name='$name' WHERE id=$id";
         return $this->db->query($sql);
     }
-    public function DelAttr($id)
+    public function DelType($id)
     {
-        $sql = "DELETE FROM $this->goodsAttrTable WHERE id=$id";
+        $sql = "DELETE FROM $this->goodsTypeTable WHERE id=$id";
         return $this->db->query($sql);
     }
-    public function GetAttr($id)
+    public function GetType($id)
     {
-        $sql = "SELECT * FROM $this->goodsAttrTable where id=$id";
+        $sql = "SELECT * FROM $this->goodsTypeTable where id=$id";
         $query = $this->db->query($sql);
         return $query->row_array();
     }
-    public function GetAttrList($pid=0)
+    public function GetTypeList($pid=0)
     {
         $attrArray = array();
-        $sql = "SELECT * FROM $this->goodsAttrTable WHERE pid=$pid";
+        $sql = "SELECT * FROM $this->goodsTypeTable WHERE pid=$pid";
         $query  = $this->db->query($sql);
 
         if ($query->num_rows() > 0) 
             foreach ($query->result() as $row) 
-                $attrArray[] = array('id'=>$row->id, 'name'=>$row->name, 'level'=>0, 'son'=>$this->getAttrByPid($row->id,0));
+                $attrArray[] = array('id'=>$row->id, 'name'=>$row->name, 'level'=>0, 'son'=>$this->getTypeByPid($row->id,0));
         return $attrArray;
     }
-    public function GetAttrByPid($pid, $level=0)
+    public function GetTypeByPid($pid, $level=0)
     {
         $data = array();
-        $sql = "SELECT * FROM $this->goodsAttrTable WHERE pid=$pid";
+        $sql = "SELECT * FROM $this->goodsTypeTable WHERE pid=$pid";
         $query = $this->db->query($sql);
 
         if ($query->num_rows() > 0){
             $level++;
             foreach ($query->result() as $row) {
-                $data [] = array('id'=>$row->id, 'name'=>$row->name, 'level'=>$level, 'son'=>$this->getAttrByPid($row->id, $level));
+                $data [] = array('id'=>$row->id, 'name'=>$row->name, 'level'=>$level, 'son'=>$this->getTypeByPid($row->id, $level));
             }
         }
 
@@ -152,6 +153,7 @@ class Goods_model extends CI_Model
     public function GetAttrInfo($arr)
     {
         $data = array();
+        $this->db->order_by('atype', 'desc');
         $query = $this->db->get_where($this->goodsAttrInfoTable, $arr);
         if ($query->num_rows() > 0)
             foreach ($query->result() as $row)
@@ -170,5 +172,54 @@ class Goods_model extends CI_Model
     public function DelGoods($id)
     {
         return $this->db->query("delete from {$this->goodsInfoTable} where id=$id");
+    }
+    public function addGoodsAttr($attrArr)
+    {
+    	$this->db->insert($this->goodsAttrTable, $attrArr);
+        return $this->db->insert_id();
+    }
+    public function updateGoodsAttr($attrArr, $where)
+    {
+    	return $this->db->update($this->goodsAttrTable, $attrArr, $where);
+    }
+    public function delGoodsAttr($id)
+    {
+    	return $this->db->delete($this->goodsAttrTable, array('id'=>$id));
+    }
+    public function getGoodsAttrLists($where=array())
+    {
+    	$query =  $this->db->get_where($this->goodsAttrTable, $where);
+    	$lists = array();
+    	if ($query->num_rows() > 0)
+            foreach ($query->result_array() as $k=>$v)
+                $lists[$k] = $v;
+        return $lists;
+    }
+    public function alterGoodsInfoFields($field)
+    {
+    	$sql = "ALTER TABLE {$this->goodsInfoTable} ADD COLUMN {$field} INT NOT NULL DEFAULT 0";
+    	return $this->db->query($sql);
+    }
+    public function getGoodsAttrByAid($aid, &$arr)
+    {
+    	//$this->db->distinct();
+    	$this->db->order_by('atype', 'desc');
+    	$query = $this->db->get_where($this->goodsAttrInfoTable, array('aid'=>$aid));
+    	if ($query->num_rows() > 0)
+    		foreach ($query->result_array() as $k=>$v){
+    			$arr[$v['atype']][$v['id']] = $v['val'];
+    		}
+    	
+    	return $arr;
+    }
+    public function getGoodsAttrFlg()
+    {
+    	$query = $this->db->get($this->goodsAttrTable);
+    	$flags = array();
+    	if ($query->num_rows() > 0)
+    		foreach ($query->result_array() as $k=>$v) {
+    			$flags[$v['flag']] = $v['val'];
+    		}
+    	return $flags;
     }
 }
