@@ -100,7 +100,7 @@ class Admingoods extends CI_Controller
             $per_page = 10;
             $total_pages = ceil($goods_total/$per_page);
             if ($page > $total_pages || $page < 1) $page = 1;
-            $data['goodsList'] = $this->Goods_model->GetGoodsLists($gtype, ($page-1)*$per_page, $per_page);
+            $data['goodsList'] = $this->Goods_model->GetGoodsLists($gtype, array(), ($page-1)*$per_page, $per_page);
             $data['pagination'] = $this->createPagination("/admingoods/goodslist/$gtype", $goods_total, $per_page, $page);
         }
         

@@ -6,66 +6,89 @@
 <link href="/css/b.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="/js/jquery.js"></script>
 <style type="text/css">
-#typelist ul li a {cursor:pointer;}
+#typelist ul li a {
+	cursor: pointer;
+}
 </style>
 </head>
 
 <body>
 <div class="head"></div>
-<div class="catebox" id="typelist">
-</div>
+<div class="catebox" id="typelist"></div>
 <div class="wp prolist">
 <ul class='col-1'></ul>
 <ul class='col-2'></ul>
 <ul class='col-3'></ul>
 <ul class='col-4'></ul>
 </div>
-<div style='display:none;'>
-<input type="hidden" name='goods_total' value='0' />
-</div>
+<div style='display: none;'><input type="hidden" name='goods_total'
+	value='0' /></div>
 <script type="text/javascript">
 var load_completed = false;
 var last_load_offset = -1;
-var gtype = 0;
+var ptype = <?php echo $ptype;?>;
+var gtype = <?php echo $gtype;?>;
+
+var limitStr = '';
+
 $(function(){
-    var pid = <?php echo $ptype;?>;
-    $.post('/goods/attrinfo/'+pid, '', function(data){
+    
+    $.post('/goods/typeinfo/'+ptype+'/'+gtype, '', function(data){
         var str = '';
         for(var i=0, iMax=data['list'].length; i < iMax; i++)
-            str += "<li><a tid='"+data['list'][i]['id']+"'>"+data['list'][i]['name']+"</a></li>";
+            str += "<li><a tid='"+data['list'][i]['id']+"' href='/goods/index/"+ptype+"/"+data['list'][i]['id']+"'>"+data['list'][i]['name']+"</a></li>";
         str = "<div class='wp'><h3>"+data['info']['name']+"</h3><ul>"+str+"</ul><p class='back'><a href='javascript:history.go(-1);'>返回</a> | <a href='/'>首页</a></p></div>";
-        $("#typelist").html(str);
 
-        <?php 
-            if ($gtype) echo "gtype=$gtype;";
-            else echo "gtype=data['list'][0]['id'];";
-        ?>
+        var attrStr = '';
+        $.each(data['attrflag'], function(i,n){
+            var tmpStr = '';
+            if (undefined != data['attrs'][i]) {
+	            $.each(data['attrs'][i], function(j,k){
+	                tmpStr += "<li><a attrname='"+i+"' attrid='"+j+"'>"+k+"</a></li>";
+	            });
+	            attrStr += "<div style='clear:both;' class='wp attrlists'><h5 name='"+i+"'>"+n+":</h5><ul>"+tmpStr+"</ul></div>";
+            }
+        });
+        $("#typelist").html(str+attrStr);
+
         $('#typelist ul li a[tid="'+gtype+'"]').addClass('current');
-        getGoodsLists(gtype);
+        getGoodsLists(gtype, limitStr);
 
-        $("#typelist ul li a").live('click', function(){
-            $('#typelist ul li a').removeClass('current');
-            $(this).addClass('current');
-            gtype = parseInt($(this).attr('tid'));
+        $('.attrlists li a').live('click', function(){
+        	var doc_obj = $(this);
+            var curClass = $(this).attr('class');
+            if ('current' == curClass) {
+                $(this).removeClass('current');
+            } else {
+	            var attrname = $(this).attr('attrname');
+	            $("a[attrname='"+attrname+"']").removeClass('current');
+	            $(this).addClass('current');
+            }
+
+            limitStr = '';
+            $.each($('.attrlists a[class="current"]'), function(i,n){
+                limitStr += '"'+$(n).attr('attrname')+'":"'+$(n).attr('attrid')+'",';
+            });
+            if (limitStr.length>0) limitStr = limitStr.substring(0, limitStr.length-1);
+            $('input[name="goods_total"]').val('0');
+            last_load_offset = -1;
             $('.col-1').html('');
             $('.col-2').html('');
             $('.col-3').html('');
             $('.col-4').html('');
-            $('input[name="goods_total"]').val(0);
-            last_load_offset = -1;
-            load_completed = false;
-            getGoodsLists(gtype);
+            getGoodsLists(gtype, limitStr);
         });
+        
     },'json');
     
 
 });
-function getGoodsLists(gtype)
+function getGoodsLists(gtype, limitStr)
 {
    var goods_total = parseInt($('input[name="goods_total"]').val());
    if (goods_total == last_load_offset) return false;
    last_load_offset = goods_total;
-   $.post('/goods/lists/'+gtype+'/'+goods_total, '', function(data){
+   $.post('/goods/lists/'+gtype+'/'+goods_total, {'limit':"{"+limitStr+"}"}, function(data){
        if (data['list'].length == 0) load_completed = true;
        var listArr = new Array();
        listArr[0] = new Array();
@@ -93,7 +116,7 @@ function getGoodsLists(gtype)
 }
 $(window).bind('scroll', function(){
     if ($(document).scrollTop()+$(window).height() > $(document).height()-50) {
-        if (!load_completed) getGoodsLists(gtype);
+        if (!load_completed) getGoodsLists(gtype, limitStr);
     }
 });
 </script>

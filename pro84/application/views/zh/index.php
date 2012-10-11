@@ -11,7 +11,7 @@
 <div class="wp main">
     <div class="menu-1">
         <span id="menu-1"></span>
-        <a href="/goods/index/5"></a>
+        <a href="/goods/index/5/6"></a>
     </div>
     <div class="menu-2">
         <span id="menu-2"></span>

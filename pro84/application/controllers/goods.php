@@ -24,10 +24,18 @@ class Goods extends CI_Controller
         $data['ptype'] = 5;
         $this->load->view('zh/goods_info.php', $data);
     }
-    public function attrinfo()
+    public function typeinfo()
     {
-        $pid = intval($this->uri->segment(3,0));
-        echo json_encode(array('list'=>$this->Goods_model->GetAttrList($pid), 'info'=>$this->Goods_model->GetAttr($pid)));
+        $ptype = intval($this->uri->segment(3,0));
+        $gtype = intval($this->uri->segment(4,0));
+        
+        $attrs = array();
+        $this->Goods_model->getGoodsAttrByAid($ptype, $attrs);
+        $this->Goods_model->getGoodsAttrByAid($gtype, $attrs);
+        echo json_encode(array('list'=>$this->Goods_model->GetTypeList($ptype), 
+        						'info'=>$this->Goods_model->GetType($ptype), 
+        						'attrflag'=>$this->Goods_model->getGoodsAttrFlg(),
+        						'attrs'=>$attrs));
         exit;
     }
     public function lists()
@@ -35,7 +43,8 @@ class Goods extends CI_Controller
         $gtype = intval($this->uri->segment(3,0));
         $offset = intval($this->uri->segment(4,0));
         $row_nums = 12;
-        echo json_encode(array('list'=>$this->Goods_model->GetGoodsLists($gtype, $offset, $row_nums)));
+        $limitArr = json_decode($this->input->post('limit'), true);
+        echo json_encode(array('list'=>$this->Goods_model->GetGoodsLists($gtype, $limitArr, $offset, $row_nums)));
         exit;
     }
     

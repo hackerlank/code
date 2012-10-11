@@ -51,10 +51,13 @@ class Goods_model extends CI_Model
         $info['author_type_name'] = $author_type[0]['val'];
         return $info;
     }
-    public function GetGoodsLists($gtype, $offset, $row_count)
+    public function GetGoodsLists($gtype, $where=array(), $offset, $row_count)
     {
         $goodsLists = array();
-        $query = $this->db->query("SELECT * FROM $this->goodsInfoTable where goods_type=$gtype order by time desc,id desc limit $offset, $row_count");
+        $where['goods_type'] = $gtype;
+        $this->db->order_by('time', 'desc');
+        $query = $this->db->get_where($this->goodsInfoTable,$where, $row_count, $offset);
+        //$query = $this->db->query("SELECT * FROM $this->goodsInfoTable where goods_type=$gtype order by time desc,id desc limit $offset, $row_count");
 
         if ($query->num_rows() > 0)
             foreach ($query->result_array() as $row) {
