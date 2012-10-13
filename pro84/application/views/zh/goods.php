@@ -15,6 +15,7 @@
 <body>
 <div class="head"></div>
 <div class="catebox" id="typelist"></div>
+<div id='attrlists'></div>
 <div class="wp prolist">
 <ul class='col-1'></ul>
 <ul class='col-2'></ul>
@@ -49,7 +50,8 @@ $(function(){
 	            attrStr += "<div style='clear:both;' class='wp attrlists'><h5 name='"+i+"'>"+n+":</h5><ul>"+tmpStr+"</ul></div>";
             }
         });
-        $("#typelist").html(str+attrStr);
+        $("#typelist").html(str);
+        $("#attrlists").html(attrStr);
 
         $('#typelist ul li a[tid="'+gtype+'"]').addClass('current');
         getGoodsLists(gtype, limitStr);
@@ -72,6 +74,7 @@ $(function(){
             if (limitStr.length>0) limitStr = limitStr.substring(0, limitStr.length-1);
             $('input[name="goods_total"]').val('0');
             last_load_offset = -1;
+            load_completed = false;
             $('.col-1').html('');
             $('.col-2').html('');
             $('.col-3').html('');

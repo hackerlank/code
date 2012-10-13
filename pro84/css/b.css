@@ -119,3 +119,10 @@ body.index{ background:#FFF; background:#fff url(../images/index-bg.jpg) repeat-
 
 .address{ width:400px; float:left; padding:15px 30px; border:1px solid #CCC; margin-right:10px; height:450px; overflow:hidden}
 .address h4{ margin-bottom:10px;}
+
+#attrlists{  background:#FFF; overflow:hidden; padding:10px 0}
+.attrlists{ padding:10px 0}
+.attrlists h5{ float:left; font-size:12px; width:60px; text-align:right; margin-right:20px; font-weight:bold; height:19px; line-height:19px;}
+.attrlists ul  li { float:left; font-size:12px; margin-right:10px;}
+.attrlists ul  li  a{ color:#666;padding:0px 25px 0px 5px; height:19px; line-height:19px; border:1px solid #FFF; display:inline-block; cursor:pointer}
+.attrlists ul  li  a.current{  border:1px #ff6600 solid;background:url(../images/select-current.jpg) right center no-repeat;}

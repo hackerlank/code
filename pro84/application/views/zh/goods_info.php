@@ -17,11 +17,13 @@
     	<div class="detail-img"><img src="<?php echo $info['img'];?>" class="detailimg" style="max-width:738px;display:none;" /></div>
         <div class="pro-detail-r">
         	<p><strong>作者：</strong><?php echo $info['author'];?></p>
-            <p><strong>作者分类：</strong><?php echo $info['author_type_nmae'];?></p>
-            <p><strong>作品类型：</strong></p>
-            <p><strong>工艺：</strong><?php echo $info['craft_name'];?></p>
-            <p><strong>题材：</strong><?php echo $info['theme_name'];?></p>
-            <p><strong>创作时间：</strong><?php echo $info['age_name']?></p>
+        	<?php
+        		foreach ($attrflag as $k=>$v){
+        			$attrval = $info[$k];
+        			if($attrval)
+        				echo "<p><strong>{$v}:</strong>{$attrs[$k][$attrval]}</p>";
+        		} 
+        	?>
             <p><strong>简介:</strong></p>
             <div class="txt"><?php echo $info['brief'];?></div>
         </div>
@@ -39,18 +41,20 @@
 </div>
 <script type="text/javascript">
 $(function(){
-    var pid = <?php echo $ptype;?>;
-    $.post('/goods/attrinfo/'+pid, '', function(data){
-        var str = '';
-        for(var i=0, iMax=data['list'].length; i < iMax; i++)
-            str += "<li><a tid='"+data['list'][i]['id']+"' href='/goods/index/<?php echo $ptype;?>/"+data['list'][i]['id']+"'>"+data['list'][i]['name']+"</a></li>";
-        str = "<div class='wp'><h3>"+data['info']['name']+"</h3><ul>"+str+"</ul><p class='back'><a href='javascript:history.go(-1);'>返回</a> | <a href='/'>首页</a></p></div>";
-        $("#typelist").html(str);
+	var ptype = <?php echo $ptype;?>;
+	var gtype = <?php echo $gtype;?>;
+	
+	 $.post('/goods/typeinfo/'+ptype+'/'+gtype, '', function(data){
+	        var str = '';
+	        for(var i=0, iMax=data['list'].length; i < iMax; i++)
+	            str += "<li><a tid='"+data['list'][i]['id']+"' href='/goods/index/"+ptype+"/"+data['list'][i]['id']+"'>"+data['list'][i]['name']+"</a></li>";
+	        str = "<div class='wp'><h3>"+data['info']['name']+"</h3><ul>"+str+"</ul><p class='back'><a href='javascript:history.go(-1);'>返回</a> | <a href='/'>首页</a></p></div>";
 
-        $('#typelist ul li a[tid="<?php echo $info['goods_type'];?>"]').addClass('current');
+	        $("#typelist").html(str);
 
-    },'json');
-    
+	        $('#typelist ul li a[tid="'+gtype+'"]').addClass('current');
+	        
+	    },'json');
 
 });
 

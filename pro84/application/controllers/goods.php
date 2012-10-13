@@ -21,7 +21,17 @@ class Goods extends CI_Controller
     {
         $gid = $this->uri->segment(3,0);
         $data['info'] = $this->Goods_model->GetGoodsInfo($gid);
-        $data['ptype'] = 5;
+        
+        $gtypeInfo = $this->Goods_model->GetType($data['info']['goods_type']);
+        $data['gtype'] = $data['info']['goods_type'];
+        $data['ptype'] = $gtypeInfo['pid'];
+        $data['attrflag'] = $this->Goods_model->getGoodsAttrFlg();
+        
+        $attrs = array();
+        $this->Goods_model->getGoodsAttrByAid($data['gtype'], $attrs);
+        $this->Goods_model->getGoodsAttrByAid($data['ptype'], $attrs);
+        $data['attrs'] = $attrs;
+        
         $this->load->view('zh/goods_info.php', $data);
     }
     public function typeinfo()
