@@ -1,3 +1,0 @@
-RENAME TABLE  `pro84`.`goods_attr` TO  `pro84`.`goods_type` ;
-
-ALTER TABLE  `goods_info` CHANGE  `time`  `time` DATETIME NOT NULL COMMENT  '上架时间';
