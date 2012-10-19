@@ -31,6 +31,7 @@
             </div>
             <ul class="fed-menu-list">
                 <li><a src="/admin/changepwd" href="javascript:;">更改密码</a></li>
+                <li><a src="/admin/siteinfo" href="javascript:;">系统信息设置</a></li>
             </ul>
         </div>
     </div>

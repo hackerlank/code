@@ -20,7 +20,7 @@
         	<?php
         		foreach ($attrflag as $k=>$v){
         			$attrval = $info[$k];
-        			if($attrval)
+        			if(!empty($attrval))
         				echo "<p><strong>{$v}:</strong>{$attrs[$k][$attrval]}</p>";
         		} 
         	?>

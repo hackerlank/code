@@ -142,4 +142,15 @@ class Admin extends CI_Controller
         $data['callback'] = $this->uri->segment(3,'');
         $this->load->view('/admin/upload.php',$data);
     }
+    public function siteinfo()
+    {
+    	$data = array();
+    	$this->load->view("admin/admin_siteinfo.php",$data);
+    }
+    public function savesiteinfo()
+    {
+    	$id = intval($this->input->post('id'));
+    	$val = trim($this->input->post('val'));
+    	
+    }
 }
