@@ -88,8 +88,10 @@ function saveGoods()
 {
     var postsdata = '';
     $.each($('select'), function(i,n){
-        postsdata += '"'+$(n).attr('name')+'":"'+$(n).val()+'",';
+        if ($(n).attr('name'))
+        	postsdata += '"'+$(n).attr('name')+'":"'+$(n).val()+'",';
     });
+    console.log(postsdata);
     postsdata += '"name":"'+$("input[name='goods_name']").val()+'",';
     postsdata += '"author":"'+$("input[name='author_name']").val()+'",';
     postsdata += '"author_title":"'+$("select[name='author_type']").val()+'",';
