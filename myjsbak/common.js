@@ -1,13 +1,14 @@
 function SetCookie(name,value,expire)
 {
-	if (0 == expire) {
-		expireStr = '';
-	} else { 
-		var exp  = new Date(); 
-		exp.setTime(exp.getTime() + expire);
-		expireStr = "expires="+exp.toGMTString;
+	if(expire) {
+		var exp  = new Date();
+		exp.setTime(exp.getTime() + expire*1000);
+		expires_str = "expires="+exp.toGMTString();
+	} else {
+		expires_str = '';
 	}
-    document.cookie = name + "="+ escape (value) + "; path=/;"+expireStr;
+
+	document.cookie = name + "="+ escape (value) + ";path=/;" + expires_str;
 }
 
 function getCookie(name)
@@ -40,4 +41,9 @@ function getUrlParam(name)
 Array.prototype.remove = function(str){
     for(var i=0, iMax = this.length;i<iMax;i++)
         if(str == this[i]) this.splice(i,1);
+}
+Array.prototype.inarray = function(str){
+	for(var i=0, iMax = this.length; i < iMax; i++)
+		if(str == this[i]) return true;
+	return false;
 }
