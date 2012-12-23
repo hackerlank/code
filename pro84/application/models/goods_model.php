@@ -49,6 +49,10 @@ class Goods_model extends CI_Model
         $info['theme_name'] = $theme[0]['val'];
         $info['age_name'] = $age[0]['val'];
         $info['author_type_name'] = $author_type[0]['val'];
+        $info['album_lists'] = $this->GetGoodsAlbumImg(array('gid'=>$id));
+        $info['prev'] = $this->GetGoodsPrev($id);
+        $info['next'] = $this->GetGoodsNext($id);
+
         return $info;
     }
     public function GetGoodsLists($gtype, $where=array(), $offset, $row_count)
@@ -65,6 +69,39 @@ class Goods_model extends CI_Model
             }
         return $goodsLists;
     }
+    public function GetGoodsPrev($id)
+    {
+        $goodsLists = array();
+        $where = "id < $id";
+        $this->db->order_by('time', 'desc');
+        $query = $this->db->get_where($this->goodsInfoTable,$where, $row_count, $offset);
+
+        if ($query->num_rows() > 0){
+            foreach ($query->result_array() as $row) {
+                $goodsLists[] = $row;
+            }
+            rsort($goodsLists);
+        }
+
+        if($goodsLists) return $goodsLists[0]['id'];
+        else return '';
+    }
+    public function GetGoodsNext($id)
+    {
+        $goodsLists = array();
+        $where = "id > $id";
+        $this->db->order_by('time', 'desc');
+        $query = $this->db->get_where($this->goodsInfoTable,$where, $row_count, $offset);
+
+        if ($query->num_rows() > 0){
+            foreach ($query->result_array() as $row) {
+                $goodsLists[] = $row;
+            }
+        }
+
+        if($goodsLists) return $goodsLists[0]['id'];
+        else return '';
+    }
     public function GetGoodsTotal($gtype)
     {
         $this->db->where('goods_type', $gtype);
@@ -76,6 +113,27 @@ class Goods_model extends CI_Model
         $this->db->update($this->goodsInfoTable,array('img'=>$img, 'thumb_img'=>$thumb_img), array('id'=>$gid));
         //$this->db->query($sql);
         return $this->db->insert_id();
+    }
+    public function SaveGoodsAlbumImg($info)
+    {
+        $this->db->insert($this->goodsImgTable, $info);
+        return $this->db->insert_id();
+    }
+    public function GetGoodsAlbumImg($where)
+    {
+        $lists = array();
+        $query = $this->db->get_where($this->goodsImgTable, $where);
+
+        if ($query->num_rows() > 0)
+            foreach ($query->result_array() as $row) {
+                $lists[] = $row;
+            }
+        return $lists;
+    }
+    public function DelGoodsAlbumImg($where)
+    {
+        $this->db->delete($this->goodsImgTable, $where);
+        return $this->db->affected_rows();
     }
     public function AddType($data)
     {

@@ -8,7 +8,7 @@
     <body>
     <form method="post" action="<?php echo $action;?>" enctype="multipart/form-data" id="uploadform">
     <input type="file" name="upload" id="uploadimg" />
-    <input type="hidden" name="callback" value="addimg" />
+    <input type="hidden" name="callback" value="<?php echo $callback;?>" />
     <input type="hidden" name="gid" value="<?php echo $gid;?>" />
     </form>
 <script type="text/javascript">

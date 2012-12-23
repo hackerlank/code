@@ -106,7 +106,7 @@ function getGoodsLists(gtype, limitStr)
        for (var i=0, iMax=listArr.length; i < iMax; i++) {
            var tmpStr = '';
            for (k in listArr[i]) {
-               tmpStr += "<li><a href='/goods/info/"+listArr[i][k]['id']+"'><img src='"+listArr[i][k]['thumb_img']+"' width='202px' /></a><p>"+
+               tmpStr += "<li><a href='/goods/info/"+listArr[i][k]['id']+"' target='_blank'><img src='"+listArr[i][k]['thumb_img']+"' width='202px'  /></a><p>"+
                          listArr[i][k]['author']+'-'+listArr[i][k]['name']+"</p><p class='numbox'>喜欢（0） ｜ 评论（2）</p></li>";
            }
            var ulClass = 'col-'+(i+1);

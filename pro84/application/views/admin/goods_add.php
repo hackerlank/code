@@ -67,11 +67,23 @@
 <div id="goodsimgs" style="display:none;">
 <div style="display:block;">
 <div id="imglists">
+    <label>封面图片：</label>
 <?php
      echo "<img src='{$info['thumb_img']}' style='width:200px;height:200px;' />";
 ?>
 </div>
 <iframe id="goodsimgiframe" src='/admingoods/addimg/<?php echo $gid;?>'></iframe></div>
+    <div>
+        <label>相册</label>
+        <div id="goods－album">
+            <?php
+            if($info['album_lists'])
+                foreach($info['album_lists'] as $li)
+                    echo "<div><img src='{$li['path']}' style='width:200px;height:200px'>&nbsp;&nbsp;<a href='#' onclick='delAlbumImg({$li['id']})'>删除</a></div>";
+            ?>
+        </div>
+        <iframe id="goodsalbumiframe" src='/admingoods/addalbumimg/<?php echo $gid;?>'></iframe></div>
+    </div>
 </div>
 </div>
 <script type="text/javascript" src="/js/jquery-ui-1.8.16.custom.min.js"></script>
@@ -115,6 +127,11 @@ function addimg(path)
 {
     var str = '<img src="'+path+'" style="width:200px;height:200px;" /></a>';
     $("#imglists").html(str);
+}
+function addblumimg(path, id)
+{
+    var str = "<div><img src='"+path+"' style=''>&nbsp;&nbsp;<a href='#' onclick='delAlbumImg("+id+");'>删除</a></div>";
+    $("#goods－album").append(str);
 }
 function showimg(path)
 {

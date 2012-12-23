@@ -58,26 +58,34 @@ class Admingoods extends CI_Controller
     {
         $data['gid'] = intval($this->uri->segment(3,0));
         $data['action'] = "/admingoods/saveimg";
+        $data['callback'] = "addimg";
+        $this->load->view("/admin/uploadimg.php",$data);
+    }
+    public function addalbumimg()
+    {
+        $data['gid'] = intval($this->uri->segment(3,0));
+        $data['action'] = "/admingoods/savealbumimg";
+        $data['callback'] = 'addblumimg';
         $this->load->view("/admin/uploadimg.php",$data);
     }
     public function saveimg()
     {
         $gid = intval($this->input->post('gid',0));
         if (!$gid) die("<scrpit>alert('非法数据');</script>");
-        
+
         $upload_dir = date("Ymd");
         if (!file_exists(FCPATH.'uploads/'.$upload_dir))
         	mkdir(FCPATH.'uploads/'.$upload_dir, 0777);
-      
+
         $config['upload_path'] = 'uploads/'.$upload_dir;
-        
+
         $config['allowed_types'] = 'gif|jpg|png';
         $config['max_size'] = "0";
         $config['max_width'] = "0";
         $config['max_height'] = "0";
         $config['file_name'] = time().'.'.pathinfo($_FILES['upload']['name'], PATHINFO_EXTENSION);
         $this->load->library('upload',$config);
-        
+
         if($this->upload->do_upload('upload')) {
             $callback = $this->input->post('callback');
             $data = $this->upload->data();
@@ -85,6 +93,36 @@ class Admingoods extends CI_Controller
             $thumb_img = '/'.$config['upload_path'].'/'.$this->createMiniImg($img);
             $this->Goods_model->SaveGoodsImg($gid, $img, $thumb_img);
             echo "<script type='text/javascript'>window.parent.$callback('$thumb_img');window.location.href='/admingoods/addimg/$gid';</script>'";
+        } else{
+            $msg = strip_tags($this->upload->display_errors());
+            echo "<script type='text/javascript'>alert('$msg')</script>";
+        }
+    }
+    public function savealbumimg()
+    {
+        $gid = intval($this->input->post('gid',0));
+        if (!$gid) die("<scrpit>alert('非法数据');</script>");
+
+        $upload_dir = date("Ymd");
+        if (!file_exists(FCPATH.'uploads/'.$upload_dir))
+            mkdir(FCPATH.'uploads/'.$upload_dir, 0777);
+
+        $config['upload_path'] = 'uploads/'.$upload_dir;
+
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['max_size'] = "0";
+        $config['max_width'] = "0";
+        $config['max_height'] = "0";
+        $config['file_name'] = time().'.'.pathinfo($_FILES['upload']['name'], PATHINFO_EXTENSION);
+        $this->load->library('upload',$config);
+
+        if($this->upload->do_upload('upload')) {
+            $callback = $this->input->post('callback');
+            $data = $this->upload->data();
+            $img = '/'.$config['upload_path'].'/'.$data['file_name'];
+            $thumb_img = '/'.$config['upload_path'].'/'.$this->createMiniImg($img);
+            $album_id = $this->Goods_model->SaveGoodsAlbumImg(array('gid'=>$gid, 'path'=>$img, 'thumbpath'=>$thumb_img));
+            echo "<script type='text/javascript'>window.parent.$callback('$thumb_img', {$album_id});window.location.href='/admingoods/addimg/$gid';</script>'";
         } else{
             $msg = strip_tags($this->upload->display_errors());
             echo "<script type='text/javascript'>alert('$msg')</script>";
