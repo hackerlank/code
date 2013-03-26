@@ -416,4 +416,13 @@ class Admingoods extends CI_Controller
     	else
     		echo json_encode(array('err'=>true, 'msg'=>'删除失败'));
     }
+    public function delAlbumImg()
+    {
+        $id = (int) $this->input->post('id', 0);
+        if($id && $this->Goods_model->delAlbumImg($id)){
+            echo json_encode(array('err'=>false, 'msg'=>'删除成功'));
+        } else {
+            echo json_encode(array('err'=>false, 'msg'=>'删除失败'));
+        }
+    }
 } 

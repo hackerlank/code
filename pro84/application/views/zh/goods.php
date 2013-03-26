@@ -22,6 +22,7 @@
 <ul class='col-3'></ul>
 <ul class='col-4'></ul>
 </div>
+<div class='pagination' style='clear:both;'></div>
 <div style='display: none;'><input type="hidden" name='goods_total'
 	value='0' /></div>
 <script type="text/javascript">
@@ -29,6 +30,8 @@ var load_completed = false;
 var last_load_offset = -1;
 var ptype = <?php echo $ptype;?>;
 var gtype = <?php echo $gtype;?>;
+var page = <?php echo $page;?>;
+var maxPrePageNum = 32;
 
 var limitStr = '';
 
@@ -38,7 +41,8 @@ $(function(){
         var str = '';
         for(var i=0, iMax=data['list'].length; i < iMax; i++)
             str += "<li><a tid='"+data['list'][i]['id']+"' href='/goods/index/"+ptype+"/"+data['list'][i]['id']+"'>"+data['list'][i]['name']+"</a></li>";
-        str = "<div class='wp'><h3>"+data['info']['name']+"</h3><ul>"+str+"</ul><p class='back'><a href='javascript:history.go(-1);'>返回</a> | <a href='/'>首页</a></p></div>";
+        str = "<div class='wp'><h3>"+data['info']['name']+"</h3><ul>"+str+"</ul>"+
+            "<p class='back'><input type='text' name='keywords'><input type='button' value='搜索' onclick='searchGoods();'><a href='javascript:history.go(-1);'>返回</a> | <a href='/'>首页</a></p></div>";
 
         var attrStr = '';
         $.each(data['attrflag'], function(i,n){
@@ -89,39 +93,94 @@ $(function(){
 function getGoodsLists(gtype, limitStr)
 {
    var goods_total = parseInt($('input[name="goods_total"]').val());
+   if(goods_total >= maxPrePageNum) return false;
    if (goods_total == last_load_offset) return false;
    last_load_offset = goods_total;
-   $.post('/goods/lists/'+gtype+'/'+goods_total, {'limit':"{"+limitStr+"}"}, function(data){
+   $.post('/goods/lists/'+gtype+'/'+goods_total, {'limit':"{"+limitStr+"}", 'page':page, 'pagetotal':maxPrePageNum}, function(data){
        if (data['list'].length == 0) load_completed = true;
-       var listArr = new Array();
-       listArr[0] = new Array();
-       listArr[1] = new Array();
-       listArr[2] = new Array();
-       listArr[3] = new Array();
-       for(var i=0,j=0, iMax=data['list'].length;i < iMax;i++,j++) {
-           if (3 < j) j = 0;
-           listArr[j].push(data['list'][i]);
-       }
-       var str = '';
-       for (var i=0, iMax=listArr.length; i < iMax; i++) {
-           var tmpStr = '';
-           for (k in listArr[i]) {
-               tmpStr += "<li><a href='/goods/info/"+listArr[i][k]['id']+"' target='_blank'><img src='"+listArr[i][k]['thumb_img']+"' width='202px'  /></a><p>"+
-                         listArr[i][k]['author']+'-'+listArr[i][k]['name']+"</p><p class='numbox'>喜欢（0） ｜ 评论（2）</p></li>";
-           }
-           var ulClass = 'col-'+(i+1);
-           $('.'+ulClass).append(tmpStr);
-       }
-
+       loadGoodsHtml(data);
        goods_total += data['list'].length;
-       $('input[name="goods_total"]').val(goods_total); 
+       $('input[name="goods_total"]').val(goods_total);
+
    },'json');
+}
+function loadGoodsHtml(data)
+{
+    var listArr = new Array();
+    listArr[0] = new Array();
+    listArr[1] = new Array();
+    listArr[2] = new Array();
+    listArr[3] = new Array();
+    for(var i=0,j=0, iMax=data['list'].length;i < iMax;i++,j++) {
+        if (3 < j) j = 0;
+        listArr[j].push(data['list'][i]);
+    }
+    var str = '';
+    for (var i=0, iMax=listArr.length; i < iMax; i++) {
+        var tmpStr = '';
+        for (k in listArr[i]) {
+            tmpStr += "<li><a href='/goods/info/"+listArr[i][k]['id']+"' target='_blank'><img src='"+listArr[i][k]['thumb_img']+"' width='202px'  /></a><p>"+
+                listArr[i][k]['author']+'-'+listArr[i][k]['name']+"</p><p class='numbox'>喜欢（0） ｜ 评论（2）</p></li>";
+        }
+        var ulClass = 'col-'+(i+1);
+        $('.'+ulClass).append(tmpStr);
+    }
 }
 $(window).bind('scroll', function(){
     if ($(document).scrollTop()+$(window).height() > $(document).height()-50) {
         if (!load_completed) getGoodsLists(gtype, limitStr);
     }
 });
+function searchGoods()
+{
+    var keywords = $('input[name="keywords"]').val();
+    if('' == keywords){
+        alert('请输入关键字');
+        return false;
+    }
+    $.post('/goods/search', {'keywords':keywords, 'type':gtype}, function(data){
+        $('.col-1').html('');
+        $('.col-2').html('');
+        $('.col-3').html('');
+        $('.col-4').html('');
+        loadGoodsHtml(data);
+    }, 'json');
+
+}
+$.post('/goods/goods_total', {'type':gtype}, function(data){
+    var pageNum = Math.ceil(parseInt(data['total']) / maxPrePageNum);
+    createPagination(pageNum);
+}, 'json');
+function createPagination(pageNum)
+{
+    var maxPageNum = 5;
+    var str = '';
+    if(pageNum < maxPageNum){
+        for(var i = 1 ; i <= pageNum; i++){
+            if(i == page) str += "<a href='javascript:void(0);' class='hover'>"+i+"</a>";
+            else str += "<a href='/goods/index/"+ptype+"/"+gtype+"/"+i+"'>"+i+"</a>";
+        }
+    } else {
+
+        if(page <= (pageNum - maxPageNum)){
+            for(var i = page ; i < page+maxPageNum; i++){
+                if(i == page) str += "<a href='javascript:void(0);' class='hover'>"+i+"</a>";
+                else str += "<a href='/goods/index/"+ptype+"/"+gtype+"/"+i+"'>"+i+"</a>";
+            }
+        } else {
+            for(var i = (pageNum - maxPageNum)+1; i <= pageNum; i++){
+                if(i == page) str += "<a href='javascript:void(0);' class='hover'>"+i+"</a>";
+                else str += "<a href='/goods/index/"+ptype+"/"+gtype+"/"+i+"'>"+i+"</a>";
+            }
+        }
+
+    }
+
+    str = "<a href='/goods/index/"+ptype+"/"+gtype+"/1'>首页</a>"+str;
+    str += "<a href='/goods/index/"+ptype+"/"+gtype+"/"+pageNum+"'>尾页</a>";
+
+    $('.pagination').html(str);
+}
 </script>
 </body>
 </html>

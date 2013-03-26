@@ -55,13 +55,14 @@ class Goods_model extends CI_Model
 
         return $info;
     }
-    public function GetGoodsLists($gtype, $where=array(), $offset, $row_count)
+    public function GetGoodsLists($gtype, $where=array(), $offset, $row_count, $like = null, $or_like = null)
     {
         $goodsLists = array();
         $where['goods_type'] = $gtype;
         $this->db->order_by('time', 'desc');
+        if($like) $this->db->like($like);
+        if($or_like) $this->db->or_like($or_like);
         $query = $this->db->get_where($this->goodsInfoTable,$where, $row_count, $offset);
-        //$query = $this->db->query("SELECT * FROM $this->goodsInfoTable where goods_type=$gtype order by time desc,id desc limit $offset, $row_count");
 
         if ($query->num_rows() > 0)
             foreach ($query->result_array() as $row) {
@@ -90,7 +91,7 @@ class Goods_model extends CI_Model
     {
         $goodsLists = array();
         $where = "id > $id";
-        $this->db->order_by('time', 'desc');
+        $this->db->order_by('id', 'asc');
         $query = $this->db->get_where($this->goodsInfoTable,$where, $row_count, $offset);
 
         if ($query->num_rows() > 0){
@@ -274,5 +275,9 @@ class Goods_model extends CI_Model
     			$flags[$v['flag']] = $v['val'];
     		}
     	return $flags;
+    }
+    public function delAlbumImg($id)
+    {
+        return $this->db->delete($this->goodsImgTable, array('id'=>$id));
     }
 }

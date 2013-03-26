@@ -130,8 +130,9 @@ function addimg(path)
 }
 function addblumimg(path, id)
 {
-    var str = "<div><img src='"+path+"' style=''>&nbsp;&nbsp;<a href='#' onclick='delAlbumImg("+id+");'>删除</a></div>";
-    $("#goods－album").append(str);
+    window.location.href = "/admingoods/add/"+$("input[name='gid']").val();
+    //var str = "<div><img src='"+path+"' style=''>&nbsp;&nbsp;<a href='#' onclick='delAlbumImg("+id+");'>删除</a></div>";
+    //$("#goods－album").append(str);
 }
 function showimg(path)
 {
@@ -179,6 +180,18 @@ function delimg(id)
     if (is_sure) {
         $.post('/admingoods/delimg/'+id, '', function(data){
             if (data.err==0) {jsex.dialog.showmsg(data.msg);}
+        },'json')
+    }
+}
+function delAlbumImg(id)
+{
+    var is_sure = confirm("确认删除吗？");
+    if (is_sure) {
+        $.post('/admingoods/delAlbumImg/', {"id":id}, function(data){
+            if (data.err==false) {
+                alert(data.msg);
+                window.location.href = "/admingoods/add/"+$("input[name='gid']").val();
+            }
         },'json')
     }
 }

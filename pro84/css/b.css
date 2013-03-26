@@ -59,18 +59,23 @@ body.index{ background:#FFF; background:#fff url(../images/index-bg.jpg) repeat-
 .pro-detail-r p{ margin-bottom:10px;}
 .pro-detail-r div.txt{ font-size:12px; line-height:20px;}
 
-.pro-name{ height:30px; line-height:30px; border-bottom:1px solid #CCC; margin-bottom:13px; font-size:16px; padding:0 0 0 10px;}
+.pro-detail-r ul li img{ width:50px; height:50px;}
+.pro-detail-r ul li{ width:50px; height:50px; float:left; margin:0 10px 10px 0; border:1px solid #CCC; padding:1px;}
 
+.pro-name{ height:30px; line-height:30px; border-bottom:1px solid #CCC; margin-bottom:13px; font-size:16px; padding:0 0 0 10px;}
+.pro-name p{ float:right; position:relative; top:-3px;}
+.pro-name p a{ height:20px; line-height:20px; border:1px solid #999; color:#999; text-decoration:none; font-size:12px; display:inline-block; padding:0 5px; font-family:simsun}
+.pro-name p a:hover{ border:1px solid #666; color:#666}
 .main{ background:url(../images/index.jpg); height:1076px; position:relative}
 
 .menu-1{ width:140px; height:140px;position:absolute; left:82px; top:155px;}
-.menu-1 a{ width:40px; height:40px; position:absolute; left:48px ; top:52px;}
+.menu-1 a{ width:80px; height:80px; position:absolute; left:28px ; top:32px;}
 
 .menu-2{ width:140px; height:140px;position:absolute; left:428px; top:75px;}
-.menu-2 a{ width:40px; height:40px; position:absolute; left:48px ; top:52px;}
+.menu-2 a{ width:80px; height:80px; position:absolute; left:28px ; top:32px;}
 
 .menu-3{ width:140px; height:140px;position:absolute; left:588px; top:103px;}
-.menu-3 a{ width:40px; height:40px; position:absolute; left:48px ; top:52px;}
+.menu-3 a{ width:80px; height:80px; position:absolute; left:28px ; top:32px;}
 
 .menu-4{
 	width:140px;
@@ -79,18 +84,19 @@ body.index{ background:#FFF; background:#fff url(../images/index-bg.jpg) repeat-
 	left:15px;
 	top:432px;
 }
-.menu-4 a{ width:40px; height:40px; position:absolute; left:48px ; top:52px;}
+.menu-4 a{ width:80px; height:80px; position:absolute; left:28px ; top:32px;}
 
 .indexfooter{ position:absolute; width:1000px; text-align:center; top:960px; font-size:12px; color:#999; line-height:20px;}
 
-.back{ float:right; color:#CCC; margin:50px 20px 0 0 } 
+.back{ float:right; color:#CCC; margin:35px 20px 5px 0 } 
 .back a{ color:#666; font-size:12px; text-decoration:none}
+.back input{ margin-right:10px;}
 
 .newslist{border:1px solid #dad6d7; margin:13px auto 0 auto;min-height:500px;_height:500px; padding:30px 0px;}
 .newslist li{ font-size:14px; line-height:18px; margin:0 0 15px 25px; width:220px; float:left}
 .newslist li img{ width:220px; margin-bottom:5px;}
 .newslist li span{ font-size:12px; color:#999}
-.newslist li a{ color:#333; text-decoration:none;font-size:12px;}
+.newslist li a{ color:#333; text-decoration:none;font-size:12px; display:block}
 .newslist li a:hover{ color:#ff9900}
 
 .huodonglist {border:1px solid #dad6d7; margin:13px auto 0 auto;min-height:500px;_height:500px; padding:30px 0px;}
@@ -126,3 +132,8 @@ body.index{ background:#FFF; background:#fff url(../images/index-bg.jpg) repeat-
 .attrlists ul  li { float:left; font-size:12px; margin-right:10px;}
 .attrlists ul  li  a{ color:#666;padding:0px 25px 0px 5px; height:19px; line-height:19px; border:1px solid #FFF; display:inline-block; cursor:pointer}
 .attrlists ul  li  a.current{  border:1px #ff6600 solid;background:url(../images/select-current.jpg) right center no-repeat;}
+
+
+.pagination{ margin:auto; width:1000px; text-align:right; border-top:1px solid #999; padding:10px 15px 10px 0}
+.pagination a{ border:0px solid #fff; color:#999; height:22px; line-height:22px; padding:0 8px; display:inline-block; margin-left:3px; text-decoration:none; font-size:12px;}
+.pagination a.hover,.pagination a:hover{ border:1px solid #F90; color:#f90; height:20px; line-height:20px;padding:0 7px;}

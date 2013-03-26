@@ -15,6 +15,7 @@ class Goods extends CI_Controller
     {
         $data['ptype'] = $this->uri->segment(3,0);
         $data['gtype'] = $this->uri->segment(4,0);
+        $data['page'] = (int)$this->uri->segment(5,1);
         $this->load->view('zh/goods.php', $data);
     }
     public function Info()
@@ -52,10 +53,29 @@ class Goods extends CI_Controller
     {
         $gtype = intval($this->uri->segment(3,0));
         $offset = intval($this->uri->segment(4,0));
-        $row_nums = 12;
+        $pagetotal = (int)$this->input->post('pagetotal');
+        $page = (int)$this->input->post('page', 1);
+
+        $offset += ($page-1)*$pagetotal;
+
+        $row_nums = 16;
+
         $limitArr = json_decode($this->input->post('limit'), true);
         echo json_encode(array('list'=>$this->Goods_model->GetGoodsLists($gtype, $limitArr, $offset, $row_nums)));
         exit;
+    }
+    public function search()
+    {
+        $keywords = $this->input->post('keywords', true);
+        $type = (int) $this->input->post('type', true);
+
+        die(json_encode(array('list'=>$this->Goods_model->GetGoodsLists($type, array(), null, null,array('name'=>$keywords), array('author'=>$keywords)))));
+    }
+    public function goods_total()
+    {
+        $type = (int)$this->input->post('type', true);
+
+        die(json_encode(array('total'=>$this->Goods_model->GetGoodsTotal($type))));
     }
     
 }

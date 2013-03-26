@@ -13,9 +13,28 @@
 </div>
 <div class="wp">
 	<div class="detail clearfix">
-    <h2 class="pro-name"><?php echo $info['name'];?></h2>
+    <h2 class="pro-name">
+
+        <p>
+        <?php if($info['prev']) echo "<a href='/goods/info/{$info['prev']}'>&lt;&lt;上一个</a>";?>
+        <?php if($info['next']) echo "&nbsp;&nbsp;<a href='/goods/info/{$info['next']}'>下一个&gt;&gt;</a>";?>
+        </p>
+        <?php echo $info['name'];?>
+    </h2>
     	<div class="detail-img"><img src="<?php echo $info['img'];?>" class="detailimg" style="max-width:738px;display:none;" /></div>
         <div class="pro-detail-r">
+            <?php if($info['album_lists']):?>
+            <ul class="more-imgbox clearfix">
+                <?php
+                    echo "<li><img src='{$info['img']}' /></li>";
+                    foreach($info['album_lists'] as $k=>$v){
+
+                            echo "<li><img src='{$v['path']}' ></li>";
+                    }
+
+                ?>
+            </ul>
+            <?php endif;?>
         	<p><strong>作者：</strong><?php echo $info['author'];?></p>
         	<?php
         		foreach ($attrflag as $k=>$v){
@@ -101,6 +120,12 @@ function qqmenu(){
     //$('#error').text(scrollTop);
 }
 qqmenu();
+
+$(".more-imgbox li img").live('click', function(){
+    var img_url = $(this).attr('src');
+    $(".detail-img img").attr('src', img_url);
+});
+
 </script>
 </body>
 </html>
