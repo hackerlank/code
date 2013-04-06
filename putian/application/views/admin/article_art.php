@@ -43,7 +43,7 @@
         </td>
     </tr>
     <tr>
-    <th>首页图片：</th>
+    <th>首页图片(304*222)：</th>
     <td>
     	<input type="hidden" name="newsimg" value="<?php echo $info['imgurl'];?>" />
     	<div <?php if(empty($info['imgurl'])){echo "style='display:none;'";} ?> id="newsimgdiv">

@@ -46,10 +46,17 @@ class Index extends CI_Controller
         }
         $data['prolist'] = $res['list'];
         //成功案例
-        $res = $this->Pages->GetInfo('id=4');
-        $data['example'] = $res[0];
+        $res = $this->Articles->GetLists('WHERE status=0 and type=3',0,7);
+        foreach ($res['list'] as $k=>$v) {
+            $res['list'][$k]['subtitle'] = mb_substr($v['title'],0,18);
+        }
+        $data['example'] = $res['list'];
         //公司荣誉图片
-        $data['pimg'] = $this->Pages->GetInfo('id in (6,7)');
+        $res = $this->Articles->GetLists('WHERE status=0 and type=4',0,7);
+        foreach ($res['list'] as $k=>$v) {
+            $res['list'][$k]['subtitle'] = mb_substr($v['title'],0,18);
+        }
+        $data['pimg'] = $res['list'];
         $this->load->view('zh/index.php',$data);
     }
 }

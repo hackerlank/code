@@ -246,3 +246,13 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2012-09-03 11:30:18
+
+CREATE TABLE IF NOT EXISTS `guestbook` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `tel` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `addtime` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;

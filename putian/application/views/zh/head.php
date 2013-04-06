@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>普天</title>
+<title>普天制绿</title>
 <link rel="stylesheet" type="text/css" href="/css/main.css"/>
 <script type="text/javascript" src="/js/jquery-1.7.1.min.js"></script>
 </head>
@@ -18,7 +18,7 @@
     	<dl id="nav_1" style="display:none;">
         	<dd><a href="/page/aboutus">公司简介</a></dd>
             <dd><a href="/page/honour">资质荣誉</a></dd>
-            <dd><a href="/page/slogen">企业文化</a></dd>
+            <dd><a href="/media/slogen">企业文化</a></dd>
         </dl>
     </li>
     <li id="nav2"><a href="/media/lists">新闻资讯</a><span>|</span>
@@ -59,7 +59,8 @@
     	?>
         </dl>
     </li>
-    <li><a href="/page/example">成功案例</a><span>|</span></li>
+    <li><a href="/media/example">成功案例</a><span>|</span></li>
+     <li><a href="/media/hr">人力资源</a><span>|</span></li>
     <li><a href="/page/link">联系我们</a><span></span></li>
     </ul>
 </div>

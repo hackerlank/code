@@ -11,6 +11,7 @@ class Adminpage extends CI_Controller
         parent::__construct();
         $this->load->library('session');
         $this->load->model("Pages");
+        $this->load->model("GuestBook");
     }
     
     public function save()
@@ -108,5 +109,12 @@ class Adminpage extends CI_Controller
         $imgurl = trim($this->input->post('imgurl'));
         
         $this->Pages->UpdateInfo(array('imgurl'=>$imgurl),$id);         
+    }
+    public function guestbook()
+    {
+        $data['lists'] = $this->GuestBook->getLists();
+
+        $data['view'] = 'guestbook';
+        $this->load->view('/admin/index.php', $data);
     }
 }

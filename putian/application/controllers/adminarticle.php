@@ -6,7 +6,11 @@
  */
 class adminarticle extends CI_Controller
 {
-    //type 1:新闻   2：解决方案
+    /*type  1:新闻
+            2：解决方案
+            3:公司荣誉
+            4：成功案例
+    */
     public function __construct()
     {
         parent::__construct();

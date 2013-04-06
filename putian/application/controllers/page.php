@@ -59,15 +59,7 @@ class Page extends CI_Controller
         $this->load->model("Pages");
         $res = $this->Pages->GetInfo(' id=3');
         $data['info'] = $res[0];
-        $this->load->view('zh/articleinfo.php', $data);
-    }
-    //成功案例
-    public function example()
-    {
-        $this->load->model("Pages");
-        $res = $this->Pages->GetInfo(' id=4');
-        $data['info'] = $res[0];
-        $this->load->view('zh/articleinfo.php', $data);
+        $this->load->view('zh/link.php', $data);
     }
     //企业文化
     public function slogen()
@@ -76,6 +68,32 @@ class Page extends CI_Controller
         $res = $this->Pages->GetInfo(' id=5');
         $data['info'] = $res[0];
         $this->load->view('zh/articleinfo.php', $data);
+    }
+    public function saveguestbook()
+    {
+        $name = $this->input->post('name', true);
+        $tel = $this->input->post('tel', true);
+        $email = $this->input->post('email', true);
+        $content = $this->input->post('content', true);
+
+        if(empty($name) || empty($tel) || empty($content)){
+            die(json_encode(array('err'=>true, 'msg'=>'请填写完整信息')));
+        }
+
+        $this->load->model('GuestBook');
+
+        $data = array('name'=>$name,
+        'tel'=>$tel,
+        'email'=>$email,
+        'content'=>$content,
+        'addtime'=>time());
+
+        if($this->GuestBook->Insert($data)){
+            die(json_encode(array('err'=>false, 'msg'=>'留言成功')));
+        } else {
+            die(json_encode(array('err'=>true, 'msg'=>'留言失败')));
+        }
+
     }
     
 }

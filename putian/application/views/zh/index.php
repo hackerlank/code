@@ -78,9 +78,17 @@ flash.write('dplayer2');
             </div>
         </div>
         <div class="mainbox index-news" style=" width:347px;">
-        	<h3><a href="/page/example" class="more">更多 &gt;&gt;</a><span>成功案例</span></h3>
+        	<h3><a href="/media/example" class="more">更多 &gt;&gt;</a><span>成功案例</span></h3>
             <div class="mainbox-bd">
-        		<p style="padding:3px 15px; color:#666"><?php echo $example['descs']?></p>
+                <ul>
+                    <?php
+                    $str ='';
+                    foreach ($example as $v) {
+                        $str .= "<li><span>[{$v['date']}]</span><a href='/media/info/{$v['id']}' title='{$v['title']}'>{$v['subtitle']}</a></li>";
+                    }
+                    echo $str;
+                    ?>
+                </ul>
             </div>
         </div>
         
@@ -96,8 +104,15 @@ flash.write('dplayer2');
         <div class="mainbox">
             <h3><span class="f14">公司荣誉</span></h3>
             <div class="mainbox-bd">
-                <img style="width:128px;height:200px;" src="<?php echo $pimg[0]['imgurl'];?>" />
-                <img style="width:128px;height:200px;" src="<?php echo $pimg[1]['imgurl'];?>" />
+                <ul>
+                    <?php
+                    $str ='';
+                    foreach ($pimg as $v) {
+                        $str .= "<li><span>[{$v['date']}]</span><a href='/media/info/{$v['id']}' title='{$v['title']}'>{$v['subtitle']}</a></li>";
+                    }
+                    echo $str;
+                    ?>
+                </ul>
             </div>
         </div>
     </div>

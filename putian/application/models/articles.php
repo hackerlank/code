@@ -101,13 +101,12 @@ class Articles extends CI_Model
         }
         else
             $limit = "";
-        $query = $this->db->query("SELECT * from {$this->artTable} ".$where.$limit);
+        $query = $this->db->query("SELECT * from {$this->artTable} ".$where." order by id desc".$limit);
         $list = array();
         foreach ($query->result_array() as $row) {
             $row['typename'] = $typelist[$row['atype']];
             $list[] = $row;
         } 
-        $query = $this->db->query("SELECT count(*) as total from {$this->artTable}");
         return array('total'=>$total,'list'=>$list,'page'=>$page);
     }
     public function GetInfo($where)
